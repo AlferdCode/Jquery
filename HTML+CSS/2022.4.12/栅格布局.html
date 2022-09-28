@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui-v2.6.8/layui/css/layui.css">
+    <script src="./layui-v2.6.8/layui/layui.js"></script>
+    <style>
+        ul li {
+            height: 40px;
+            background-color: lightblue;
+        }
+
+        ul li:nth-child(even) {
+            background-color: lightcoral;
+        }
+
+        ul:nth-child(2) {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box div {
+            height: 40px;
+            background-color: lightcyan;
+        }
+
+        .box div:nth-child(even) {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    layui-row 定义布局中的一行
+    layui-col-md*  定义一列中的某一块的占多大空间（* number 1-12）,把行块的宽度分为12份,*是多少就占多少份。
+     -->
+    <ul class="layui-row layui-main">
+        <li class="layui-col-md5">左</li>
+        <li class="layui-col-md7">右</li>
+    </ul>
+    <!-- 需求：row宽度为1200px，子元素两个块，左侧为500px，右侧为剩余空间。 -->
+    <ul class="layui-row">
+        <li class="layui-col-md5">左</li>
+        <li class="layui-col-md7">右</li>
+    </ul>
+
+    <!-- 响应式案例 -->
+    <h1>移动设备、平板、桌面端的不同表现：<br>
+        xs（超小屏幕，如手机）、sm（小屏幕，如平板）、md（桌面中等屏幕）、lg（桌面大型屏幕）。<br>
+        超小屏幕xs(手机小于768px)，小屏幕sm(平板≥768px),中等屏幕md(桌面≥992px),大型屏幕lg(桌面≥1200px) <br>
+    </h1>
+    <!-- 需求:pc端三个块一行，平板两个块一行，移动端一个块一行
+    响应式容器：
+    layui-container: 将栅格放入一个带有 class="layui-container" 的特定的容器中，以便在小屏幕以上的设备中固定宽度，“控制列的宽度”。
+    layui-fluid:将栅格或其它元素放入一个带有 class="layui-fluid" 的容器中，那么宽度将不会固定，而是 100% 适应。
+    -->
+    <div class="layui-fluid">
+        <div class="layui-row box">
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+            <div class="layui-col-xs12 layui-col-sm6 layui-col-md4">
+                移动：12/12 | 平板：6/12 | 桌面：4/12
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

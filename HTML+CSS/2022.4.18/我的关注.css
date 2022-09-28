@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+/* nav */
+nav{
+    height: 8vh;
+   
+}
+nav span{
+    font-size: 24px;
+    line-height: 8vh;
+    margin-left: 18vw;
+}
+nav a span{
+    font-size: 18px;
+    color: rgb(90, 87, 87);
+    margin-left: 9vw;
+}
+nav a span:hover{
+    color: black;
+    border-bottom: 2px solid rgb(213, 41, 41);
+}
+/* main */
+/* section */
+main .section_top span{
+    display:inline-block;
+    margin-top: 18vw;
+    margin-left: 4vw;
+}
+main section div{
+    border-top: 1px solid #9e9d9d;
+    height: 12vh;
+    margin-top: 4vw;
+}
+main section div img{
+    width: 18vw;
+    height: 18vw;
+    border-radius: 36px;
+    margin-left: 3vw;
+    margin-top: 4vw;
+}
+main section div span{
+   position: relative;
+   top: -10vw;
+}
+main .section_top div input{
+    width: 18vw;
+    height: 5vh;
+    border-radius: 12px;
+    color: red;
+    border: 1px solid red;
+    outline: none;
+    background-color: #ffffff;
+    float: right;
+    margin: -15vw 4vw;
+}
+/* section_down */
+main .section_down div input{
+    width: 20vw;
+    height: 5vh;
+    border-radius: 12px;
+    color:#4f4d4d;
+    border: 1px solid #4f4d4d;
+    outline: none;
+    background-color: #ffffff;
+    float: right;
+    margin: -16vw 1vw;;
+}

@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    height: 14vw;
+}
+/* 搜索框 */
+input{
+    width: 70%;
+    height: 4vh;
+    text-align: center;
+    border-radius: 16px;
+    border:none;
+    /* 清楚轮廓线 */
+    outline: none;
+    background-color: #cbcbcb8f;
+    margin: 3vw 5vh;
+}
+.icon-sousuo{
+    position: absolute;
+    top: 20px;
+    left: 80px;
+    color: #665e5e;
+}
+/* section_top */
+main .section_top{
+    height: 22vh;
+    padding: 2vw;
+}
+table{
+    border-spacing: 8px;
+}
+table td{
+    width: 220px;
+    height: 32px;
+}
+table td div{ 
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    color: #857a7a;
+    text-align: center;
+    line-height: 26px;
+    background-color:#cccccc;  
+    margin-left: 3vw;
+}
+/* section_down */
+main .section_down{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 3vw;
+}
+main .section_down div{
+    width: 45vw;
+    height: 24vh;
+    background-color: rgb(183, 246, 224);
+    border-radius: 14px;
+    margin-top: 2vw;
+}
+.section_down div span{
+    display:block;
+    width:45vw;
+    height: 6vh;
+    line-height: 6vh;  
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #857a7a;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  
+    
+}
+.section_down div p{
+    padding: 12px;
+    color: #756e6e;
+}

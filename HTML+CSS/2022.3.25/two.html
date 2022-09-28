@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 的 HTML属性</title>
+</head>
+<body>
+    <form action="#">
+        <!--   value   属性：input的值，在输入框内为 input 的初始值 。 -->
+        <input type="text" value="请输入内容"><br>
+        <!-- placeholder 属性： 定义输入框的提示语，文本占位符。对 button （按钮）无效 。 -->
+        <input type="text" placeholder="请输入内容"><br>
+        <!-- autofocus 属性 ：自动获取输入焦点 。 -->
+        <input type="text" autofocus><br>
+        <!-- autocomplete 属性：是否启用自动完成功能，默认值 on 开启， off关闭 。 -->
+        <input type="text" autocomplete="on"><br>
+        <!-- required 属性：输入的内容不能为空，当点击提交按钮时显示提示语。-->
+        <input type="text" required><br>
+        <!-- readonly 属性：定义 input 为只读状态 。 -->
+        <input type="text" readonly><br> 
+        <!-- disabled 属性：定义 input 为禁用状态 。 -->
+        <input type="text" disabled>
+        <!-- submit ：提交按钮 -->
+        <input type="submit">
+
+      <!-- hr : 分割线 。 -->
+        <hr>
+        
+        <!-- vaule 属性：value 属性的作用是由 input 的 type 值决定的 。
+             type 的值为：button “可点击的按钮”/ reset “重置按钮”/ submit “提交按钮”中其中一个时，value 是作为按钮上的文本显示 。
+             type 的值为： text “文本输入框”/ password “密码输入框” 中其中一个时，value 是作为 input 的初始值显示在输入框内，并且提交表单时 value 属性的值会发送给服务（既是初始值，又是提交给服务器的值 。）
+             type 的值为：checbox “多选框” / radio“单选框”中其中一个时，value 属性的值表示在复选框呈现勾选状态时提交给服务器的数据值，默认为 on 。
+             type 的值为：image 时，点击他提交表单后，会将用户的点击位置（相当图片的坐标）提交给服务器 。
+    
+        -->
+        <!-- name 属性：input 的名称。
+             name 属性用于对提交到服务器的表单数据进行标识，或者在客户端通过 JavaScript 引用表单数据时，只有设置 name 属性的表单元素才能在提交表单时传递它的值，因为服务端获取表单提交的数据是通过表单的 name 属性的值，没有 name 属性就无法得到表单元素提交给服务端的值 。
+        
+        -->
+
+
+    </form>
+</body>
+</html>

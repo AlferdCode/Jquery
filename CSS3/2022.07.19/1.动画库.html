@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画库</title>
+    <link rel="stylesheet" href="./lib/Animate/animate.min.css">
+    <style>
+        h2 {
+            font-size: 1cm;
+            color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="animated flash">flash 闪烁</h2>
+    <h2 class="animated rubberBand">rubberBand 横向拉伸</h2>
+    <h2 class="animated wobble">wobble 摇摆</h2>
+    <h2>bounceOutLeft 左出</h2>
+    <h2 id="yourElement">事件触发 滑出</h2>
+    <h2 id="yourElement2">事件触发 滑出</h2>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+
+    // 使用jQ添加动画库
+    $('h2:eq(3)').addClass('animated bounceOutLeft');
+
+    // one('事件'，执行函数) 只能触发一次动画
+    $('#yourElement').one('click', function () {
+        $(this).addClass('animated fadeInLeftBig');
+    });
+    // on('事件'，执行函数) 可以重复触发执行多次动画，配合计时器清除原来动画触发事件再添加
+    $('#yourElement2').on('click', function () {
+        $(this).addClass('animated fadeInLeftBig');
+        setTimeout(() => {
+            $(this).removeClass('animated fadeInLeftBig');
+        }, 1000);
+    });
+
+    // 练习
+    // 页面中有一张图，图上面有三行字
+    // 字体在进入页面中，每个0.5秒一次从左侧划入展示 
+</script>
+
+</html>

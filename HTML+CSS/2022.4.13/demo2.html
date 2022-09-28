@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧边栏结构</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main-content{
+            display: flex;
+            width: 1226px;
+            height: 600px;
+            background-color: aqua;
+            margin: 100px auto;
+            font-size: 2cm;
+            text-align: center;
+        }
+        .nav_lt{
+            flex-basis: 400px;
+            background-color: rgb(7, 241, 163);
+        }
+        .nav_cent{
+            flex-grow: 1;
+            background-color: antiquewhite;
+            margin: 0 10px;
+        }
+        .nav_rt{
+            flex-basis: 400px;
+            background-color: rgb(7, 241, 163);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="main-content">
+            <!-- 左 -->
+            <div class="nav_lt">左</div>
+            <!-- 中 -->
+            <div class="nav_cent">中</div>
+            <!-- 右 -->
+            <div class="nav_rt">右</div>
+        </div>
+    </main>
+</body>
+
+</html>

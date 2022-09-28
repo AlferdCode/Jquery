@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    width: 198px;
+    height: 30px;
+    margin: 38px 392px;
+}
+.box1{
+    width: 100%;
+    height: 600px;
+    background-color: rgb(221, 39, 38);
+    margin: -19px auto;
+    /* 添加背景图片 */
+    background-image: url(./tmImg/tmCenter.png);
+    /* 图片不重复铺垫 */
+    background-repeat: no-repeat;
+    background-size: 1124px 590px;
+    background-position: 386px 0px;
+    border: 1px solid transparent;
+}
+.box2{
+    width: 371px;
+    height: 391px;
+    background-color: #fff;
+    margin: 96px 1000px;
+}
+.box2 .top{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 34px 17px;
+}
+.box2 .top1{
+    border-bottom: 2px solid ;
+}
+form #text1,#text2{
+    width: 303px;
+    height: 43px;
+    margin: 12px 17px;
+    border: none;
+    outline: rgb(221, 39, 38);
+}
+form #text1:hover,#text2:hover{
+    border: 1px solid rgb(221, 39, 38);
+}
+form .btn{
+    width:300px;
+    height: 46px;
+    background-color:rgb(221, 39, 38) ;
+    color: #fff;
+    margin: 8px 20px;
+    border: none;
+}
+.bottom{
+    width: 256px;
+    height: 26px;
+    margin: 4px 127px;
+}
+.bottom1{
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 20px;
+    /* 词间距 */
+    word-spacing: 5px;
+
+}

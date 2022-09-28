@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锚点</title>
+    <style>
+        /* a 不能设置宽高，因为是行内元素，得转换为行内块元素，用 display*/
+       nav a{
+           display: inline-block;
+           width: 100px;
+           height: 40px;
+           background-color: olive;
+           text-align: center;
+           line-height: 40px;
+           color: #000000;
+            
+       }
+       section{
+           height: 500px;
+           background-color: paleturquoise;
+           font-size: 4cm;
+           text-align: center;
+           line-height: 500px;
+       }
+       section:nth-child(even){
+           background-color: pink;
+       }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        锚点：是网页制作中超链接的一种，又叫“命名锚记”，就像徐速定位器一样可以迅速找到与之绑定的元素。
+        使用：使用锚记给文档中的元素进行标记，此标记与 a 进行绑定，点击 a 迅速找到与之绑定的元素。
+            "元素的ID值 与 a 的 href 值 “ 前面加 # "相同进行绑定，点击 a 迅速找到对应的ID元素”
+     -->
+     <nav>
+         <a href="#box1">点击1</a>
+         <a href="#box2">点击2</a>
+         <a href="#box3">点击3</a>
+         <a href="#box4">点击4</a>
+     </nav>
+    <section id="box1">1</section>
+    <section id="box2">2</section>
+    <section id="box3">3</section>
+    <section id="box4">4</section>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emmet输入法</title>
+</head>
+<body>
+    <!-- emmet输入法：可以快速的生成批量的 html / css代码
+          用法：标签名 + tab / enter  
+    -->
+    <div></div>
+
+    <!-- 生成带class属性的元素 :
+        标签名.XXX : 生成带class并赋值的元素。
+            .XXX   : 默认标签为 div  -->
+    <div class="box"></div>
+    <!-- p.p1.p2.p3 -->
+    <p class="p1 p2 p3"></p>
+
+    <!-- 生成带ID属性的元素 :
+        标签名#XXX : 生成带ID并赋值的元素。
+            #XXX   : 默认标签为 div  -->
+    <div id="box"></div>
+
+    <!-- 语法：标签名[html属性=“属性值”] -->
+    <!-- a[href="#"] -->
+    <a href="#"></a>
+    
+    <!-- img[src][alt="image"] -->
+    <img src="" alt="image">
+
+    <!-- span{内容} ：生成带内容的元素 -->
+    <span>内容</span>
+
+   <!-- h1^h2 : 语法：标签1^标签2，生成多个同胞元素-->
+    <h1></h1>
+    <h2></h2>
+    
+    <!-- nav > ul > li * 5 {第 $ 行}
+        > 语法：标签1>标签2……，生成嵌套元素 。
+        * 语法：标签名*n，同时生成n个同胞关系元素 。
+        $ 语法：累积器，表示序号，从1开始。
+    -->
+    <nav>
+        <ul>
+            <li>第1行</li>
+            <li>第2行</li>
+            <li>第3行</li>
+            <li>第4行</li>
+            <li>第5行</li>
+        </ul>
+    </nav>
+
+    <!-- h$*6 -->
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <h4></h4>
+    <h5></h5>
+    <h6></h6>
+
+</body>
+</html>

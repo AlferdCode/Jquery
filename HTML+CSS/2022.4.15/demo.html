@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片库</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            width: 100%;
+            height: 40px;
+            background-color: aquamarine;
+            color: black;
+            font-size: 24px;
+            text-align: center;
+            line-height: 40px;
+            letter-spacing: 10px;
+        }
+        main{
+            margin: 5px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        main img{
+            margin: 5px;
+            width: calc((100% - 5px * 2 * 4) / 4);
+        }
+        /* 当设备视图小于等于1200px执行的样式表 */
+        @media screen and (max-width:1200px) {
+            main img{
+                width: calc((100% - 5px * 2 * 3) / 3);
+            }
+        }
+         /* 当设备视图小于等于900px执行的样式表 */
+         @media screen and (max-width:900px) {
+            main img{
+                width: calc((100% - 5px * 2 * 2) / 2);
+            }
+        }
+         /* 当设备视图小于等于500px执行的样式表 */
+         @media screen and (max-width:500px) {
+            main img{
+                width: calc(100% - 5px * 2 * 2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>图片库</nav>
+    <main>
+        <img src="./图片库/1.jpg" alt="image">
+        <img src="./图片库/2.jpg" alt="image">
+        <img src="./图片库/3.jpg" alt="image">
+        <img src="./图片库/4.jpg" alt="image">
+        <img src="./图片库/5.jpg" alt="image">
+        <img src="./图片库/6.jpg" alt="image">
+        <img src="./图片库/7.jpg" alt="image">
+        <img src="./图片库/8.jpg" alt="image">
+        <img src="./图片库/9.jpg" alt="image">
+        <img src="./图片库/10.jpg" alt="image">
+        <img src="./图片库/11.jpg" alt="image">
+        <img src="./图片库/12.jpg" alt="image">
+        <img src="./图片库/13.jpg" alt="image">
+        <img src="./图片库/14.jpg" alt="image">
+        <img src="./图片库/15.jpg" alt="image">
+        <img src="./图片库/16.jpg" alt="image">
+        <img src="./图片库/17.jpg" alt="image">
+        <img src="./图片库/18.jpg" alt="image">
+        <img src="./图片库/19.jpg" alt="image">
+        <img src="./图片库/20.jpg" alt="image">
+    </main>
+</body>
+</html>

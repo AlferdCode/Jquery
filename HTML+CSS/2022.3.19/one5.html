@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>间隙 or 基线对齐</title>
+    <style>
+        div{
+           width: 100px;
+            height: 100px;
+            background-color: olive;
+            /* display转换为行内块元素 */
+            display: inline-block;
+            /* 调整基线的位置
+            auto:浏览器默认。 top:顶部对齐。bottom:底部对齐。 middle:中线对齐。 */
+            vertical-align: middle;      
+        }
+        .box1{
+            height: 200px;
+            /* 间距基本都是-5px */
+             margin-left: -5px;
+        }
+        span{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <!-- 元素的间隙
+     流式布局中，当元素在水平方向排列时元素中间会产生间隙。
+    原因：html文件中敲打的空格或回车都会被浏览器解析为空格显示在页面中。
+     解决方案：
+            1.上个元素的结尾标签和下个元素的开始标签在一行书写（不建议）。
+            2.给后面元素添加marjin为负数调整间距（常用）。    
+      基线：
+            元素的水平方向排列，垂直方向以基线对齐为准。
+            默认空快或图片的基线在元素的底部，文本的基线在四线三格的第三线“文本中下部分”。
+        -->
+    <div class="box">内容1</div>
+    <div class="box1"></div>
+    <!-- 在文本后面添加个空格，取消间距 -->
+    <span>hello </span>
+    <span>hello</span>
+</body>
+</html>

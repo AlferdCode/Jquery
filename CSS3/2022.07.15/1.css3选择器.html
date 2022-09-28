@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3新增选择器</title>
+    <style>
+        /* p#div2{
+            color: red;
+        }
+        p.div3{
+            color: royalblue;
+        } */
+
+        /* 属性名为 ？的元素 */
+        /* [data-dsh]{
+            color: red;
+        } */
+
+        /* [] 内属性及值匹配的元素 */
+        /* [data-dsh = "hi"]{
+            color: blue;
+        } */
+
+        /* p元素，指定属性中，包含有匹配的值 */
+        /* p[data-dsh ~= "hi"]{
+            color: blue;
+        } */
+
+        /* ^匹配开头， $匹配结束, *匹配所有 */
+        /* [data-dsh ^= "hi"]{
+            color: red;
+        }
+        [data-dsh $= "hi"]{
+            color: yellow;
+        }
+        [data-dsh *= "hi"]{
+            color: orangered;
+        } */
+
+        /* |= 属性中唯一的单词，或以-隔开 
+        两个条件：以val开头“val唯一的单词”。2.中间以-分割字符的列表。*/
+        [data-dsh|="hi"]{
+            color: red;
+        }
+
+        /* 含有lang属性的元素，且值为参数 */
+        :lang(abc){
+            background-color: rosybrown;
+        }
+        /* 对根元素设置 */
+        :root{
+            border: 3px solid blue;
+        }
+        /* 对空元素设置 */
+        p:empty{
+            padding: 20px;
+            background-color: red;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="mydiv">点击</div>
+    <p id="div2" data-dsh="hi">p1</p>
+    <p class="div3" data-dsh="hi-p hello">p2</p>
+    <p></p>
+    <p><!-- hello--></p> 
+    <figcaption lang="abc">pic</figcaption>
+</body>
+<script>
+    mydiv.onclick = function(){
+        console.log("1111");
+    }
+
+</script>
+</html>

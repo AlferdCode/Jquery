@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <style>
+        section{
+            width: 100%;
+            height: 200px;
+            background-color: red;
+        }
+
+        /* 媒体查询的使用
+        语法： 
+            @media 媒体查询 
+            screen 媒体类型
+            and 操作符“运算符”  作用:媒体类型和条件的连接，多个条件都满足。
+            ( ) 条件语句 “类似于css属性，不加分号”
+                max- 小于等于   min- 大于等于
+            { } cssCode 样式表 "书写格式与外部css相同"
+        */
+        /* 宽度：600-800之间 */
+        @media screen and (max-width: 800px ) and (min-width: 600px){
+            section{
+                background-color: royalblue;
+            }
+        }
+
+        /* not：条件取反，排除设备。 */
+        @media not screen and (min-width:520px ) {
+            section{
+                height: 400px;
+            }
+        }
+
+        /* landscape 判断横屏:浏览器试图宽度比高度大 */
+        @media screen and (orientation:landscape) {
+            section::after{
+                content: "现在是横屏";
+                font-size: 2cm;
+            }
+        }
+        /* portrait 判断竖屏:浏览器试图高度比宽度大 */
+        @media screen and (orientation:portrait) {
+            section::after{
+                content: "现在是竖屏";
+                font-size: 2cm;
+            }
+        }
+    </style>
+    
+    <!-- 使用方式二： 把外部css文件作为每次查询的cssCode使用 -->
+    <link rel="stylesheet" media="screen and (max-width: 800px)" href="./css/media.css">
+</head>
+<body>
+    <section></section>
+</body>
+</html>

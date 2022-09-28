@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 取消序列前面的点 */
+            list-style: none;
+            /* 清除下划线 */
+            text-decoration: none;
+        }
+        ul{
+            background-color: teal;
+            padding-left: 10px;
+        }
+        ul li{
+            position: relative;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            padding: 0 10px;
+        }
+        ul li a{
+            color: #222;
+        }
+        ul li:hover{
+            background-color: olive;
+        }
+        ul li:hover a{
+            color: #fff;
+        }
+        ul li:nth-child(2) .box{
+            /* 隐藏元素 */
+            display: none;
+            width: 120px;
+            height: 90px;
+            background-color: #666666;
+            /* 子绝父相 */
+            position: absolute;
+            top:40px;
+            left: -30px;
+        }
+        .box p{
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .box p:hover{
+            background-color: antiquewhite;
+        }
+        /* 显示元素 */
+        ul li:hover .box{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ul>li*5>a[href="#"]{内容$}div.box -->
+    <ul>
+        <li>
+            <a href="#">内容1</a>
+            <div class="box"></div>
+        </li>
+        <li>
+            <a href="#">内容2</a>
+            <div class="box">
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+            </div>
+        </li>
+        <li>
+            <a href="#">内容3</a>
+            <div class="box"></div>
+        </li>
+        <li>
+            <a href="#">内容4</a>
+            <div class="box"></div>
+        </li>
+        <li>
+            <a href="#">内容5</a>
+            <div class="box"></div>
+        </li>
+    </ul>
+</body>
+</html>

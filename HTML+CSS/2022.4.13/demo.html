@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 清除a前面的点 */
+            list-style: none;
+
+        }
+        nav{
+            background-color:aquamarine;
+        }
+        .nav_content{
+            /* 开启弹性布局 */
+            display: flex;
+            /* 两个块两端对齐 */
+            justify-content: space-between;
+            width: 1226px;
+            height: 40px;
+            background-color: aqua;
+            margin: 0 auto;
+        }
+        .nav_content ul{
+            display: flex;
+        }
+        .nav_content ul li a{
+            font-size: 15px;
+            color: black;
+            margin-right:10px;
+            /* 去下划线 */
+            text-decoration: none;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+
+        <!-- 居中块 -->
+        <div class="nav_content">
+            <!-- 左侧块 -->
+            <ul>
+                <li><a href="">小米商城</a></li>
+                <li><a href="">下载app</a></li>
+                <li><a href="">协议规则</a></li>
+            </ul>
+            <!-- 右侧块 -->
+            <ul>
+                <li><a href="">登录</a></li>
+                <li><a href="">注册</a></li>
+                <li><a href="">购物车</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>

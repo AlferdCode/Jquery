@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格隔行换色</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border: 1px solid;
+            /* 表格居中 */
+            margin: 50px auto;
+            /* 间隔为0 */
+            border-spacing: 0;
+            /* 合并的线消失 */
+            border-collapse: collapse;
+            box-shadow: 0px 0px 20px rgb(12, 12, 12);
+          
+        }
+        td{
+            border: 1px solid #000000;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            font-size: 16px;
+            color: rgb(24, 238, 238);
+        }
+    </style>
+</head>
+<body>
+    <!--   6 行 5 例的表格
+         需求：使用emmet输入法，快速生成表格结构 
+        用法： table>tbody>tr*5>td*5{单元格$}  -->
+        <table>
+            <tbody>
+                <tr>
+                    <td>单元格1</td>
+                    <td>单元格2</td>
+                    <td>单元格3</td>
+                    <td>单元格4</td>
+                    <td>单元格5</td>
+                </tr>
+                <tr>
+                    <td>单元格1</td>
+                    <td>单元格2</td>
+                    <td>单元格3</td>
+                    <td>单元格4</td>
+                    <td>单元格5</td>
+                </tr>
+                <tr>
+                    <td>单元格1</td>
+                    <td>单元格2</td>
+                    <td>单元格3</td>
+                    <td>单元格4</td>
+                    <td>单元格5</td>
+                </tr>
+                <tr>
+                    <td>单元格1</td>
+                    <td>单元格2</td>
+                    <td>单元格3</td>
+                    <td>单元格4</td>
+                    <td>单元格5</td>
+                </tr>
+                <tr>
+                    <td>单元格1</td>
+                    <td>单元格2</td>
+                    <td>单元格3</td>
+                    <td>单元格4</td>
+                    <td>单元格5</td>
+                </tr>
+            </tbody>
+        </table>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的使用方式</title>
+    <!--  link:引入第三方文件
+          rel: 文件的类型,stylesheet代表css样式。
+          href:文件的路径。-->
+    <link rel="stylesheet" href="./css/scenod.css">
+
+<!--  style元素：设置内部样式表，一般在head标签内的最下面显示 -->
+          <style>
+              /* css格式：选择器{ css属性：属性值；} */
+              div{
+                  background-color: olive;
+                  height: 50px;
+              }          
+          </style>
+ </head>
+<body>
+     <!--
+     css: 层叠样式表（Cascading Style Sheets）时描述标记语言页面格式的标准。
+          对页面中的内容进行样式改变。
+     css的使用方式
+         内联样式（行内样式）：在元素的头标签中添加style属性，并设置css样式
+         内嵌样式（内部样式）：在head标签的最下方，添加style标签，并按照css格式设置css样式。
+         外链样式（外部样式）: 在外部创建一个css文件“并设置css样式”，在heml文件的head标签内使用link引用外部样式
+         优先级：（给同一个元素使用不同的方法设置相同的css样式，谁的优先级高执行谁）
+               内联样式——————>内嵌样式——————>外链样式
+         -->
+    <!-- style: 通用属性，设置元素的行内样式。  -->
+    <div style="height: 100px;"></div>
+</body>
+</html>

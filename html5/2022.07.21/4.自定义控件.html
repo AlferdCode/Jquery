@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 3.使用 -->
+    <zhiyou-login divcontent="我是div" btncontent="按钮"></zhiyou-login>
+
+    <!-- 定义模板，模板要放到template标签内 -->
+    <template id="zhiyou-login-template">
+        <!-- 组件样式 -->
+        <style>
+            .border{
+                border: 1px solid red;
+            }
+        </style>
+        <div class="border"></div>
+        <button></button>
+    </template>
+</body>
+<script>
+    // 1.定义一个标签类，继承自HTMLElement
+    class Login extends HTMLElement{
+        constructor(){
+            super();
+            var shaow = this.attachShadow({mode:'closed'});
+
+            // 创建大量的元素，代码量多，不建议使用
+            var div = document.createElement('div');
+            div.classList.add("border");
+            div.textContent = "我是div"
+
+            var btn = document.createElement('button');
+            btn.textContent = "按钮" 
+
+            // this指向当前类Login
+            this.append(div,btn);
+
+            // 使用模板
+            // 获取模板
+            var templateElem = document.getElementById("zhiyou-login-template");
+            // 复制模板的内容
+            var content = templateElem.content.cloneNode(true);
+            // 把复制的内容放到zhiyou-login元素内
+            content.querySelector('div').textContent = this.getAttribute('divcontent');
+            content.querySelector('button').textContent = this.getAttribute('btncontent');
+
+            shaow.append(content);
+
+            this.myButton = shaow.querySelector('button');
+            this.myButton.addEventListener('click',()=>{
+                alert("hello");
+            })
+        }
+    }
+
+    // 2.把类Login注册|定义成一个标签login
+    window.customElements.define('zhiyou-login',Login);
+
+
+</script>
+</html>

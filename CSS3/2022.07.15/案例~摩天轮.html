@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            background-image: url(./images/2.jpg);
+            background-size: 100% 100%;
+        }
+        .wheel-box{
+            width: 1100px;
+            height: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .wheel{
+            position: relative;
+            width: 770px;
+            height: 770px;
+            margin: 0 auto;
+            background: url(./images/fsw.png) no-repeat;
+            z-index: 10;
+            animation:rotate 6s linear infinite ;
+        }
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .wheel img{
+            position: absolute;
+            width: 130px;
+            height: 170px;
+            transform-origin: 50% 0;
+            animation: rotatechild 6s linear infinite;
+        }
+        @keyframes rotatechild {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(-360deg);
+            }
+        }
+        .wheel .wheelpic1{
+            top: 20px;
+            left: 320px;
+        }
+        .wheel .wheelpic2{
+            top: 130px;
+            left: 575px;
+        }
+        .wheel .wheelpic3{
+            top: 380px;
+            left: 670px;
+        }
+        .wheel .wheelpic4{
+            top: 633px;
+            left: 580px;
+        }
+        .wheel .wheelpic5{
+            top: 740px;
+            left: 330px;
+        }
+        .wheel .wheelpic6{
+            top: 640px;
+            left: 74px;
+        }
+        .wheel .wheelpic7{
+            top: 390px;
+            left: -35px;
+        }
+        .wheel .wheelpic8{
+            top: 130px;
+            left: 70px;
+        }
+        .jia{
+            position: absolute;
+            display: block;
+            top: 300px;
+            left: 350px;
+            width: 360px;
+            height: 530px;
+            background: url(./images/bracket.png);
+            z-index: 9;
+        }
+        .jiasmall{
+            position: absolute;
+            display: block;
+            top: 410px;
+            left: 410px;
+            width: 250px;
+            height: 505px;
+            background: url(./images/bracketsmall.png) no-repeat;
+            z-index: 7;
+        }
+        .wheel-box dl{
+            position: absolute;
+            top: 235px;
+            left: 260px;
+            width: 580px;
+            height: 300px;
+            z-index: 10;
+        }
+        .wheel-box dt{
+            float: left;
+            width: 580px;
+            height: 280px;
+            background: url(./images/big-title.png) no-repeat;
+        }
+        .wheel-box h1{
+            position: absolute;
+            top: 215px; left: 82px; 
+            width: 415px;
+            height: 139px;
+            background: url(./images/title.png) no-repeat;
+            z-index: 2;
+        }
+        .wheel-box dd span{
+            position: absolute;
+            top: 285px; left: 280px; 
+            width: 48px;
+            height: 64px;
+            background: url(./images/arrow.png) no-repeat;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="wheel-box">
+        <div class="wheel">
+            <img class="wheelpic1" src="images/boy.png" alt="images">
+            <img class="wheelpic2" src="images/dog.png" alt="images">
+            <img class="wheelpic3" src="images/girl.png" alt="images">
+            <img class="wheelpic4" src="images/girls.png" alt="images">
+            <img class="wheelpic5" src="images/hairboy.png" alt="images">
+            <img class="wheelpic6" src="images/mimi.png" alt="images">
+            <img class="wheelpic7" src="images/mudog.png" alt="images">
+            <img class="wheelpic8" src="images/shamegirl.png" alt="images">
+        </div>
+        <span class="jia"></span>
+        <span class="jiasmall"></span>
+        <dl>
+            <dt></dt>
+            <dd>
+                <h1></h1>
+                <span></span>
+            </dd>
+        </dl>
+    </div>
+</body>
+</html>

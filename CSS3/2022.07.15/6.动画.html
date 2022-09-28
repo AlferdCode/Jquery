@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+            left: 0;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: move 2s linear 0s infinite alternate forwards;
+        }
+
+        /* @keyframes 创建动画帧
+        动画名：元素根据动画名添加动画。 */
+        @keyframes move{
+            /* 动画帧的格式:
+            1. 要有开始和结束的动画帧。
+            2. 开始和结束的属性要保持一致。 */
+            0%{
+                left: 0;
+                transform: rotate(0deg);
+            }
+            100%{
+                left: calc(100% - 100px);
+                transform: rotate(1600deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">滚动吧！</div>
+</body>
+</html>

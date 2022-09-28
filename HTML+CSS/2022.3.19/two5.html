@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景图片</title>
+    <style>
+        html,body{
+            height: 200%;
+            margin: 0;
+      }
+        body{
+            /* 添加背景图片，url（图片的路径） */
+            background-image: url(./img/chi2.jpeg);
+            /* 是否要重复铺垫 
+             默认情况下：图片过小会以平铺的方式铺满整个背景区域，过大会显示不完整。
+               repeat：默认值，平铺 。
+               no-repeat:不平铺。
+               repeat-x:水平平铺。
+               repeat-y：垂直平铺。*/
+            background-repeat:no-repeat;
+            /* 背景图的大小设置
+            contain：保证图片显示完整性，背景区域会留白。
+            cover:背景区域被铺满，图片可能会被剪裁。
+            number+单位：值为2个分别作用于 X Y , 值为1个作用于X轴，Y 轴默认为auto. */
+            background-size: 400px;
+            /* 背景定位，调整把背景图在背景区域的位置
+               值：方向（上下左右中） / number+单位。
+               值为2个分别作用于 X Y , 值为1个作用于X轴，Y 轴默认为center。 */
+            background-position: 200px 200px;
+            /* 背景固定
+             scroll:默认值，图片跟随滚动条滚动。
+             fixed:固定在背景区域的某个位置，不会随着滚动条滚动。  */
+            background-attachment:fixed;
+           
+
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            background-color: olive;
+            margin: 200px auto;
+            border: 20px dashed orangered;
+            padding: 30px;
+            /* 这样不会被撑大 */
+            box-sizing: border-box; 
+            /* 背景裁剪:控制背景显示的范围
+            border-box：默认值，背景区域（border + padding + content) 
+            padding-box:背景区域（padding + content）
+            content-box:背景区域 content 
+            */
+            background-clip:content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

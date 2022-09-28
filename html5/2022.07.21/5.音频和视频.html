@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #v1{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 音频 controls控件。autoplay自动播放，无效为了性能-->
+    <audio id="myaudio" src="./img/c.mp3" controls autoplay loop muted volume="1"></audio>
+
+    <!-- 视频 controls控件。 -->
+    <video id="v1" src="./img/Dow-Dow.mp4" controls>
+        <!-- 添加多个媒体类型，适合各种浏览器兼容视音频。
+        注意：外层video|audio 不能添加src属性，否则source不能使用。 -->
+        <!-- <source src="./img/Dow-Dow.mp4" type="mp4">
+        <source src="./img/Dow-Dow.mp4" type="ogg"> 
+        <source src="./img/Dow-Dow.mp4" type="mp4">-->
+    </video>
+
+    <!-- 自定义控件 -->
+    <button onclick="startPlay()">开始播放</button>
+    <button onclick="stopPlay()">停止播放</button>
+    <button onclick="volumeAdd()">音量+</button>
+    <button onclick="volumeSub()">音量-</button>
+
+    <!-- 内嵌式网页 -->
+    <iframe src="./img/dududu.mp4" frameborder="1" width="400px" height="400px"></iframe>
+</body>
+<script>
+    var myaudio = document.querySelector("#myaudio");
+    // 开始播放函数
+    function startPlay(){
+        myaudio.muted = false;
+        myaudio.play();
+    }
+    // 停止播放
+    function stopPlay(){
+        myaudio.pause();
+    }
+    // 声音控制
+    function volumeAdd(){
+        if(myaudio.volume < 1){
+            myaudio.volume += 0.1
+        }
+    }
+    function volumeSub(){
+        if(myaudio.volume > 0.1 ){
+            myaudio.volume -= 0.1
+        }
+    }
+
+
+
+
+</script>
+</html>

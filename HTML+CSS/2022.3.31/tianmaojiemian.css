@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 导航条 */
+nav{
+    width: 100%;
+    height:auto;
+    background-color:#6666;
+}
+nav .nav_center{
+    width: 1190px;
+    height: 26px;
+    /* margin使水平居中 0：上下 auto:左右 */
+    margin: 0 auto;
+    background-color: aquamarine;
+    font-size: 12px;
+    color: #999;
+    /* line-heigh ：垂直居中 */
+    line-height: 26px;
+}
+nav .nav_center a,.box_top_rt a,.center_lt a{
+    /* 颜色继承 */
+    color: inherit;
+    /* 去下划线 */
+    text-decoration: none;
+    /* 给 a 左边设间距 */
+    margin-left: 12pX;
+}
+nav .nav_center a:hover,.box_top_rt a:hover{
+    color: red;
+    text-decoration: underline;
+}
+nav .nav_center .myTB{
+    margin-left: 40%;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;}
+/* 改变字体图标样式 */
+.iconfont.icon-gouwuchefill,.icon-shouji,.icon-24px{
+    color: red;
+    font-size: 16px;
+    margin: -5px;
+}
+/* 下拉菜单 */
+div ul{
+    width: 100px;
+    height: auto;
+    background-color: wheat;
+    /* 去列表的点 */
+    list-style: none;
+    position: absolute;
+    left: 1006px;
+    display: none;
+}
+div .myTB:hover + ul{
+    display: block;
+}
+/* 上层 */
+.box_top{
+    width:1190px;
+    height: 136px;
+    background-color: aqua;
+    margin: 0 auto;
+    /* 插入图片 */
+    background-image: url(./img/logo.png);
+    /* 图片不平铺 */
+    background-repeat: no-repeat;
+    background-size: 190px 88px;
+}
+/* 搜索框 按钮 */
+form #sousuo{
+    width: 366px;
+    height: 46px;
+    border: 3px solid red;
+    margin: 27px -5px;
+    margin-left: 651px;
+    outline: none;
+}
+form #btn{
+    width: 106px;
+    height: 52px;
+    background-color: red;
+    color: aliceblue;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    line-height: 51px;
+    vertical-align:middle;
+} 
+.box_top_lt{
+    width: 300px;
+    height: 40px;
+    background-color: rgb(255, 0, 0);
+    text-align: center;
+    line-height: 40px;
+    margin: -11px 0px;
+    color: #fff;
+}
+.box_top_rt{
+    width: 643px;
+    height: 40px;
+    background-color:palevioletred;
+    line-height: 40px; 
+    margin: -40px 322px;
+}
+/* 下层 */
+.box_down{
+  width: 100%;
+  height: 600px;
+  background-color: darkkhaki;
+}
+.box_down .center{
+    width: 1190px;
+    height: 600px;
+    background-color: cornflowerblue;
+    margin: auto;
+}
+.center .center_lt,.center_cent{
+    display: inline-block;
+}
+.center .center_lt{
+    width: 300px;
+    height: 510px;
+    background-color: bisque;
+}
+tr{
+   width: 42px;
+   height: 52px; 
+   background-color: coral;
+   font-size: 13px;
+   word-spacing:18px;
+}
+tr .onely{
+    width: 74px;
+    height:61px;
+    background-color:#343834;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+.center .center_cent{
+    width: 700px;
+    height: 510px;
+    background-color: aquamarine;
+}
+   
+.center_cent .center_cent_up{
+    width: 700px;
+    height: 305px;
+    background-image: url(./img/center_up.png);
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    background-size: 700px 305px;
+}
+.center_cent .center_cent_down{
+    width: 700px;
+    height: 198px;
+    background-image: url(./img/center_down.png);
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    background-size:700px 198px;
+}
+.center_cent .center_rt{
+    width: 180px;
+    height:509px;
+    background-color: chartreuse;
+    margin: -506px 705px;
+    background-image: url(./img/right.png);
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    background-size:180px 505px;
+}
+.center_cent .center_down{
+    width:1190px;
+    height: 82px;
+    background-color: crimson;
+    margin:509px -305px;
+    background-image:url(./img/down.png);
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    background-size:1190px 82px;
+}
+.iconfont{
+    font-size: 12px;
+    padding-right: 5px;
+}
+tbody a{
+    display: inline-block;
+}
+.center_lt table td:nth-child(even){
+    border-bottom: 1px solid #cccccc;
+}

@@ -1,0 +1,12 @@
+css 盒子模型
+1.什么是盒子模型？
+    盒子模型 （Box Model） 就是把HTML元素看作一个矩形的盒子，每个矩形由“margin外边矩，border边框，padding内边框，content内容”组成的，每个
+    格子除了有自己的大小和位置之外，还会影响其他元素盒子的大小和位置。
+2.盒子形态
+    盒子分为 标准盒子 or 怪异盒子
+    标准盒子：
+        标准盒子中 width指的是内容区域的宽，height指的是内容区域的高。
+        盒子大小设置：width/height = conten + padding + border + margin
+    怪异盒子：
+        怪异盒子中 width/height 指的是 “ 内容 + padding + border”。的总宽/高度。
+        盒子大小设置：width/height =（ conten + padding + border）+ margin

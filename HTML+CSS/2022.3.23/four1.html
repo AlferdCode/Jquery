@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border: 2px solid;
+            /* 注意：当table设置固定大小，其里面所有的子元素都会受到影响，在table内尽量占满空间  
+            width: 500px;
+            height: 500px; */
+            /* 设置单元格之间的间距，表格默认2px，值 （0 是没有，1 是默认值 2px ， number + 单位）*/
+            border-spacing: 0;
+            /* 边框是否合并，值（separate 默认值，不合并，collapse 合并） */
+            border-collapse: collapse;
+            
+        }
+        caption{
+            line-height: 100px;
+            letter-spacing: 5px;
+        }    
+        th,td{
+            width: 100px;
+            height: 40px;
+            border: 1px solid;
+            text-align: center;
+        }
+        .onlay{
+             /* 注意：某个单元格的大小会影响一行或一列单元格的大小 */
+            width: 200px;
+            height: 70px;
+        }
+        #newtable,#newtable td,#newtable td:nth-child(5){
+            border: none;
+        }
+        #newtable td{
+            width:121.2px;
+            border-right: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- table:用于创建表格。 -->
+    <table>
+        <!-- caption:创建表格的标题，显示在整个table的上面，并水平居中 -->
+       <caption><h2>个人简历</h2></caption>
+       <!-- thead:创建表格的头 -->
+       <thead>
+           <!-- tr:创建表格内的行. -->
+        <tr>
+            <!-- th:表头内的单元格。 -->
+            <th>时间</th>
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+        </tr>
+       </thead>
+       <!-- tbody:表格的主体部分。 -->
+        <tbody>
+            <!-- tr:创建表格内的行. -->
+            <tr>
+                <td>单元格1</td>
+                <td>单元格2</td>
+                <td>单元格3</td>
+                <td>单元格4</td>
+                <!-- rowspan:跨行合并“垂直方向合并”，值number“单元格的数量”，
+                    把多个单元格合并为一个单元格，把多余的单元格删除即可。 -->
+                <td rowspan="2">竖向合并</td>
+            </tr>
+            <tr>
+                <td>单元格1</td>
+                <td>单元格2</td>
+                <td class="onlay">单元格3</td>
+                <td>单元格4</td>
+                <!-- <td>单元格5</td> -->
+            </tr>
+            <tr>
+                <!-- colspan:跨行合并“水平方向合并”，值number“单元格的数量”，
+                    把多个单元格合并为一个单元格，把多余的单元格删除即可。 -->
+                <td colspan="5">横向合并</td>
+                <!-- <td>单元格2</td>
+                <td>单元格3</td>
+                <td>单元格4</td>
+                <td>单元格5</td> -->
+            </tr>
+            <tr>
+                <!-- 单元格之间的嵌套 -->
+                <td colspan="5">
+                    <table id="newtable">
+                        <tr>
+                            <td>内容1</td>
+                            <td>内容2</td>
+                            <td>内容3</td>
+                            <td>内容4</td>
+                            <td>内容5</td>
+                            <!-- <td>内容6</td> -->
+                           
+                        </tr>
+
+                    </table>
+                </td>  
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

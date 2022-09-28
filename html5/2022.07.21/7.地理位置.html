@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>提示：在firefox浏览器中测试,才能得到位置信息</p>
+    <script>
+        /* navigator.geolocation 地理位置服务
+        需要使用IE9及以上的浏览器
+        一般流程：
+            1.用户从浏览器打开位置感应应用程序。
+            2.程序执行，geolocation对象获取位置信息"需要用户授权同意才可以获取信息"。
+            3.浏览器内部通过数据源获取信息。
+            4.浏览器将获取的信息发送给受信任的外部定位服务，返回信息给geolocation应用程序。
+        geolocation包含三个方法
+            获取当前的地址信息(请求一次):getCurrentPosition( successcallback,errcallback,postionOptions )
+            监视当前地理位置(请求多次):watchPosition( successcallback,errcallback,postionOptions )
+            清除监视功能：clearWatch()
+        */
+
+        console.log(navigator.geolocation);
+        if(navigator.geolocation){
+            console.log("支持地理位置");
+            var geo = navigator.geolocation.getCurrentPosition(
+                /*res：位置对象 "successcallback 回调函数接收的参数" 
+                    属性：
+                        coords.latitude 十进制数的纬度。
+                        coords.longitude 十进制数的经度。
+                        coords.accuracy  所提供的以米为单位的经度和纬度的精准度。
+                        coords.altitude 海拔，海平面以上以米计算
+                        altitudeAccuracy 所提供的以米为单位的高度估计的精确度
+                        coords.heading 设备移动的角度方向。
+                        coords.speed  以米每秒单位的设备的当前的速度。
+                */ 
+                function(res){
+                    console.log(res);
+                    console.log(`纬度:${res.coords.latitude},经度:${res.coords.longitude},准确度:${res.coords.accuracy}`);
+                },
+                function(err){
+                    console.log("err");
+                }
+            )
+        }
+    </script>
+</body>
+</html>

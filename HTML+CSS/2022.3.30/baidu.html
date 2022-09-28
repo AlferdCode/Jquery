@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度一下，你就知道</title>
+    <!-- favicon 站点 ，显示在标题旁边的logo图
+        最早由IE发明创建，图片的格式只能是ico格式“现在兼容多种图片格式，支持各种浏览器”-->
+    <link rel="shortcut icon" href="./iamge/baidu.ico" type="image/x-ico">
+    <link rel="stylesheet" href="./baidu.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <!-- 左侧块 -->
+        <div class="nav_lt">
+            <a href="#">新闻</a>
+            <a href="#">hao123</a>
+            <a href="#">地图</a>
+            <a href="#">贴吧</a>
+            <a href="#">视频</a>
+            <a href="#">图片</a>
+            <a href="#">网盘</a>
+            <div class="more">
+                <a href="#">更多</a>
+                <div class="more_hidden"></div>
+            </div>
+        </div>
+        <!-- 右侧块 -->
+        <div class="nav_rt">
+            <div class="setUp">
+                <a href="#">设置</a>
+                <div class="setUp_down">
+                    <a href="#">搜索设置</a>
+                    <a href="#">高级搜索</a>
+                    <a href="#">关闭预测</a>
+                    <a href="#">隐私设置</a>
+                    <a href="#">关闭热搜</a>
+                </div>
+            </div>
+
+
+            <a href="#mask" class="login">登录</a>
+            <!-- 遮罩层 -->
+            <div id="mask">
+                <!-- 居中块 -->
+                <div class="mask_cent">
+                    <!-- 关闭按钮 -->
+                <a href="#" class="close">X</a>
+                    <!-- 居中上块 -->
+                    <div class="cent_top">
+                        <!-- 居中上块 左侧-->
+                        <div class="cent_top_lt">
+                            <img src="./images/login-lt-top.png" class="lt_logo1" alt="images">
+                            <div class="lt_logo2">
+                                <div class="box">
+                                    <img src="./images/login-ewm.png" alt="image">
+                                </div>
+                                <img src="./images/login-sm.png" alt="image">
+                                <p class="appText">请使用百度APP扫码登陆</p>
+                                <div class="downloadApp">
+                                    <a href="#">
+                                        <img src="./images/login-xz.png" alt="image">
+                                        <span>下载百度App</span>
+                                    </a>
+                                    <!-- 鼠标移入显示二维码 -->
+                                    <div class="app_hidden">
+                                        <div class="box">
+                                            <img src="./images/login-ewm.png" alt="image">
+                                            <div>
+                                                <p class="appText">扫描二维码下载百度APP</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                   
+                        </div>
+                        <!-- 居中上块 右侧 -->
+                        <div class="cent_top_rt">
+                            <p class="rt_title">
+                                <span>账号登录</span>
+                                <span>短信登录</span>
+                            </p>
+                            <form action="#">
+                                <input type="text" id="user" autocomplete="off" placeholder="手机号/用户名/邮箱">
+                                <input type="password" id="password" placeholder="密码">
+                                <p class="forget"><a href="#">忘记密码？</a></p>
+                                <input type="button" id="btn" value="登录">
+                                <a href="#" class="agree">阅读并接受<span>百度用户协议</span>和<span>隐私政策</span>
+                                </a>
+
+                            </form>
+                        </div>
+                                  <!-- 居中下块 -->
+                                  <div class="cent_bottom">
+                                      <a href="#"><img src="./images/qq.png" alt="image"></a>
+                                      <a href="#"><img src="./images/wb.png" alt="image"></a>
+                                      <a href="#"><img src="./images/wx.png" alt="image"></a>
+                                      <a href="#" class="register">立即注册</a>
+
+                                </div>
+                    </div>
+                </div>
+    </nav>
+    <!-- 主logo -->
+    <header>
+        <a href="#">
+            <img src="../2022.3.26/img/baidu.png" alt="image">
+        </a>
+    </header>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+</head>
+<body>
+    
+    <user-login mytitle="Login Form" icon1="fa-stop" icon2="fa-stop-circle"></user-login>
+
+    <template id="user-login-template">
+        <style>
+            form{
+                width: 300px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 20px;
+                margin: 50px auto;
+            }
+            .row{
+                height: 40px;
+                line-height: 40px;
+            }
+            .row span{
+                border: 1px solid red;
+            }
+            .row input{
+                border: none;
+                outline: none;
+            }
+        </style>
+        <form>
+            <legend>
+                <h2></h2>
+            </legend>
+            <div class="row">
+                <span>
+                    <i id="acc-icon" class="fa"></i>
+                    <input type="text" placeholder="请输入账号">
+                </span>
+            </div>
+            <div class="row">
+                <span>
+                    <i id="pwd-icon" class="fa"></i>
+                    <input type="password" placeholder="请输入密码">
+                </span>
+            </div>
+            <div class="row">
+                <button>登录</button>
+            </div>
+        </form>
+    </template>
+</body>
+<script>
+    class UserLogin extends HTMLElement{
+        constructor(){
+            super();
+            var tmp = document.querySelector('#user-login-template');
+            var content = tmp.content.cloneNode(true);
+
+            var h2 = content.querySelector("h2");
+            h2.textContent = this.getAttribute("mytitle");
+
+            var acc_icon = content.querySelector("#acc-icon");
+            var pwd_icon = content.querySelector("#pwd-icon");
+
+            acc_icon.classList.add(this.getAttribute("icon1"))
+            pwd_icon.classList.add(this.getAttribute("icon2"))
+
+            this.appendChild(content);
+        }
+    }
+
+    window.customElements.define('user-login',UserLogin);
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- action:提交/获取数据的url。
+    method：请求方式，只支持GET|POST。
+    enctype：提交/获取数据的编码类型MIME
+        application/x-www-form-urlencoded :未定义属性时的默认值。JSON
+        multipart/form-data:当表单包含 type=file 的 input元素时使用此值。上传图片，视频，音频
+        text/plain:出现于html5，用于调试。纯文本
+    -->
+    <form action="https:///www.baidu.com" method="GET" enctype="text/plain">
+        <!-- 常用 -->
+        <input type="text"><label for="">文本输入框</label><br>
+        <input type="password"><label for="">密码输入框</label><br>
+        <input type="submit"><label for="">提交按钮</label><br>
+        <input type="button"><label for="">点击按钮</label><br>
+        <input type="reset"><label for="">重置按钮</label><br>
+        <input type="checkbox"><label for="">复选框</label><br>
+        <input type="radio"><label for="">单选框</label><br>
+        <input type="file" multiple accept="image/*"><label for="">选择本地文件按钮</label><br>
+
+        <!-- 不建议使用  -->
+        <input type="image" src=""><label for="">图片按钮</label><br>
+        <!-- 隐藏域，通过Js获取隐藏域的数据 -->
+        <input type="hidden"><label for="">隐藏元素</label><br>
+
+        <!-- 了解 -->
+        <br><br>
+        
+        <input type="email"><br><!-- 电子邮件 -->
+        <input type="tel"><br><!--  -->
+        <input type="url"><br><!-- url  -->
+        <input type="search"><br><!--  -->
+        <input type="color"><br><!--  -->
+        <input type="date"><br><!--  -->
+        <input type="datetime"><br><!--  -->
+        <input type="datetime-local"><br><!--  -->
+        <input type="month"><br><!--  -->
+        <input type="week"><br><!--  -->
+        <input type="number" min="1" max="5"><br><!--  -->
+        <input type="range" min="1" max="100"><br><!--  -->
+        <br><br><br>
+        <!-- 下拉菜单 -->
+        <select>
+            <optgroup label="分组1">
+                <option value="1">第一项</option>
+                <option value="1">第二项</option>
+            </optgroup>
+            <optgroup label="分组2">
+                <option value="1">第一项</option>
+                <option value="1">第二项</option>
+            </optgroup>
+        </select>
+    </form>
+</body>
+</html>

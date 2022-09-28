@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里巴巴矢量图标库</title>
+    <!-- 引入字体图标css文件 -->
+    <link rel="stylesheet" href="./font_vmmmy91qaaa/iconfont.css">
+  
+    <style>
+        /* Unicode 1.1 拷贝项目下面生成的 @font-face */
+        @font-face {
+            font-family: 'iconfont';
+            src: url('iconfont.ttf?t=1648688372728') format('truetype');
+        }
+        /*  Unicode 1.2 定义使用 iconfont 的样式 */
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .icon menu{
+             width: 1em;
+             height: 1em;
+             vertical-align: -0.15em;
+             fill: currentColor;
+             overflow: hidden;
+              }
+
+        /* 改变字体图标样式 */
+        .gwc{
+            color: red;
+            font-size: 30px;
+        }
+        .icon-shouji{
+            color: royalblue;
+            font-size: 30px;
+        }
+        .menu{
+            font-size: 30px;
+            fill: black;
+            color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 方式一：Unicode 引用 -->
+    <div>
+        <!--Unicode 1.3 使用  -->
+        <i class="iconfont gwc">&#xe73c;</i><span>购物车</span>
+    </div>
+    <!-- 方式二：font-class 引用 -->
+    <div>
+        <!-- font-class 2.2 使用 -->
+        <i class="iconfont icon-shouji"></i><span>手机</span>
+    </div>
+    <!-- 方式三： Symbol 使用 -->
+    <div>
+        <!-- Symbol 3.3 使用 -->
+        <script src="./iconfont.js"></script>
+        <svg class="icon menu" aria-hidden="true">
+            <use xlink:href="#icon-24px"></use>
+          </svg>
+          <span>菜单</span>
+    </div>
+
+</body>
+
+</html>

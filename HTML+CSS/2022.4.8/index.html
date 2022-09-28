@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5的新特性</title>
+    <style>
+        /* video{
+            width: 400px;
+            height: 400px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 语义化标签 -->
+    <nav>导航栏</nav>
+    <header>页眉</header>
+    <main>核心</main>
+    <aside>侧边栏</aside>
+    <section>块</section>
+    <footer>底部</footer>
+    <article>定义文章</article>
+    <figure>定义一组媒体对象以及文字内容</figure>
+    <figcaption>定义figure的标题</figcaption>
+    <!-- input元素 -->
+    <!-- 视频 or 音频 -->
+    <!-- video(html元素) 视频
+    html属性：
+        src：路径，引入视频资源(注意：使用source元素加载资源时，video/audio元素不要添加此属性)。  
+        controls：添加视频控件。
+        autoplay:自动播放(视频不支持自动播放)。
+        loop:是否重复播放(一般用于广告视频)。
+        preload：预加载视频(但是需要注意会和autoplay相冲，如果设置了autoplay属性preload会失效)。
+        muted：静音。
+        width/height：设置大小。
+    视频格式：
+        1.Ogg格式：带有Theora视频编码和Vorbis音频编码的Ogg文件。
+        2.MPENG4格式：带有H.246视频编码和AAC音频编码的MPENG4格式。
+        3.WebM格式：带有VP8视频编码和Vorbis音频编码的webM文件。
+    source元素：媒体元素，为浏览器提供多种媒体格式的资源，方便兼容各种浏览器。
+        src：视频的文件地址。
+        type：类型，媒体资源的MIME类型( 定义播放器在音频流中的什么位置开始播放 )。
+            常见的MIME类型：
+                视频：video/mp4   video/ogg     video/webm
+                音频：audio/ogg   audio/mpeng
+     -->
+    <video controls autoplay loop preload="auto" muted width="400px" height="400px">
+        <!-- 执行规则：如果浏览器支持第一个格式，下面的将不会被执行。
+            如果浏览器支持第二个格式，则遇到第一个标签的时候不会执行，遇到支持的格式才会执行。 -->
+        <source src="./video/dududu.mp4" type="video/mp4">
+        <source src="./video/dududu.ogg" type="video/ogg">
+        <source src="./video/dududu.webm" type="video/webm">
+    </video>
+    <!-- audio 音频： html属性与video相同。
+    音频格式：
+        1.ogg格式：带有Theora视频编码和Vorbis音频编码的Ogg文件。
+        2.MPENG4格式：带有H.246视频编码和AAC音频编码的MPENG4格式。
+    -->
+    <audio controls>
+        <source src="./audio/b.mp3" type="audio/mp3">
+        <source src="./audio/b.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- mark ：标记标签 -->
+    <p>hello，欢迎来到<mark style="background-color: aquamarine;">郑铁</mark>！</p>
+
+
+    <!-- iframe ： 内嵌式网页(当内容过大会撑出导航条)。 
+        src: 网页的路径。
+        frameborder：边框，值0没有边框、1有边框。
+        scrolling：是否显示滚动条。auto(默认值，超出元素大小会自动出现滚动条)，yes出现滚动条，no不出现滚动条(多出的内容不会被看到)。
+        name：iframe的名字。
+
+    a与iframe的绑定：
+        作用：点击a页面在iframe内显示。
+        使用方式：a的target值 与 iframe的name一致即可绑定。
+    -->
+    <a href="../2022.03.29/锚点活跃元素.html" target="show">跳转至百度</a>
+    <iframe src="./index.html" frameborder="1" scrolling="auto" width="500px" height="500px" name="show"></iframe>
+
+
+
+</body>
+</html>

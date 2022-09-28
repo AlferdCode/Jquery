@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #222;
+            /* 添加外边距 */
+            margin: 50px;
+            margin-top: 60px;
+            /* 水平居右：将块级元素剩余空间使用margin设置在左边为auto。 */
+            margin: 0 0 0 auto;
+            /* 定宽居中：设置块元素宽度，把左右两边的margin值设置为auto，使元素水平居中 */
+            margin: 0 auto;
+        }
+        span{
+            background-color: red;
+            margin: 50px;
+        }
+        section{
+            background-color: #222;
+            /* 添加边框（宽度 样式 颜色） */
+             /* border: 1px solid red;  */
+            /* 内边距 */
+            /* padding: 0.1px; */
+            /* 内容溢出隐藏 */
+            overflow: hidden;
+        }
+        section p{
+            background-color: royalblue;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    margin外边距：
+         作用：调整元素之间的间距，移动元素自身的位置。
+         距离：
+              垂直方向：从自身边框开始到另一个元素边框之间的距离。
+              水平方向：从自身边框开始到另一个元素margin之间的距离。
+         语法：
+              margin:通过值控制不同边的外边距，值1~4个。
+              margin-top/right/bottm/left:设置单边外边距;
+              margin-block/inline-start/end: 设置单边外边距；  
+              outo填充：使用auto计算可以实现块级元素左右居中对齐。
+        margin的合并：块级元素的垂直方向会发生合并。
+             合并的情况：
+                 1.两个相邻的同胞元素的上下外边距会发生合并。
+                 2.嵌套中，第一个子元素和最后一个子元素的margin会穿透父元素,看起来像父元素的外边距。
+                  会形成父盒子塌陷（子元素设置margin-top，父元素跟着一起移动）
+                  解决方案：
+                         a.给父元素添加边框 border （不推荐，麻烦）。
+                         b.给父元素添加内边距padding （值不小于 0 即可）。
+                         c.给父元素添加overflow:不是nomal都行（溢出元素内容会被隐藏）。
+                 3.空块的合并。
+            
+            -->
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <span>行内元素1</span>
+    <span>行内元素2</span>
+    <section>==$0
+        <p>子元素1</p>
+        <p>子元素2</p>
+        <p>子元素3</p>
+    </section>
+</body>
+</html>

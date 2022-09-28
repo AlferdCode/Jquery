@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTML元素</title>
+    <style>
+        img{
+            width: 100px;
+        }
+        ul li{
+              list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- img :在页面中插入图片的方式。
+         src: source来源，图片的路径。
+             相对路径：
+                 ./ 相对当前文件的同级目录层查找
+                 ../相对当前文件的上级目录层查找
+         alt: 图片的输入格式（在图片加载失败的时候，代替文本信息）
+         title:通用属性，元素的标题（鼠标移入图片显示）。
+    -->
+    <img src="./image/3.16.jpg" alt="image" title="HTML5">
+    <p title="段落">一段文本</p>
+
+    <!--
+        a:超链接元素。
+        作用：当点击a标签内内容时，跳转到指定的链接地址。
+        href:跳转的路径地址。
+        target: 页面的打开方式，默认情况下在当前窗口打开。
+            _blanck: 在新的窗口打开。
+      -->
+    <a href="http://www.baidu.com" target="_blanck">点击跳转</a>
+
+    <!--HTML语义化：
+        根据内容的结构（内容语义化），选择合适的标签（代码语义化）
+        优点：
+            1.为了没有css的情况下，页面能够呈现很好的内容结构or代码结构。
+            2.代码结构清晰，方便阅读，有利于团队开发。
+            3.方便搜索引擎识别页面结构，有利于SEO(搜索引擎优化)。
+            4.方便其他设备解析（例如：屏幕浏览器，盲人阅读器，移动设备 等.......）,以语义化的方式渲染页面。 
+     -->
+    <!-- 页面结构语义化 -->
+    <nav>标记导航，仅对页面中重要的连接群使用</nav>
+    <header>页眉,通常包括页面logo,主导航,全站链接,搜索框</header>
+    <main>页面的主要内容,一个页面只能使用一次</main>
+    <section>定义页面中的章节,一块,一部分,代替div元素</section>
+    <aside>定义所有内容之外的部分,如侧边栏,文章的一组链接等,广告,产品列表等</aside>
+    <footer>页面的底部内容,父元素是body代表整个页面的底部</footer>
+    
+    <!-- ul: 定义无序列表。
+         li: 定义列表中的项。 -->
+     <ul>
+        <li><a href="#">内容1</a></li>
+        <li><a href="#">内容1</a></li>
+        <li><a href="#">内容1</a></li>
+     </ul>
+     <!--ol: 定义有序列表。
+         li: 定义列表中的项。 
+         type: 序号类型，值：1（阿拉伯数字） A a(英文字母) I i（罗马数字）-->
+    <ol type="a">
+        <li><a href="#">内容1</a></li>
+        <li><a href="#">内容1</a></li>
+        <li><a href="#">内容1</a></li>
+    </ol>
+    <!-- dl:自定义列表。
+         dt:定义列表的项。
+         dd:列表项的描述。
+        -->
+    <dl>
+        <dt>列表的项</dt>
+        <dd><a href="#">列表项的描述1</a></dd>
+        <dd><a href="#">列表项的描述2</a></dd>
+      </dl>
+
+</body>
+</html>

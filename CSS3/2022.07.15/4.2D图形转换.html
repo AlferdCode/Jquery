@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 30px auto;
+        }
+        .box1:hover{
+            transform: translate(50px,-5px);
+        }
+        .box2:hover{
+            transform: scale(2,1);
+        }
+        .box3{
+            transform: rotate(30deg);
+            /* 改变旋转的原点，默认在中心位置。值可以是number+单位，也可以是方向 */
+            transform-origin: top left;
+        }
+        .box5{
+           transition-property: all; /*css属性名|all*/
+           transition-duration: 2s; /*过渡花费的时间*/
+           transition-delay: 0.5s; /*延迟执行过渡时间*/
+           transition-timing-function: linear; /*过渡执行的速度类型，linear匀速*/
+
+           /* 简易版 */
+           transition: all 2s linear 0.5s;
+        }
+        .box5:hover{
+            transform: rotate(1600deg) translateX(100px);
+            background: red;
+        }
+    </style>
+</head>       
+<body>
+    <!-- 2D:2维平面
+    转换：平移，缩放，旋转，倾斜 
+    属性：transform:
+    值：
+        平移:translate(x,y), translateX(), translateY()
+        缩放:scale(), scaleX(), scaleY()
+        旋转：rotate()平面旋转，rotateX()沿X轴旋转，rotateY()沿Y轴旋转
+        倾斜: skew(), skewX(), skewY()
+
+    过渡：元素从一个样式转换为另一个样式的过程。
+    注意: 配合事件使用，只执行一次，事件结束会按照原状过渡返回。
+    属性：transition：属性名  花费时间  速度类型  延迟时间 ;
+    -->
+    <div class="box1">平移</div>
+    <div class="box2">缩放</div>
+    <div class="box3">旋转</div>
+    <div class="box4">倾斜</div>
+    <div class="box5">过渡</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+    <form>
+        <label for="value1">value1</label>
+        <input type="text" name="val1" id="value1"><br>
+        <label for="value2">value2</label>
+        <input type="text" name="val2" id="value2"><br>
+        <button type="submit">提交</button>
+    </form>
+
+    <script>
+        var form = document.querySelector('form');
+        form.onsubmit = function(ev){
+            ev.preventDefault();
+
+            // 1.自己手动拿数据（一个一个拿，麻烦）
+            // var val1 = document.querySelector("#value1").value;
+            // var val2 = document.querySelector("#value2").value;
+            // $.ajax({
+            //     type:'GET',
+            //     url:"/xxx",
+            //     data:{val1,val2}
+            // })
+
+            // 2.使用formData拿数据
+            // 注意：a.input标签的name属性为必填，原因：name属性作为formData的key值使用。
+            // b.发送请求时，要设置ajax中的cache.processData,contentType
+            var fd = new FormData(form);
+            // 添加额外的数据（form表单中无法输入的数据）
+            fd.append('a','10');
+            // get(): 从formData中获取数据“ 参数是input的name值(formData的key值) ”
+            console.log(fd.get('val1'));
+            console.log(fd.get('val2'));
+            // 添加数据
+            fd.set('b','20');
+            // 查看指定的数据是否存在，返回布尔值
+            console.log(fd.has('b'));
+            
+            // 遍历，获取所有的数据，返回键值对“数组”
+            for(var iterator of fd.entries()){
+                console.log(iterator);
+            }
+            fd.forEach(function(v,k){
+                console.log(v);
+            })
+
+            // 3.使用jQuery相关的API拿数据
+            // 序列成字符串，格式，查询字符串
+            var reslut = $(form).serialize();
+            console.log(reslut);
+
+            var result2 = $(form).serializeArray();
+            console.log(result2);
+        }
+
+    </script>
+</body>
+</html>

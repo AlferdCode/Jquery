@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #box {
+            height: 100%;
+            width: 100%;
+        }
+
+        .update {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .update button {
+            background-color: blue;
+            color: #fff;
+            outline: 0;
+            border: 0;
+            height: 50px;
+            line-height: 50px;
+            width: 120px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    </style>
+    <script src="./js/echarts.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById('box');
+        var myChart = echarts.init(box);
+        var option = {
+            title:{
+                text:'饼图程序调用高亮示例',
+                x:'center'
+            },
+            tooltip:{
+                trigger:"item",
+                formatter:"{a} <br> {b} : {c} {{d}%}",
+            },
+            legend:{
+                orient:'vertical',
+                left:'left',
+                data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            },
+            series:[{
+                name:'访问来源',
+                type:'pie',
+                radius:'55%',
+                center:['50%','60%'],
+                data:[
+                    {value: 666,name:'直接访问'},
+                    {value: 555,name:'邮件营销'},
+                    {value: 444,name:'联盟广告'},
+                    {value: 333,name:'视频广告'},
+                    {value: 2222,name:'搜索引擎'},
+                ]
+            }],
+            itemStyle:{
+                emphasis:{
+                    shadowBlur:10,
+                    shadowOffsetX:0,
+                    shadowColor:'rgb(0,0,0,0.5)',
+                }
+            }
+        }
+
+        var currentIndex = -1;
+        // 添加高亮块
+        setInterval(function(){
+            var dataLen = option.series[0].data.length;
+            console.log(dataLen);
+            // 取消之前的高亮图形
+            // dispatch分发，行为只能分发。
+            myChart.dispatchAction({
+                type:'downplay',
+                seriesIndex:0,
+                dataIndex:currentIndex
+            });
+            currentIndex = (currentIndex + 1) % dataLen;
+            // 高亮当前图形
+            myChart.dispatchAction({
+                type:'highlight',
+                seriesIndex:0,
+                dataIndex:currentIndex
+            })
+            // 显示tooltip
+            myChart.dispatchAction({
+                type:'showTip',
+                seriesIndex:0,
+                dataIndex:currentIndex
+            })
+        },1000)
+
+        if(option && typeof option == "object"){
+            myChart.setOption(option,true);
+        }
+
+        // 图例开关的行为只会触发 legendselectchanged 事件
+        myChart.on('legendselectchanged',function(params){
+            // 获取点击图例的选中状态,放回布尔值
+            var isSelected = params.selected[params.name];
+            // 在控制台打印
+            console.log(isSelected);
+            // 打印所有的图例状态
+            console.log(params.selected);
+        })
+
+    </script>
+</body>
+</html>

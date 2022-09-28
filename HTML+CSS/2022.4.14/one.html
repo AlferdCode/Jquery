@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D图形转换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 50px auto;
+            font-size: 30px;
+        }
+        .box1:hover{
+           /* 平移 */
+           /* margin: 100px 0 0 100px; */
+           /* 相对定位 */
+           /* position: relative;
+           top: 100px;
+           left: 100px; */
+           /* 
+           translate(x,y) 平移方法，参数number+单位，值可为负数。
+           两个值：一个代表 X 轴，第二个为 Y 轴。一个值：该值作用于 X 轴，Y 轴默认为0。  
+           */
+           transform: translate(100px,50px);
+           transform: translate(100px);
+           transform: translateX(100px);
+           /* transform: translateY(50px); */
+        }
+        .box2:hover{
+            /* 缩放 */
+            /* width: 300px;
+            height: 300px;
+            margin-top: -50px; */
+
+             /* 
+             scale(x,y) 缩放方法
+             参数为number,值可以小数不能为负数，元素大小的倍数。
+             两个值：一个代表 X 轴，第二个为 Y 轴。
+             一个值：X 和 Y 轴值相同。 */
+             transform: scale(2,2);
+             transform: scalex(2);
+             transform: scaley(2);
+        }
+        .box3:hover{
+            /* 旋转 
+             rotate(?deg) 旋转方法，参数为 number + deg,值可为负数，默认以中心点为原点正值顺时针旋转“负值反之” 
+             rotate(?deg) 沿 X 轴旋转，参数为 number + deg，值可为负数。
+             rotate(?deg) 沿 Y 轴旋转，参数为 number + deg，值可为负数。
+            */
+            transform: rotateX(300deg);
+            transform: rotateY(300deg);
+            transform: rotate(60deg);
+            /* 改变旋转的原点，默认原点在中心位置，值为 number + 单位 / 方向
+            两个值：第一个值为 X 轴，第二个为 Y 轴。
+            一个值：该值作用于 X 轴，Y 轴默认为center。
+             注意 ：当值都为方向时，浏览器会自动判断该值作用于哪根轴。    
+            */
+            transform-origin:top left;
+        }
+        .box4{
+            /* 倾斜
+            skew(X,Y) 参数为 number + deg，沿 X Y 轴倾斜多少度。
+             两个值：第一个值为 X 轴，第二个为 Y 轴。
+             一个值：该值作用于 X 轴，Y 轴默认为 0。
+     
+            */
+            transform:skew(30deg,0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        2D图形转换：是在二维平面上对图形进行平移，缩放，旋转，倾斜等一系列操作。
+     -->
+     <section class="box1">平移</section>
+     <section class="box2">缩放</section>
+     <section class="box3">旋转</section>
+     <section class="box4">倾斜</section>
+</body>
+</html>

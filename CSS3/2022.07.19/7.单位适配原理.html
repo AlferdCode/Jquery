@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 第一种适配 */
+        html{
+            /* font-size: 13.33vw; */
+        }
+        .p1{
+            font-size: 0.5rem;
+        }
+        .p2{
+            font-size: 0.6rem;
+        }
+        .p3{
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.移动端为啥要适配？
+            为了让html5页面在各种尺寸的设备上兼容运行，字体/宽高能够动态变化。
+        2.移动端适配的原理是？
+            通过动态设置跟元素html的font-size，让页面上的其他元素都参照html标签的字体(使用rem单位)，当html的字体发生改变时，页面上的其他元素能够适应变化。
+        3.适配方案？
+            3.1 html设置font-size 一般为13.33vw ，不需要js “网易方案”。
+            3.2 编写通用的js代码，动态改变html的字体 “淘宝方案”。
+            注意：两种方案的原理都相同，都需要设定html的字体大小，其他元素使用rem相对单位。
+     -->
+    <p class="p1">这是一段文本</p>
+    <p class="p2">这是又一段文本</p>
+    <p class="p3">这是又又一段文本</p>
+
+    <script src="./flexible.js"></script>
+    <script>
+        // 第二种适配
+        // part1：
+        // onresize:改变窗口的试图大小
+        // window.onresize = function(){
+        //     document.documentElement.style.fontSize = "13.333vw"
+        // }
+
+        // part2（自己编写代码）
+        // 实现动态改变html字体
+        function changeHtmlFont(){
+            // 获取窗口宽度
+            var w = document.documentElement.clientWidth;
+            // getComputedStyle() 获取计算样式
+            var oldFont = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+            document.documentElement.style.fontSize = w * (750 / 375) / oldFont + 'px';
+        }
+        // changeHtmlFont();
+        // window.onresize = changeHtmlFont;
+
+        // part3 （封装成自执行函数）
+        (function(window,document){
+            var getRem = function(){
+                if(document){
+                    var html = document.documentElement;
+                    var hWidt = (html.getBoundingClientRect().width) * (750 / 375);
+                    var oldFont = parseFloat(window.getComputedStyle(html).fontSize);
+                    html.style.fontSize = hWidt / oldFont + "px";
+                }
+            }
+            getRem();
+            window.onresize = function(){
+                getRem();
+            }
+           
+        })
+        // (window,document);
+
+        // part4 利用淘宝的适配插件 
+        // 使用：只看需要引入插件文件即可
+
+    </script>
+</body>
+</html>

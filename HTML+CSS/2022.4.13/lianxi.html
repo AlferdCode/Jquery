@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Login">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>我的积分</title>
+    <link rel="stylesheet" href="./font_dydggtctkmq/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            height: 66px;
+            background-color: aquamarine;
+            border-bottom: 1px solid #ccc;
+            border: 1px solid transparent;
+            box-shadow: 0px 1px 2px #ccc;
+        }
+
+        nav .icon-zuojiantou {
+            font-size: 40px;
+            position: absolute;
+            top: 16px;
+            left: 10px;
+
+        }
+
+        nav h2 {
+            font-size: 36px;
+            font-weight: lighter;
+            letter-spacing: 5px;
+            text-align: center;
+            margin: 5px 0;
+            vertical-align: middle;
+        }
+
+        section ul {
+            position: absolute;
+            top: 108px;
+            left: 138px;
+        }
+
+        section ul li {
+            list-style: none;
+            font-size: 22px;
+            color: rgb(188, 150, 231);
+        }
+
+        section span {
+            font-size: 18px;
+            display: block;
+            text-align: center;
+        
+        }
+        main #down{
+            /* 开启弹性布局 */
+            display: flex;
+            /* 换行 */
+            flex-wrap: wrap;
+            /* 两端对齐，距离等分 */
+            justify-content: space-evenly;
+
+        
+        }
+       main #down div{
+            width: 170px;
+            height: 242px;
+        }
+        div p {
+            width: 126px;
+            flex-wrap: wrap;
+        }
+
+        div .div_btn {
+            width: 160px;
+            height: 50px;
+            background-color: rgba(252, 133, 57);
+            margin: 0px 108px;
+            border-radius: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <i class="iconfont icon-zuojiantou"></i>
+        <h2>我的积分</h2>
+    </nav>
+    <section>
+        <img src="./积分/背景.png" alt="img" style="margin: 1px 7px;">
+        <ul>
+            <li>当前积分</li>
+            <li style="font-size:28px; text-align: center;">98</li>
+            <li>可抵￥0.98</li>
+        </ul>
+    </section>
+    <main>
+        <section>
+            <span>- 热门兑换商品 -</span>
+        </section>
+        <div id="down">
+            <div class="row_one">
+                <img src="./积分/雨伞.png" alt="">
+                <p>创意小清新晴雨两用...</p>
+                <p>￥48</p>
+                <p>积分可抵0.98元</p>
+            </div>
+            <div class="row_one">
+                <img src="./积分/杯子.png" alt="">
+                <p>乐美雅球型钢化玻璃杯</p>
+                <p>￥98</p>
+                <p>积分可抵0.3元</p>
+            </div>
+            <div class="row_two">
+                <img src="./积分/渔夫帽.png" alt="">
+                <p>毛边布艺渔夫帽  </p>
+                <p>￥56</p>
+                <p>积分可抵0.54元</p>
+            </div>
+            <div class="row_two">
+                <img src="./积分/六件套.png" alt="">
+                <p>棉质床品六件套</p>
+                <p>￥269</p>
+                <p>积分可抵0元</p>
+            </div>
+        </div>
+        <div>
+            <input type="button" value="查看更多" class="div_btn">
+        </div>
+    </main>
+</body>
+
+</html>

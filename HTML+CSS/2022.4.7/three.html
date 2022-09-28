@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tooltip</title>
+    <style>
+        .tooltip{
+           position: relative;
+        }
+        .tooltipText{
+            /* 2.隐藏提示语（使用原因：因为使用过display属性进行转换了，所以不能使用）*/
+            visibility: hidden;
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            background-color: #888888;
+            border: 1px solid #666666;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 6px;
+            color:#ffffff;
+            
+            /* 1.定位：使用子绝父相，在鼠标移入到指定的元素后触发 */
+            position: absolute;
+            top:25px;
+            left:100px;
+        }
+
+        /* 3.鼠标移入元素显示提示语 */
+        .tooltip:hover .tooltipText{
+            /* 透视度 */
+            visibility:visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- tooltip：提示工具，在鼠标移入到指定的元素后触发 -->
+    <div class="tooltip">鼠标移入到这个显示文本
+        <span class="tooltipText">提示内容</span>
+    </div>
+
+    <p title="我是title">移入显示title</p>
+</body>
+</html>

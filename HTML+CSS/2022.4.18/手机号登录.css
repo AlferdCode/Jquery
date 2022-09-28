@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* nav */
+nav{
+    height: 8vh;
+}
+nav .icon-zuojiantou{
+    font-size: 8vw;
+    line-height: 10vh;
+    color: #6e6a6a;
+    padding: 4vw;
+}
+nav span{
+    font-size: 17px;
+    float: right;
+    margin: 8vw 7vw;
+    color: #6e6a6a;
+}
+/* section */
+section div{
+    border-bottom: 1px solid #cccccc;
+    width: 64vw;
+    margin-left: 16vw;
+    margin-top: 8vw;
+}
+section div input{
+    width: 30vw;
+    height: 4vh;
+    outline: none;
+    border: 1px solid transparent;
+}
+section .button_one{
+    width: 20vw;
+    border-radius: 25px;
+    height: 3vh;
+    color: rgba(255, 39, 66, 1);
+    background-color: #ffffff;
+    outline: none;
+    border: 1px solid;
+    position: relative;
+    top: -18vw;
+    left: 59vw;
+}
+section .button_two{
+    width: 47vw;
+    border-radius: 25px;
+    height: 3vh;
+    color: #ffffff;
+    background-color: rgba(255, 39, 66, 1);
+    outline: none;
+    border: 1px solid;
+    margin-top: 8vw;
+    margin-left: 4vw;
+}
+section .section_span{
+    font-size: 13px;
+    color: #0606fb;
+    position: absolute;
+    top: 101vw;
+    right: 43vw;
+}

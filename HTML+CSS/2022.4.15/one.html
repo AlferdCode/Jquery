@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式布局 —— 媒体查询</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 500px;
+            background-color: aquamarine;
+        }
+        /* 语法： @media mediaType 操作符 (media feature){ css-code }
+                @media  媒体查询，可以针对不同的媒体类型定义不同的样式。 
+             mediaType  媒体类型
+                  - screen  表示电脑，平板，智能手机屏幕，包含有关客户端显示屏幕的信息。
+            操作符 ： 创建复杂的媒体类型
+                  - and 所有的条件都要成立，才能使用样式表。
+                  -  ， 有一个条件成立，就可以执行代码块。
+                  - not 排除设备类型，如果后面是条件“作为条件取反使用”
+        (media feature) 条件“规定媒体/设备的特征”
+             因为在HTML文件中不能直接使用 > < 符合直接作为条件运算符使用。
+                  - max-  相当于小于等于<=
+                  - min-  相当于大于等于>=
+           { css-code } 媒体查询符合条件执行的 css 代码
+        */
+        @media screen and (max-width:1300px){
+            .box::after{
+                content: "当前视图小于1300px";
+                font-size: 30px;
+                color: rgb(5, 5, 5);
+            }
+        }
+        @media screen and (max-width:1300px) and (max-width:1500px){
+            .box::after{
+                content: "当前视图小于1000";
+                font-size: 30px;
+                color: rgb(5, 5, 5);
+            }   
+        }
+        /* 添加 not 后条件进行了取反，max-width == min-width  */
+        @media not screen and(max-width:1300px){
+            .box::after{
+                content: "当前视图大于1300";
+                font-size: 30px;
+                color: rgb(5, 5, 5);
+            } 
+        }
+         /* orientation ：判断设备的可见区域大小。
+             landscape  ：宽度大于高度，为横屏状态。
+              portrait  ：高度大于宽度，为竖屏状态。
+         */
+        @media screen and (orientation:landscape) {
+            .box::after{
+                content: "当前是横屏状态";
+                font-size: 30px;
+                color: rgb(5, 5, 5);
+            }
+        }
+        @media screen and (orientation:portrait) {
+            .box::after{
+                content: "当前是竖屏状态";
+                font-size: 30px;
+                color: rgb(5, 5, 5);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

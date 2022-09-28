@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .move{
+            position: relative;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color:aqua;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            /* 设置动画名 */
+            animation-name:move;
+            /* 动画持续的时间，单位 ms / s */
+            animation-duration: 2s;
+            /* 动画速度类型
+             值：
+               linear：匀速。
+               ease:默认值，逐渐减速。
+               ease-in：加速。 ease-out：减速。ease-in-out：先加速后减速。 */
+            animation-timing-function: linear;
+            /* 设置动画的执行次数.
+            值：number,默认值为1，infinite无限次 */
+            animation-iteration-count:2;
+            /* 动画延迟执行时间，单位 ms / s */
+            animation-delay: 1s;
+            /* 动画结束后的状态.
+            值：backwards 默认值，返回初始状态 
+                forwards 保持结束动画的状态。*/
+            animation-fill-mode:forwards;
+            /*动画的运动方向 
+            normal:默认值，正常方向运行。
+            reverse:反方向运动“从结束状态到开始状态”
+            alternate:先正常方向移动，再反方向运动，持续交替“只有动画在多次执行的情况下右 ”
+             */
+            animation-direction:alternate;
+            /* 动画的状态。
+                    语法： @keyframes identifier{}
+                        @keyframes 创建关键帧，动画
+                       identifier 动画的状态：*/
+         
+           /*   值.running默认值，执行对话 paused:暂停动画。 */
+            animation-play-state: running;
+
+            /* 常用属性：浏览器会自动判定该值作用于哪个方面“第一个必须是动画名”
+            animation：name duration timing-function delay iteration-count direction fill-mode */
+            animation:move 2s 1s infinite forwards alternate
+            
+
+        }
+       
+
+        @keyframes move{
+            /* 动画内部使用百分比设置关键帧，每一帧中都要设置这一帧的样式。
+                0% 动画的初始状态，100%动画的结束状态。
+                注意：开始和结束的属性状态要保持一致，否则不能实现动画效果。
+             */
+            0%{
+                left: 0%; 
+                transform: rotate(0deg);       
+            }
+            50%{
+              top:0;
+            }
+            
+            55%{
+                top:-20px;
+            }
+            100%{
+                left:calc(100% - 100px);
+                transform:rotate(800deg); 
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="move">皮球</div>
+</body>
+</html>

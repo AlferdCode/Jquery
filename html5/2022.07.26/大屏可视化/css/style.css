@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #070c23;
+    color: #fff;
+    font-size: 14px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    padding: 5px;
+}
+
+.container .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.container .title h2 {
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+.container .title button {
+    padding: 3px 10px;
+    background: #070c23;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.container .echarts .top {
+    display: flex;
+    justify-content: space-between;
+    justify-items: flex-start;
+}
+
+.container .echarts .top .left {
+    width: 25vw;
+}
+
+.container .echarts .top .left #box1 {
+    width: 100%;
+    height: 30vh;
+}
+
+.container .echarts .top .left #box2 {
+    width: 100%;
+    height: 40vh;
+}
+
+.container .echarts .top .middle {
+    width: 50vw;
+}
+
+.container .echarts .top .middle #box3 {
+    height: calc(70vh + 3px);
+}
+
+.container .echarts .top .right {
+    width: 25vw;
+}
+
+.container .echarts .top .right #box4 {
+    width: 100%;
+    height: 30vh;
+}
+
+.container .echarts .top .right #box5 {
+    width: 100%;
+    height: 40vh;
+}
+
+.container .echarts .bottom {
+    display: flex;
+    justify-content: space-between;
+    justify-items: flex-start;
+    margin-top: 5px;
+}
+
+.container .echarts .bottom #box6 {
+    width: 33.333333vw;
+    height: 20vh;
+}
+
+.container .echarts .bottom #box7 {
+    width: 33.333333vw;
+    height: 20vh;
+}
+
+.container .echarts .bottom #box8 {
+    width: 33.333333vw;
+    height: 20vh;
+}
+
+[id^="box"] {
+    border: 1px solid #ddd;
+}
+
+#box3, #box7 {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#box1, #box4 {
+    margin-bottom: 3px;
+}

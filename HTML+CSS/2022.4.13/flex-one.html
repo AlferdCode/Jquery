@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            height: 800px;
+            border: 2px solid black;
+             /*  开启弹性布局 
+             1.弹性布局中，我们把开启弹性布局的元素称之为“容器”，把其所有的子元素称之为项目。
+             2.开启布局后，项目默认按照从左至右的顺序排列“不会自动换行”。
+             3.弹性布局中，有两根轴“主轴”和“交叉轴”，项目按照主轴的方向进行排列“默认情况下主轴为x轴”。
+             4.弹性布局中，项目的尺寸未设置情况下默认主轴方向尺寸靠内容撑出，交叉轴方向尺寸撑满整个容器的大小。
+             */
+            display: flex;
+
+            /* 改变主轴的方向
+            值：
+               row ： 默认值，主轴x轴，项目按照从左至右顺序表排列。
+               row-reverse：主轴x轴，项目按照从右至左顺序表排列。
+               column : 主轴为y轴，项目按照从上至下顺序排序。
+               column-reverse: 主轴为y轴，项目按照从下至上顺序排序。
+            */
+            flex-direction:row-reverse;
+        }
+        ul li{
+            background-color: aquamarine;
+            border: 1px solid #cccccc;
+            font-size: 2cm;
+            text-align: center;
+            /* flex-basis 设置项目的伸缩基准，占据主轴方向多大空间
+            当不设置flex-basis时项目的宽度靠width渲染，flex-basis和 width都存在，则width会失效。
+            flex-basis遇到max/min-width 属性会被限制。
+            注意：主轴改变限制的方向尺寸也会改变。
+             */
+            flex-basis:25%;
+            width: 150px;
+            max-width: 300px;
+            min-width: 200px;
+        }
+        ul li:nth-child(3){
+            /* order：调整项目的顺序。
+            值：number，默认值为0，可支持负数，值小的在前面显示。 */
+            order: -1;
+        }
+        ul li:nth-child(1){
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        flex 布局：H5新出的布局方式，为了替代传统的float布局（float，vertical-align,属性在布局中将失效），
+                  使用布局后会使其他的垂直对齐排版失效。 -->
+    <ul>
+        <li>弹</li>
+        <li>性</li>
+        <li>布</li>
+        <li>局</li>
+    </ul>
+
+ 
+</body>
+</html>

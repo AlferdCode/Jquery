@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 654px;
+            height: auto;
+            /* background-color: pink; */
+            margin: 200px auto;
+        }
+
+        .box div {
+            display: inline-block;
+            /* 中线对齐 */
+            vertical-align:middle;
+        }
+        .box .lt {
+            width: 550px;
+            height: 44px;
+            /* background-color: powderblue; */
+            border: 2px solid #c4c7c1;
+            box-sizing: border-box;
+            /* 上右下左 */
+            border-radius: 10px 0 0 10px;
+        }
+
+        .box .rt {
+            width: 108px;
+            height: 44px;
+            background-color: #4e6ef2;
+            margin-left: -9px;
+            border-radius: 0 10px 10px 0;
+            font-size: 14px;
+            color: #fff;
+            /* 文本垂直居中 */
+            text-align: center;
+            /* 行高，和 rt 块元素高度保持一致 */
+            line-height: 44px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 外层居中盒子 -->
+    <div class="box">
+        <!-- 左侧块 -->
+        <div class="lt"></div>
+        <!-- 右侧块 -->
+        <div class="rt">百度一下</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body,#container{
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="../js/echarts.js"></script>
+
+    <script>
+        var box = document.getElementById('container');
+        var myChart = echarts.init(box);
+
+        var option = {
+            xAxis:{
+                type:'category',
+                data:['蔡徐坤','张三','LISA','王一博','周杰伦','杨幂','迪丽热巴']
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[{
+                data:[150,200,652,523,965,455,555],
+                type:'line' //数据展示 类型
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

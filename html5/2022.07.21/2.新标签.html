@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        blockquote::before{
+            content: "“";
+            font-size: 30px;
+        }
+        blockquote::after{
+            content: "”";
+            font-size: 30px;
+        }
+        q::before{
+            content: "“";
+            font-size: 30px;
+        }
+        q::after{
+            content: "”";
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <details>
+        <!--  -->
+        <summary>标题</summary>
+        <p>详情内容</p>
+    </details>
+    <address>XXX省XXX市</address>
+    <!-- 块引用，长引用 ，quote引号-->
+    <blockquote cite="https://www.baidu.com">hello，world！</blockquote>
+    <!-- 短引用 -->
+    <q cite="https://www.baidu.com">《生活》</q>
+    <abbr title="HyerText Markup Languge">HTML</abbr>
+    <mark>标记</mark>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css选择器</title>
+    <style>
+        /* css格式：选择器{ css属性：属性值；}*/
+        /* 选择器：选择页面中元素的方式 */
+        /* 通配符：匹配页面中所有的元素，默认样式清除时使用 */
+        *{
+            margin: 0;
+            padding: 0;
+        }   
+
+        /* 标签选择器:把标签的名字作为选择器使用。 */
+        div{
+            background-color: olive;
+        }
+        /* class类选择器：给元素添加class属性并赋值，在css中以点调用class值作为选择器使用。
+                ID选择器：给元素添加ID属性并赋值，在css中以#调用ID值作为选择器使用。
+            区别：
+                1.前缀不同，class以点调用，ID以#调用。
+                2.ID唯一性1：元素可以有多个class值“中间以空格隔开”，ID只能有一个。
+                3.ID唯一性2：在JS中，一个HTML文件中一个ID只能出现一次“ID名不能重复”。
+                4.ID的优先级：给同一个元素同时使用class和ID设置相同的css样式，优先执行ID。
+         */
+        .box2{
+            background-color: orange;
+            /*!important 权重选择器，所有选择器中优先级最高的。
+            使用方式：在css属性后直接添加，会覆盖掉页面中所有的同类样式。*/
+            width: 800px !important;
+            /* !important 翻译 最重要的 */
+        }
+        #box{
+            width: 500px;
+        }
+      
+        /* 
+        子选择器 > :找到某个元素的直接子元素，跟据嵌套层级一层一层获取元素。
+        复合选择器  空格：嵌套中从某个元素直接获取其后代元素。
+        */
+        section>aside>p{
+              font-size: 80px;
+          }     
+          section p{
+            color: rgb(0, 255, 234);
+          }  
+          /* 地位平等 ,: 两个或者多个元素设置相同的css样式时使用 */
+          .box,#text,section aside span{
+              color: yellow;
+          }
+
+          /* 同胞选择器：
+             a + b ：改变a下面的第一个同胞元素b。
+             a ~ b : 改变a下面所有的同胞元素b。
+         */
+        h3 + h2{
+            color: red;
+        }
+        h3 ~ h2{
+            color:olive;
+        }
+    </style>
+
+    <!-- 
+        选择器的优先级排序：
+        ！impotant ————> 行内样—式  ———> ID ————> 标签选择器 ————> 后代选择器 ————>  通配符 ————>  继承 ————>  浏览器默认属性
+        
+     -->
+</head>
+<body>
+    <!-- class： 通用属性，给元素加class类标识 -->
+    <div class="box box1 box2">hello</div>
+    <!-- id：通用属性，给元素添加唯一标识 -->
+    <div id="box" class="box2">world 1</div>
+    <div id="box">world 2</div>
+    <!-- p.text  p#text -->
+    <p class="text"></p>
+    <p id="text"></p>
+
+    <!-- 元素关系：
+         父子关系：两个相邻并相互嵌套，外层为父内层为子。  
+         后代关系：嵌套中，某个元素内所有的元素，都属于其后代。   
+         同胞关系：两个或多个元素有相同的父级元素称为同胞。
+        -->
+        <section>
+        <aside>
+            <p>内部元素p</p>
+            <span>内部元素span</span>
+        </aside>
+        <p>p2</p>
+      </section>
+
+      <h2>标题2</h2>
+      <h3>标题3</h3>
+      <h2>标题2</h2>
+      <h2>标题2</h2>
+      <h2>标题2</h2>
+
+
+</body>
+    <script>
+        var box11 =document.getElementById("box");
+        console.log(boxA11);
+    </script>
+</html>

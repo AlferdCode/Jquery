@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位</title>
+    <style>
+        nav{
+            width: 100%;
+            height: 50px;
+            background-color: #222222;
+            color: #fff;
+            font-size: 0.5cm;
+            text-align: center;
+            letter-spacing: 20px;
+            position: fixed;
+            /* 页面的底部 */
+            bottom: 0;
+            left: 0;
+        }
+        nav span{
+            width: 300px;
+            height:30px;
+            background-color: red;
+            /* 定位配合 margin 使元素水平垂直居中 */
+            position: absolute;
+            left: 0;top: 0;right: 0;bottom: 0;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+    固定定位： position: fixed;
+     - 元素使用定位后，会脱离文档流（不占据流式布局中的位置），触发BFC显示在流式布局的上层 。
+     - 元素使用定位后，可使用 top / right / bottom / left 调整定位元素的位置，位置永远从浏览器的左上角出发 。
+     - 固定定位元素不会受其他定位的影响“不会因为外层有其他定位改变出发点”。
+     -->
+    <nav>
+        <span>固定定位</span>
+    </nav>
+    <section style="height: 1000px; background-color: pink;"></section>
+</body>
+</html>

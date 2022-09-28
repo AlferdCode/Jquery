@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myCanvas{
+            /* 注意：尽量不要使用宽度或高度设置canvas的大小，回应fillRect() */
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- canvas提供了一张“空白”的画布，需要通过js在画布上画图 -->
+    <canvas class="myCanvas"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        // 得到画布
+        var canvas = document.querySelector('.myCanvas');
+        // 得到画布的上下文 (口语化，画布上可用的区域);
+        var ctx = canvas.getContext("2d");
+        console.log(ctx);
+        // 填充颜色
+        ctx.fillStyle = "red";
+        // 在一个矩形中填充，创建一个矩形
+        // 参数fillRect(X坐标 , Y坐标 , 宽 , 高 );
+        ctx.fillRect(100,75,50,50);
+        // 擦除方法“擦除一部分画布”
+        ctx.clearRect(100,75,25,25);
+
+        // 线条的颜色
+        ctx.strokeStyle = "red";
+        ctx.strokeRect(75,75,100,60);
+
+        ctx.strokeStyle = "black";
+        // moveTo() 起始坐标带点
+        ctx.moveTo(0,0);
+        // lineTo() 结束坐标带点
+        ctx.lineTo(200,200);
+        // 画线，连接起始点和结束坐标
+        ctx.stroke();
+        ctx.closePath();
+        
+        // 重新设置一条路径
+        ctx.beginPath();
+        ctx.strokeStyle = "green";
+        // arc角度 Math.PI 360度 = 2 * Math.PI。
+        // 参数(圆心X坐标，圆心Y坐标，半径 ，开始角度，结束的角度，顺逆时针)
+        ctx.arc(100,100,60,0,Math.PI,false);
+        ctx.stroke();
+
+        // 重新给画笔设置颜色
+        ctx.fillStyle = "red";
+        ctx.font = "30px 宋体";
+        // fillText(文本，x坐标，Y坐标)，添加文本内容
+        ctx.fillText("hello",10,50);
+
+        // right to left;改变文本位置方向“默认从左至右”
+        ctx.direction = 'rtl';
+        ctx.strokeText("!helloworld",200,100);
+        
+
+        
+    </script>
+</body>
+</html>

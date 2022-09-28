@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框实现三角形</title>
+    <style>
+        /* 等腰三角形 */
+        .box {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 100px 150px 100px;
+            border-color: transparent transparent orangered transparent;
+        }
+
+        /* 直角三角形 */
+        .box1 {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 130px 150px 0;
+            border-color: transparent transparent olive transparent;
+            margin: 50px;
+        }
+
+        /* 钝角三角形 */
+        .box2 {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 200px 120px 110px;
+            border-color: transparent transparent rgb(0, 4, 255) transparent;
+        }
+
+        /* 左右拼色 */
+        .box3 {
+            width: 0;
+            height: 200px;
+            /* background-color: red; */
+            border-left: 100px solid red;
+            border-right: 100px solid #000;
+        }
+
+        /* 上下拼色 */
+        .box4 {
+            width: 200px;
+            height: 0;
+            /* background-color: red; */
+            border-top: 100px solid rgb(0, 255, 64);
+            border-bottom: 100px solid rgb(199, 41, 41);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 三角形要领
+        1.宽高设置为0
+        2.设置四个单边框的宽度,样式,颜色
+        3.保留一侧边框的颜色,其余设置为transparent透明的
+        4.保留色边框两侧额宽度,及自身的宽度,可调整三角形的形状
+      -->
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+
+</html>

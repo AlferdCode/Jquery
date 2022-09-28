@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas,
+        #canvas2{
+            border: 1px solid red;
+        }
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="../2022.07.20/img/2.jpg" alt="">
+    <canvas id="canvas" width="800px" height="300px"></canvas>
+    <canvas id="canvas2"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector('#canvas');
+        var ctx = canvas.getContext("2d");
+
+        var img = document.querySelector("img");
+        // 在图片记载后，绘制到画布上。
+        img.onload = function(){
+            // drawImage(获取的img元素，x起始点，y轴起始点，图片的宽，图片的高)
+            ctx.drawImage(img,0,0,800,300);
+        }
+
+        /** @type {HTMLCanvasElement} */
+        var canvas2 = document.querySelector('#canvas2');
+        var ctx2 = canvas2.getContext("2d");
+        ctx2.moveTo(10,10);
+        ctx2.lineTo(100,10);
+        ctx2.lineTo(100,70);
+        // 设置填充色
+        ctx2.fillStyle = "blue";
+        // 填充
+        ctx2.fill();
+        // 注意：在绘制下一条线前闭合上一条线的路径
+        ctx2.closePath();
+
+        ctx2.strokeStyle = "red";
+        ctx2.stroke();
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    width: 600px;
+    height: 800px;
+    background-color: #fff;
+    box-shadow: -5px 0 10px #666;
+    margin: 50px auto;
+}
+table{
+    border: 2px solid #a2a0a0;
+    margin: 0 auto;
+    /* 单元格间隙合并 */
+    border-spacing: 0;
+    /* 合并的线消失 */
+    border-collapse: collapse;
+}
+caption{
+    margin: 60px 0 20px;
+    color: #5799d5;
+    /* 字体类型 */
+    font-family: "宋体";
+    font-size: 24px;
+    /* 词间距 */
+    letter-spacing: 10px;
+
+}
+table tbody td{
+    height: 26px;
+    border: 2px solid #a2a0a0;
+    text-align: center;
+    color: #5799d5;
+    font-size: 12px;
+    /* 字体粗细 */
+    font-weight: bold;
+}
+table .names{
+    width: 80px;
+    
+}
+table .blank{
+    width: 120px;
+}
+table .message{
+    width: 140px;
+}
+table .box1{
+    height: 50px;
+}
+table .box2{
+    height: 120px;
+}
+table .box3{
+    height: 80px;
+}
+table .box4{
+    height: 60px;
+}
+table .box5{
+    height: 70px;
+}
+

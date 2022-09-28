@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS属性</title>
+    <style>
+        .box{
+            /* 宽度，单位 %百分比，占父元素宽度的百分之多少，相对单位。 */
+            width: 80%;
+            /* 高度，单位 px像素“页面中最小的显示单位”，固值单位。 */
+            height: 100px;
+            /* 设置背景颜色 */
+            background-color: olive;
+        }
+        p{
+            background-color:#cccc;
+            /* 设置文本大小，默认文本16px，最小文本12px */
+            font-size: 30px;
+            /* 设置文本的颜色 */
+            color:#666666;
+            /* 设置文本的粗细度
+            normal:默认值。浏览器默认。   bold:粗体文本。  light:细体文本.  */
+            font-weight: lighter;
+            /* 设置文本的样式，italic: 斜体文本。 */
+            font-style: italic;
+            /* 设置字体的类型 “通过font-family对照表查看” */
+            font-family: "宋体";
+            /* 文本在元素内水平方向的对齐方式
+            left/start ：水平居左。 center:水平居中。 right/end:水平居右。 */
+            text-align:center ;
+            /*  设置行高，行间距,让文本在指定的高度内垂直居中。
+                行高：当块级元素未设置height时，可以增加高度,有高度高度不变，行间距为设置值。
+                行间距：体现在多行之间，设置额值时每行的行高。
+                单位为%：元素字体大小的百分之多少。
+             */
+            line-height: 50%;
+            height: 80px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <p>hello <br> world! </p>
+</body>
+</html>

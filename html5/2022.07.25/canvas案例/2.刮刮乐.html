@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮乐</title>
+    <style>
+        .prize {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 30px;
+            color: red;
+        }
+
+        #canvas {
+            border: 1px solid #999;
+            position: absolute;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="300px" height="150" id="canvas"></canvas>
+    <div class="prize"></div>
+</body>
+<script>
+    window.onload = () => {
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector('#canvas');
+        var ctx = canvas.getContext('2d');
+
+        // 绘制矩形
+        ctx.fillStyle = "#999";
+        ctx.fillRect(0, 0, 300, 150);
+
+        
+        // canvas.onmousedown = (e) => {
+        //     canvas.onmousemove = (e2) => {
+        //         var x =  e2.clientX;
+        //         var y =  e2.clientY;
+        //         ctx.clearRect(x, y, 15, 15);
+        //     }
+        // }
+        // canvas.onmouseup = (e)=>{
+        //     canvas.onmousemove = null;
+        // }
+
+        // 事件
+        var mouseover = (e) => {
+            var x = e.pageX - 10 - 7 || e.clientX;
+            var y = e.pageY - 10 - 7 || e.clientY;
+            ctx.clearRect(x, y, 15, 15);
+        }
+
+        // 在画布上按下鼠标，给画布添加事件
+        canvas.addEventListener('mousedown', function () {
+            canvas.addEventListener('mousemove', mouseover);
+        })
+
+        // 当画布上抬起鼠标事件
+        canvas.addEventListener('mouseup', function () {
+            this.removeEventListener('mousemove', mouseover);
+        })
+
+        // 给prize容器显示奖品
+        var arr = ['奖品1', '奖品2', '奖品3', "谢谢惠顾"];
+        var i = Math.floor(Math.random() * arr.length);
+        document.getElementsByClassName('prize')[0].innerHTML = arr[i];
+
+
+
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素</title>
+    <style>
+
+        /* ::before 添加前缀 */
+        p::before{
+            /* 前后缀必备属性 */
+            content:"hello " ;
+            color: red;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+
+        /* ::after 添加后缀 */
+        p::after{
+            /*  添加图片:使用content添加图片大小不能改变，可以把content设置为空再添加背景图调整即可 */
+            /*  content: url(../2022.3.19/img/chi.jpeg); */
+            content: "";
+            display: block;
+            width: 400px;
+            height: 600px;
+            background-size: 20px 60px;
+            background-image: url(../2022.3.19/img/chi.jpeg);
+            background-size:100% 100%;
+        }
+        .box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #cccccc;
+        }
+        .box::before{
+            content: "";
+            display:block;
+            width: 100px;
+            height: 2px;
+            background-color: #000000;
+        }
+        .box::after{
+            content: "";
+            display:block;
+            width:2px;
+            height: 100px;
+            background-color: #000000;
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+        /* ::first-letter 改变第一行的第一个字符的文本样式 */
+        h1::first-letter{
+            font-size: 30px;
+            color: red;
+        }
+        /* ::first-line 改变第一行文本样式 */
+        h1::first-line{
+            background-color: rosybrown;
+        }
+        /* ::selection 用户选中文本后的状态 */
+        h1::selection{
+            color: red;
+            background-color: yellow;
+        }
+        /* 对input元素的 placeholder 属性的值进行改变 */
+        input::-webkit-input-placeholder{
+            font-size: 12px;
+            color: #000;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 伪元素：
+        特点：选择器有“ ：：”为前缀。
+        描述:相当于创建了一个html元素。
+        作用：用于代替实际的html元素。
+    -->
+    <p>world</p>
+    <div class="box"></div>
+    <h1>
+        第一行<br>
+        第二行<br>
+        Hello World!
+    </h1>
+    <input type="text" placeholder="请输入账号">
+</body>
+</html>

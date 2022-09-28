@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太极图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            height: 100%;
+        }
+         body,.box .box-rt,.box .box-lt .center{ 
+            background-color: black;
+         }
+         .box,.box-lt ,.box .box-rt .center{
+            background-color: #ffffff;
+      }
+         .box,.box .box-lt,.box .box-rt,.box .center{
+             border-radius: 50%;
+         }
+    
+        .box{
+            width: 400px;
+            height: 0;     
+            margin: 50px auto;
+            border-top: 200px solid #ffffff;
+            border-bottom: 200px solid #000000;
+            /* 把高度取消或者边框取消 */
+            /* box-sizing: border-box; */
+            /* 盒子阴影 */
+            box-shadow: 0px 0px 50px #999;
+        }
+        .box .box-lt, .box .box-rt{
+            width: 200px;
+            height: 200px;
+            /* 盒子塌陷 */
+            overflow: hidden;
+            /* 转换为行内块元素 */
+            /* display: inline-block; 
+            margin-top: -100px; */
+        }
+        .box .box-lt{
+            margin-top: -100px;
+        }
+        .box .box-rt{        
+            margin:  -200px 0 0 200px;
+        }
+        .box .center{
+            width: 50px;
+            height: 50px;
+            margin: 75px 0 0 75px;
+          }  
+    </style>
+</head>
+<body>
+    <!-- 外层盒子“半黑半白” -->
+    <div class="box">
+        <!-- 左侧块 -->
+        <div class="box-lt">
+            <div class="center"></div>
+        </div>
+        <!-- 右侧块 -->
+        <div class="box-rt">
+            <div class="center"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

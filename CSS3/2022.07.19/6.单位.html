@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 10px;
+        }
+        body{
+            font-size: 16px;
+        }
+        /* 长度单位 */
+        /* em : 相对于父级元素的字号为标准计算“倍数”。
+        嵌套关系都使用em，会逐级相乘   例如：16px * 2 * 1.5 */
+        p{
+            font-size: 2em; 
+        }
+        span{
+            color: red;
+            font-size: 1.5em; 
+        }
+        /* rem：相对于根元素“html” 的字号为标准计算“倍数”。 */
+        h2{
+            font-size: 4rem;
+        }
+
+        .box{
+            /* 
+            vw把视口的宽度分成100份，其中1vw代表一份 
+            vh把视口的高度分成100份，其中1vh代表一份*/
+            width: 50vw;
+            height: 50vw;
+            background-color: pink;
+            font-size: 2vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>hello <span>world！</span></p>
+        <h2>hi</h2>
+    </div>
+</body>
+</html>

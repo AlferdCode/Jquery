@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本使用步骤</title>
+    <!-- 1.引入核心文件 -->
+    <script src="../js/echarts.js"></script>
+
+    <style>
+        .box {
+            width: 500px;
+            height: 400px;
+            margin: 20px auto;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 2.创建容器，用于放置图表 -->
+    <div class="box"></div>
+
+    <!-- 3.实例化及配置图表 -->
+    <script>
+        var box = document.querySelector('.box');
+        // echarts.init() 初始化容器
+        var echarts = echarts.init(box);
+        // 各种配置项(重点)
+        var option = {
+            title: {
+                text: '第一个Echarts实例',
+                show: true,
+                link: "https://www.baidu.com",
+                target: "_blank",
+                textStyle: {
+                    color: "red",
+                    fontSize: "20px"
+                },
+                x: 'left',
+                borderColor: "green",
+                borderWidth: 1,
+                subtext: "二级标题",
+                sublink: "http://www.sina.com.cn"
+            },
+            tooltip: {
+                show: true,
+            },
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: [{
+                    value: "衬衫",
+                    textStyle: {
+                        color: 'red',
+                        fontSize: 20
+                    }
+                },'羊毛衫','雪纺衫','裤子','高跟鞋','袜子'
+                ]
+            },
+            yAxis:{
+
+            },
+            series:[{
+                name:'销量',
+                type:'bar',
+                data:[5,20,36,10,10,20]
+            }]
+        }
+        // 配置图表
+        echarts.setOption(option);
+
+
+
+    </script>
+</body>
+
+</html>

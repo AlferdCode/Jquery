@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // 要实现动画的图片，图片的大小
+        var anim_img ,
+        size_x = 300,size_y = 300,
+        canvas_size_x = 800,canvas_size_y = 800,
+        x_icon = 0,y_icon = 0, 
+        stepX = 10,stepY = 10 ;
+        // 动画函数
+        function myAnimation(){
+             /** @type {HTMLCanvasElement} */
+            ctx.clearRect(0,0,canvas_size_x,canvas_size_y);
+            if(x_icon < 0 || x_icon > canvas_size_x - size_x){
+                stepX = -stepX;
+            }
+            if(y_icon < 0 || y_icon > canvas_size_y - size_y){
+                stepY = -stepY;
+            }
+            x_icon += stepX;
+            y_icon += stepY;
+            
+            ctx.drawImage(anim_img,x_icon,y_icon);
+            
+            requestAnimationFrame(myAnimation);
+        }
+
+        // 执行函数
+        function draw(){
+            var canvas = document.getElementById("canvas");
+            canvas.width = canvas_size_x;
+            canvas.height = canvas_size_y;
+            ctx = canvas.getContext('2d');
+
+            anim_img = new Image(size_x,size_y);
+            anim_img.src = "wmxg.jpg";
+
+            anim_img.onload = function(){
+                myAnimation();
+                // setInterval(myAnimation,10);
+            }
+        }
+        draw();
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body,#box{
+            height: 100%;
+        }
+        #box{
+            width: 100%;
+        }
+    </style>
+    <script src="../js/echarts.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var box = document.getElementById('box');
+        var charts = echarts.init(box);
+        var option = {
+            xAxis:{
+                type:'category',
+                data:['星期一','星期二','星期三','星期四','星期五','星期六','星期日']
+            },
+            yAxis:{
+                type:"value"
+            },
+            series:[{
+                data:[820,965,900,856,1852,1650,1200],
+                type:'line',
+                smooth:true
+            }]
+        }
+        charts.setOption(option);
+    </script>
+</body>
+</html>

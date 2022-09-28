@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #box {
+            height: 100%;
+            width: 100%;
+        }
+
+        .update {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .update button {
+            background-color: blue;
+            color: #fff;
+            outline: 0;
+            border: 0;
+            height: 50px;
+            line-height: 50px;
+            width: 120px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    </style>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <div class="update"><button>更新数据</button></div>
+    <div id="box" style="height: calc(100vh - 100px)"></div>
+
+    <script>
+        var box = document.getElementById('box');
+        var myChart = echarts.init(box);
+
+        // $.get('./js/data.json',function(data){
+        //     console.log(data);
+        //     // 接口中额数据获取后，载设置配置项
+        //     myChart.setOption({
+        //         title:{
+        //             text:'访问来源1',
+        //             x:"center"
+        //         },
+        //         series:[
+        //             {
+        //                 name:'访问来源',
+        //                 type:'pie', //设置图表的类型
+        //                 radius:'55%', // 饼图的半径，外半径为可视区域的尺寸
+        //                 // 饼图的使用的数据
+        //                 data:data.pie1
+        //             }
+        //         ]
+
+        //     })
+        // },'json')
+
+
+        $.getJSON('./js/data.json').done(function (data) {
+            console.log(data);
+            // 接口中额数据获取后，载设置配置项
+            myChart.setOption({
+                title: {
+                    text: '访问来源1',
+                    x: "center"
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie', //设置图表的类型
+                        radius: '55%', // 饼图的半径，外半径为可视区域的尺寸
+                        // 饼图的使用的数据
+                        data: data.pie1
+                    }
+                ]
+            })
+        });
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            // fetch:拉取，拉数据，不需要任何的依赖，属于原生JS，比xmlHttpReques有优势，步骤精简
+            // fetch()是ES6新提供的获取数据的方法，返回Primise
+            // fetch()不能直接拿到数据，拿到的是Response类型数据，它的body属性中返回的ReadableStream流数据(二进制流)，需要流数据转换为json格式的数据。
+            window.fetch('./js/data.json').then(function (res) {
+                // 把流数据转换为json数据。
+                return res.json();
+
+            }).then(function (res) {
+                console.log(res);
+                // 接口中额数据获取后，载设置配置项
+                myChart.setOption({
+                    title: {
+                        text: '访问来源2',
+                        x: "center"
+                    }, 
+                    series: [
+                        {
+                            name: '访问来源',
+                            type: 'pie', //设置图表的类型
+                            radius: '55%', // 饼图的半径，外半径为可视区域的尺寸
+                            // 饼图的使用的数据
+                            data: res.pie2
+                        }
+                    ]
+                })
+            }).catch(function(err){
+                console.log("请求失败，错误原因" + err);
+            })
+        }
+
+        window.onresize = function(){
+            myChart.resize();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

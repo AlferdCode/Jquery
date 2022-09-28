@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类同胞选择器</title>
+    <style>
+        /* 一：不区分类型
+         :first-child   选中指定元素同级别中第一个标签“位置要匹配”。
+         :last-child  选中指定元素同级别中最后一个标签“位置要匹配”。
+         :nth-child(n)  选中同级别中的第 n 个元素“位置要匹配”
+            参数：number / even (偶数) / odd （奇数） /  n+1"n为计数器，从0开始递增选择，到元素的总个数停止" */
+        /* h1:first-child{
+            color: red;
+        }
+        span:last-child{
+            color:blue;
+        }
+        h1:nth-child(5){
+            color: cyan;
+        }
+        h1:nth-child(odd){
+            background-color:green;
+        }
+        span:nth-child(even){
+            background-color:rgb(128, 0, 75);
+        } 
+        h1:nth-child(n+1){
+            background-color: blueviolet;
+        } */
+
+
+        /* 二：区分类型的
+        :first-of-type  选中同级别中类型的第一个标签元素
+        :last-of-type  选中同级别中类型的最后一个标签元素
+        :nth-of-type(n)  选中同级别中的第n个元素
+            参数：number / even (偶数) / odd （奇数） /  n+1"n为计数器，从0开始递增选择，到元素的总个数停止"
+        */
+        span:first-of-type{
+            color: red;
+        }
+        h1:last-of-type{
+            color: blue;
+        }
+        h1:nth-of-type(4){
+            color: green;
+        }
+        h1:nth-of-type(even){
+         background-color: rgb(90, 128, 0);
+        }
+        h1:nth-of-type(odd){
+          background-color: rgb(241, 171, 20);
+        }
+    </style>
+</head>
+<body>
+     <h1>标题1</h1>
+     <span>span元素</span>
+     <h1>标题1</h1>
+     <span>span元素</span>
+     <h1>标题1</h1>
+     <h1>标题1</h1>
+     <span>span元素</span>
+     <h1>标题1</h1>
+     <h1>标题1</h1>
+     <h1>标题1</h1>
+     <span>span元素</span>
+</body>
+</html>

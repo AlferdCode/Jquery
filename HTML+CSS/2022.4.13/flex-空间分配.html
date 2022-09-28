@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex空间分配</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            height: 800px;
+            border: 2px solid black;
+            display: flex;
+        }
+        ul li{
+            background-color: aquamarine;
+            border: 1px solid #cccccc;
+            font-size: 2cm;
+            text-align: center;
+        }
+        ul li:nth-child(1){
+            /* flex-grow:设置项目的放大比例，将容器剩余的空间按照比例“flex-grow的值相加”划分给每一个项目“值是几就是占比例的几份”
+            值：number,默认值为0，不支持负数，值越大占的比例越多。 */
+            /* flex-grow:1; */
+            flex-basis: 500px;
+            /* flex-shrink:设置项目的收缩比例，如果容器的空间不足，项目所占空间将缩小“默认项目按照尺寸大小匀速收缩”。
+            值：number，0不收缩，值越大收缩的越厉害。
+             */
+            flex-shrink: 10;
+        }
+        ul li:nth-child(2){
+            flex-shrink: 0;
+            flex-basis: 500px;
+        }
+        ul li:nth-child(3){
+            /* flex-grow:2; */
+            flex-shrink: 1;
+            flex-basis: 300px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>弹</li>
+        <li>性</li>
+        <li>布</li>
+        <li>局</li>
+    </ul>
+</body>
+</html>

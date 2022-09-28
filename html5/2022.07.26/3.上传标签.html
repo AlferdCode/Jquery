@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        label{
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid;
+            margin: 10px;
+            background-color: #cccccc;
+        }
+        #btnUpload2 img{
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="upload" accept="image/*" multiple style="display: none;">
+    <label for="upload" id="btnUpload">选择文件</label>
+    <a href="" id="btnUpload2">
+        <img src="../2022.07.25/wmxg.jpg" alt="">
+    </a>
+
+    <script>
+        var upload = document.querySelector('#upload');
+
+        upload.onchange = function(){
+            // files 获取上传的所有文件
+            console.log(upload.files);
+
+            var total = 0;
+            // 上传的所有文件的大小。要求：kb
+            for(var i = 0;i<upload.files.length;i++){
+                var file = upload.files[i];
+                total += file.size;
+            }
+
+            total = (total / 1024).toFixed(2);
+            console.log(total);
+            console.log(upload.files[0].name);
+            document.querySelector('#btnUpload2 img').src = upload.files[0].name
+        }
+
+        btnUpload.onclick = upload.onclick = function(){
+            console.log("hello");
+        }
+
+
+    </script>
+</body>
+</html>

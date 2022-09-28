@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翘边阴影</title>
+    <style>
+        .box-shadow1,
+        .box-shadow2{
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 
+            0 0 5px rgba(255, 0, 0, 0.5) inset,
+            0 0 50px rgba(255, 0, 0, 0.1) inset;
+        }
+
+        .box-shadow1::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            left: 10px;
+            right: 10px;
+            background-color: transparent;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            z-index: -1;
+            border-radius: 100px/10px;
+        }
+
+        .box-shadow2::after,
+        .box-shadow2::before{
+            content: "";
+            position: absolute;
+            top: 20px;
+            bottom: 22px;
+            background-color: transparent;
+            z-index: -1;
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.7);
+        }
+        .box-shadow2::after{
+            left: 12px;
+            right: 22px;
+            transform: skew(12deg) rotate(4deg);
+        }
+        .box-shadow2::before{
+            left: 22px;
+            right: 12px;
+            transform: skew(-12deg) rotate(-4deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box-shadow1"></div>
+    <div class="box-shadow2">222222222222</div>
+</body>
+</html>

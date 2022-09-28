@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- 1。引入脚本 -->
+    <script src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=jkaB25RaTQE8NqAd7zaGsUG44aB7k4Kh"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            height: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <!-- 注意：引入脚本为1.0需要使用BMapGL ，仅支持谷歌使用。 “获取需要引入3.0脚本” -->
+    <div id="container"></div>
+    <script>
+        var map = new BMapGL.Map("container");
+        var point = new BMapGL.Point(113.751,34.723);
+        map.centerAndZoom(point,15);
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function (postion) {
+                    var point = new BMapGL.Point(postion.coords.longitude,postion.coords.latitude);
+                    var mk = new BMapGL.Marker(point);
+                    map.addOverlay(mk);
+                    map.panTo(point);
+                }, function (err) {
+                    switch (err.code) {
+                        case err.PERMISSION_DENIEO:
+                            console.log("用户拒绝功德箱地理位置信息");
+                            break;
+                        case err.PERMISSION_UNAVAILABLE:
+                            console.log("无法获取当前位置");
+                            break;
+                        case err.TIMEOUT:
+                            console.log("操作超时");
+                            break;
+                        case err.UNKNOWN_ERROR:
+                            console.log("其他错误");
+                            break;
+                    }
+                })
+            }
+        }
+        getLocation()
+    </script>
+</body>
+</html>

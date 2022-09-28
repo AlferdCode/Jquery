@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加水印</title>
+</head>
+
+<body>
+    <img id="img1" src="../wmxg.jpg" alt="">
+
+    <script>
+        //传的参数可以自己配置 加水印的方法
+        function _picZ({
+            url = "",
+            textAlign = "left",
+            textBaseline = "top",
+            font = "12px Microsoft Yahei",
+            fillStyle = "rgba(255, 0, 0, .5)",
+            content = "",
+            cb = null
+        } = {}) {
+            var img = new Image();
+            img.src = url;
+            // 判断是否支持跨域  anonymous匿名 crossOrigin跨源
+            img.crossOrigin = "anonymous";
+            img.onload = function () {
+                // 创建画布
+                const canvas = document.createElement("canvas");
+                // 画布的宽高和图片相同
+                var _ix = img.width;
+                var _iy = img.height;
+                canvas.width = _ix;
+                canvas.height = _iy;
+
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+                ctx.textAlign = textAlign;
+                // 文本基线对齐
+                ctx.textBaseline = textBaseline;
+                ctx.font = font;
+                ctx.fillStyle = "fillStyle";
+                ctx.globalCompositeOperation = 'destination-out';
+
+                // 在某个位置添加水印
+                // ctx.fillText(content, _ix - 100, _iy - 100);
+                ctx.translate(50, -100);
+                ctx.rotate((Math.PI / 180) * 15);  //旋转角度
+
+                // 密度可以自己定
+                for (var i = 0; i < _iy / 120; i++) {
+                    for (var j = 0; j < _ix / 50; j++) {
+                        ctx.fillText(content, (i + 1) * 120, (j + 1) * 50, _ix);
+                    }
+                }
+
+                var base64Url = canvas.toDataURL();
+                cb && cb(base64Url);
+            };
+        }
+        _picZ({
+            url: '../wmxg.jpg', //这里传的file是上传的图片文件
+            content: "美女图",
+            font: "30px Microsoft Yahei",
+            fillStyle: "red",
+            cb: base64Url => {
+                console.log(base64Url) //转换完成的base64格式图片
+                img1.src = base64Url
+            }
+        });
+    </script>
+</body>
+
+</html>

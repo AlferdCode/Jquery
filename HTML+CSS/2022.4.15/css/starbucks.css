@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+html,body{
+    height: 100%;
+}
+.warp{
+    height: 100%;
+}
+header{
+    position: fixed;
+    left: 0; top: 0;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(250, 140, 198);
+}
+main{
+    position: relative;
+    left: 30%;
+    width: 70%;
+    height: 100%;
+    background-color: aqua;
+}
+@media screen and (max-width:1204px){
+    header{
+        position: static;
+        width: 100px;
+        height:auto;
+    }
+    main{
+        width: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width:640px){
+    header .first,header .last{
+        opacity: 0;
+    }
+    
+}
+header .first{
+    margin: 24px;
+}
+header .first .first_rt{
+    width: 36px;
+    height: 36px;
+}
+header .first .first_lt{
+    width: 24px;
+    height: 24px;
+    margin-left: 50px;
+}
+header img{
+    vertical-align: middle;
+}
+header a{
+    padding: 5px 10px;
+    font-size: 16px;
+    color:black;
+    color: inherit;
+
+}
+header h1:nth-child(2){ 
+    position: absolute;
+    top: 440px;
+    left: 78px;
+    font-size: 26px;  
+}
+header .last{
+    position: absolute;
+    top: 500px;
+    left: 78px;
+    color: #00A862;
+}
+header .last input{
+    width: 58px;
+    height: 32px;
+    border: 2px solid #00A862;
+    border-radius: 36%;
+    color: #00A862;
+}
+
+main .img_top{
+    position: relative;
+    width: 1063px;
+    height: 498px;
+    border: 1px solid;
+    overflow: hidden;
+}
+.img_top ul{
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    animation: move 5s linear infinite;
+}
+main .img_top ul li img{
+    width: 100%;
+    height: 100%;
+}
+@keyframes move {
+    0%{
+        left: 0;
+     }
+     47%{
+         left: 0;
+     }
+      /* 第二张图片展示 */ 
+      57%{
+        left: -1063px; 
+      }
+      97%{
+         left: -1063px;
+     } 
+     100%{
+         left: 0;
+     }
+} 
+main .img_down ul {
+    display: flex;
+}
+main .img_down ul li img{
+    width: 380px;
+    height: 250px;
+    padding: 30px;
+}
+main .img_down ul li img:hover{
+    transform: translatey(-18px);
+    transition-duration: 1s;
+}

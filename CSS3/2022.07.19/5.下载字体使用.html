@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  1.下载字体包  */
+        /*  2.使用 @font-face 的src引入文件*/
+        /*  3.给指定元素设置font-family 改变字符风格 */
+        @font-face {
+            font-family: "dsh";
+            src: url("./lib/fonts/清松手寫體2.ttf");
+        }
+        .box1{
+            font-family: "dsh";
+        }
+
+        @font-face {
+            font-family: "文道火柴体";
+            src:url(./lib/fonts/文道火柴体.ttf);
+        }
+        .box2{
+            font-family: "文道火柴体";
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1">你好，清松手寫體</div>
+    <div class="box2">你好，文道火柴体</div>
+</body>
+</html>

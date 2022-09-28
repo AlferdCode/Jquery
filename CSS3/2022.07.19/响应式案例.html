@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            font-size: 2cm;
+            text-align: center;
+        }
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background-color: pink;
+        }
+        section{
+            margin-left: 40%;
+            height: 1000px;
+            background-color: powderblue;
+        }
+
+        @media screen and (max-width: 700px ) {
+            nav{
+                position: static; /*静态定位=没有定位*/
+                width: 100%; 
+                height: 120px;
+            }
+            section{
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <nav>导航栏</nav>
+        <section>主体内容</section>
+    </main>
+</body>
+</html>

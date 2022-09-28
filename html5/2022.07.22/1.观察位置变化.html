@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数封装位置变化</title>
+</head>
+
+<body>
+    <!-- 在火狐浏览器 -->
+    <div id="result"></div>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(function (postion) {
+                    result.innerText = `经度:${postion.coords.longitude}，纬度:${postion.coords.latitude}`;
+                }, function (err) {
+                    switch (err.code) {
+                        case err.PERMISSION_DENIEO:
+                            console.log("用户拒绝功德箱地理位置信息");
+                            break;
+                        case err.PERMISSION_UNAVAILABLE:
+                            console.log("无法获取当前位置");
+                            break;
+                        case err.TIMEOUT:
+                            console.log("操作超时");
+                            break;
+                        case err.UNKNOWN_ERROR:
+                            console.log("其他错误");
+                            break;
+                    }
+                })
+            }
+        }
+        getLocation();
+    </script>
+</body>
+
+</html>

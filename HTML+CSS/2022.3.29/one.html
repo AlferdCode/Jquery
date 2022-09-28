@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprites“雪碧图”</title>
+    <style>
+         /* 方案一：通过原图大小设定显示窗口区域
+         原图的大小 ：1010 * 1010 .  小图的个数 ：一行7个 一例7个. 每个小图的大小 ：1010 / 7 = 144px
+         */
+         div{
+             display: inline-block;
+             width: 144px;
+            height: 144px;
+            border: 1px solid;
+            background-image: url(./img/jinglingtu.jpg);
+         }
+         /* 男博士 */
+         .box{
+            /* 图片定位获取一个小图片的位置 */
+            background-position:-288px -288px;
+         }
+         /* 篮球 */
+         .box1{
+             background-position: 432px 432px;
+         }
+         /* 奖牌 */
+        .box2{
+             /* background-position: -144px 288px; */
+             /* 设置宽高后可以用百分比 */
+             background-position: -100% 200%;
+        }
+
+         /* 方案二：指定背景显示区域后设置小图  */
+        section{
+            width: 30px;
+            height: 30px;
+            border: 1px solid;
+            display: inline-block;
+            background-image: url(./img/jinglingtu.jpg);
+            /* p1：根据每行每例7个小图，总图大小：背景区域 30 * 每行/每列7 = 210 * 210 */
+            /* background-size:210px 210px ; */
+            /* p2: 根据每行每例7个小图，总图大小：背景区域100% * 每行/每列7 = 700% *700% */
+            background-size: 700% 700%;
+        }
+        /* 铃铛 */
+        .sec1{
+            background-position: -30px -60px;
+        }
+        /* 望远镜 */
+        .sec2{
+            background-position: 100% 200%;
+        }
+        /* 书包 */
+        .sec3{
+            background-position: 30px -200%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--
+        Sprites雪碧图 ：又称精灵图片，就是将很多的小图放置到一个大的图片上面，精灵图主要作为背景图使用。
+        之所以使用精灵图是因为使用某张图片时需要向服务器发送请求资源，如果图片过多服务器的压力就会较大，所以精灵图可以减轻服务器的压力。
+        使用方式 ： 背景插入 ，图片的大小，背景定位 
+      -->
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <section class="sec1"></section>
+    <section class="sec2"></section>
+    <section class="sec3"></section>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+*{
+    margin:0; 
+    padding: 0;
+}
+/* section{
+    width: 800px;
+    height: 300px;
+    margin: 147px auto;
+    border: 2px solid;
+} */
+table{
+    border: 1px solid;
+    border-spacing: 0;
+    border-collapse: collapse; 
+    margin: 100px auto;
+    margin: inherit;
+}
+td{
+    width: 120px;
+    height: 30px;
+    border: 1px solid;
+    text-align: center;
+}
+caption{   
+    font-size: 20px;
+    font-family: "宋体";   
+
+}
+.bbb{
+    word-spacing: 28px;
+    text-align: left; 
+}
+#newtable,
+#newtable td,
+#newtable td:nth-child(6){
+   border: none;
+   margin: 0;
+}
+#newtable td{
+    width: 150px;
+    height: 30px;
+    border-right: 1px solid;
+}
+#son td{
+border: none;
+}

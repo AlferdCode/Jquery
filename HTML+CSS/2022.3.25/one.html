@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form —— input—— type</title>
+</head>
+<body>
+    <!-- 
+        form 元素: 创建表单，用来收集用户数据信息，并发送至服务器 。
+      action 属性：指定当前表单提交数据的服务器地址 。
+      method 属性：指定表单提交数据的方式，方式有两种“GET POST” 。
+    -->
+    <form action="" method="">
+        <!-- input 元素:定义输入框，按钮等。
+             type 属性: 核心属性，当 type 的值不同，对应的input的样式和功能都会发生对应的改变。
+                   值 ： 
+                        type = "text"     : 文本输入框。 
+                        type = "password" : 定义密码输入框，输入的内容将被掩码，加密 。
+                        type = "number"   : 定义number输入框，只能输入数字，小数点，字母e 。
+                        type = "email"    : 定义邮箱类型输入框，提交表单时进行校验邮箱格式即可，只有点击提交按钮才能看到效果 。
+                        type = "button"   : 定义可点击的按钮 。
+                        type = "submit"   ：定义提交按钮，将表单内的数据发送至服务器 。
+                        type = "reset"    ：定义重置按钮，将会清空表单内的数据 。
+                        type = "file"     : 定义选择文件按钮，可选择本地文件（压缩包，文件，图片）。
+                        type = "color"    : 定义一个取色器，可选取颜色 。
+                        type = "checkbox" : 定义复选框，可以同时选择多个 。
+                        type = "radio"    : 定义单选框，只能选择一个 。
+        -->
+        <input type="text"><br>
+        <input type="password"><br>
+        <input type="number"><br>
+        <input type="email"><br>
+        <!-- value 属性: input 的值，给按钮添加文本内容 。 -->
+        <input type="button" value="登录">
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        <!-- 默认选择只能选择一个文件。  multiple 属性：可以同时选择多个文件。-->
+        <input type="file" multiple><br>
+        <!-- accept 属性：规定上传的文件类型。格式（文件类型/*） -->
+        <input type="file" accept="image/*"><br>
+        <input type="file" accept="text/*"><br>
+        <input type="color">
+        <input type="checkbox">
+        <input type="radio" name="sex">
+        <input type="radio" name="sex">
+        <input type="search">
+        <input type="time">
+        <input type="image" src="../2022.3.19/img/chi2.jpeg" alt="image">
+    </form>
+</body>
+</html>

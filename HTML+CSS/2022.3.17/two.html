@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式继承 && 颜色取值</title>
+    <style>
+        /* 1.样式继承：父元素设置css样式，子元素有相同样式，为继承。
+           2.一般只有文本样式有继承性。
+           3.子元素和父元素样式相同，父元素值将被覆盖。
+           4.a超链接标签自身有活动色值“跳转前蓝色 中紫色 后红色 ”，不会继承父元素的color值。
+            */
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: #cccccc;
+            font-size: 30px;
+            color: red;
+        }
+        .box span{
+            font-size: 20px;
+        }
+        .box a{
+            /* inherit:继承父元素此属性值。*/
+            color:inherit;
+        }
+
+
+        /* 颜色的取值：
+        1.使用颜色名
+              现在 已经命名的颜色约有 180 多种，但是真正被各种浏览器都支持颜色并作为css规范使用颜色只有16种，所以不建议大家在网页制作中使用颜色名取值“避免颜色不被浏览器解析或者有差异”。
+        2.使用RGB
+              RGB是将红色，绿色，蓝色三种原色设置为需要的值进行调色生成。
+              取值：
+                  百分比 number“0 ~ 255”
+                  三个色值，都是最大数为白色，都是最小数为黑色，1~99都是灰色系
+              RGBA:第四个值为 alpha 添加透视度 取值范围 0.0~1.0之间 “0为完全透视，1为完全不透视”
+        3.使用十六进制数
+              是最常用的取值方法在6位数前面添加 # 颜色符号即可
+              可用RGB来描述。0—255是十进制数，转换为十六进制数书写即可，6位数对应3组值按照顺序“红色 绿色 蓝色” 拼接在一起。
+         */
+        section p{
+            width: 300px;
+            height: 50px;
+            background-color:#cccccc;
+        }
+        section .p1{
+            background-color: pink;
+        }
+        section .p2{
+             background-color: rgb(100%,30%, 90%);
+             background-color: rgba(1, 30,20, 0);
+        }
+        section .p3{
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>hello world!</span><br>
+        <a href="#">点击跳转</a>
+
+    </div> 
+    <section>
+        <p class="p1"></p>
+        <p class="p2"></p>
+        <p class="p3"></p>
+
+
+    </section>
+</body>
+</html>

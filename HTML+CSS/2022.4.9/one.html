@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指针，单位</title>
+    <style>
+        span{
+            background-color: #ccc;
+            /*  cursor指针 
+             值：
+                   default： 默认正常鼠标效果。
+                 hand/text： 文本选择效果。
+                   pointer： 超链接效果。
+                      wait： 加载效果。
+                      help： 帮助选择效果。
+                 crosshair:  精准选择。
+                  s-resize:  垂直调整。
+                  w-resize:  水平调整。
+                 se-resize:  对角线1。
+                 ne-resize:  对角线2。
+                      move:  移动效果。
+                   图片效果：
+                        url（图片的路径），auto/default。
+                        1.自定义图片必须为32*32的小图片。
+                        2.图片要以png/gif格式结尾的。
+                        3.url后面要有 auto/default。
+                        4.IE浏览器不支持gif格式。
+             */
+            cursor:url(./img/xiao.png),default;
+        }
+
+        .p1{
+            /* px:像素，固值，浏览器最小的显示单位 */
+            font-size: 20px;
+        }
+        .p2{
+            /* cm 厘米，mm 毫米 固值 */
+            font-size: 20mm;
+        }
+        .p3{
+            /* pt:表示磅，属于印刷单位 */
+            font-size: 20pt;
+        }
+        .p4{
+            /* 相对单位，（可以通过调整试图窗口大小观察）
+            vw 相对浏览器试图窗口“把试图窗口的宽度分为100个vw，值是多少占窗口宽度的百分之多少” 
+            vh 相对浏览器试图窗口“把试图窗口的高度分为100个vh，值是多少占窗口高度的百分之多少
+            作为字体单位：可以使文本跟随纯港口改变而自适应缩放。*/
+            width: 50vw;
+            height: 20vh;
+            background-color: antiquewhite;
+            font-size: 5vw;
+        }
+        /* em:相对单位，以父元素的字号为标准计算，父元素字体大小的多少倍“嵌套中都使用此单位会有逐级相乘的状态” 
+          rem:相对单位，以跟标签html的字号为标准计算，rem不会受上级元素的字号影响。
+        */
+        html{
+            font-size: 10px;
+        }
+        body{
+            font-size: 10px;
+        }
+        .p5{
+            font-size: 2em;
+        }
+        .p5 span{
+            font-size: 2em;
+        }
+        .p5 b{
+            font-size: 2.4rem;
+        }
+    </style>
+</head>
+<body>
+     <span>指针改变</span>
+     <P class="p1">这是一段文本px</P>
+     <P class="p2">这是一段文本cm,mm</P>
+     <P class="p3">这是一段文本pt</P>    
+     <P class="p4">这是一段文本vw,vh</P> 
+     <P class="p5">
+         <span>这是一段文本</span>
+        <b>子元素2</b>
+        </P>       
+</body>
+</html>

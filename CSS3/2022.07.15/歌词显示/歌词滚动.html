@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgb(189, 229, 245);
+            margin: 10px auto 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 5px;
+            background: #f5f9fa;
+            box-shadow: 5px 5px 10px #a9c9cc,
+                -5px -5px 10px #e5ffff;
+        }
+
+        ul {
+            position: absolute;
+            top: 150px;
+            width: 100%;
+            transition: top .3s linear;
+        }
+
+        ul>li {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        ul>li.active {
+            color: tomato;
+        }
+
+        ul>li {
+            font-size: 13px;
+        }
+
+        audio {
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li class="active"></li>
+        </ul>
+    </div>
+
+    <audio src="./孤勇者.m4a" controls></audio>
+    <script src="./js/孤勇者.js"></script>
+
+    <script>
+
+        var timeArr = []
+
+        var lrcArr = []
+
+        var reg = /\[(\d{2}:\d{2})\.\d{2}\](.+)/g
+
+        var tmp = reg.exec(lrcStr)
+
+        while (tmp) {
+            timeArr.push(tmp[1])
+            lrcArr.push(tmp[2])
+            tmp = reg.exec(lrcStr)
+        }
+
+        // 获取 ul 标签
+        var ul = document.querySelector('.box > ul')
+
+        // 循环遍历歌词数组
+        var str = ''
+        lrcArr.forEach((item, index) => {
+            str += `<li class="${index === 0 ? 'active' : ''}">${item}</li>`
+        })
+        ul.innerHTML = str
+
+        // 获取 audio 标签
+        var audio = document.querySelector('audio')
+
+        //绑定事件
+        audio.addEventListener('timeupdate', function () {
+            //  拿到时间去格式化
+            var { currentTime } = this
+            var minutes = parseInt(currentTime / 60)
+            var seconds = parseInt(currentTime % 60)
+            var timeStr = (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds)
+
+            // 在时间数组找到对应索引
+            var index = timeArr.findIndex(item => item === timeStr)
+            // console.log(index);
+            if (index !== -1) {
+                ul.style.top = -index * 20 + 150 + 'px';
+                [...ul.children].forEach(item => item.className = '')
+                ul.children[index].className = 'active'
+            }
+        })
+
+    </script>
+</body>
+
+</html>

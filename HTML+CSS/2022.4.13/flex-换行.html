@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul {
+            height: 800px;
+            border: 2px solid black;
+            display: flex;
+            /* flex-wrap 布局中换行方式，默认开启弹性布局后不会自动换行。  
+            值：
+              nowrap：默认，不换行。
+                wrap：换“从溢出容器的元素折行”
+        wrap-reverse:换行逆序，第一行在下面。 */
+           /* flex-wrap:wrap; */
+           /* align-content 换行后交叉轴对齐的 方式。
+             值：
+               flex-start: 对齐开始的位置，默认值左对齐。
+                 flex-end: 对齐结束的位置，右对齐。
+                   center: 居中。
+             space-evenly: 分散对齐1，项目之间和项目与容器边框之间的距离等分。
+             space-around：分散对齐2，项目之间距离等分，项目与容器边框之间的距离是项目之间的一半。
+            space-between：两端对齐，项目之间距离等分，项目与容器边框之间没有间距。           
+           */
+           align-content:space-evenly; 
+           justify-content: space-between;
+           /* 弹性流动：这是 flex-directionand 和 flex-wrap属性的简写
+           两个值：第一个值flex-directionand 第二个值flex-wrap; */
+           flex-flow: column wrap;
+        }
+        ul li {
+            width: 100px;
+            height: 300px;
+            background-color: aquamarine;
+            border: 1px solid #cccccc;
+            font-size: 2cm;
+            text-align: center;
+        }
+        ul li:nth-child(even){
+            width: 200px;
+            background-color:aqua;
+            /* 这是flex-grow,flex-shrink,flex-basis组合的简写。
+            值按照上方书写顺序对应，默认值flex：0 1 auto 
+            如果只设置一个值，例如flex：5；则会将 更改flex-basis为 0% ，所以值为 flex: 5 1 0%*/
+            flex:1 1 50%
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>弹</li>
+        <li>性</li>
+        <li>布</li>
+        <li>局</li>
+    </ul>
+
+</body>
+</html>

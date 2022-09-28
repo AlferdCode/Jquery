@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用</title>
+    <!-- 1.引入css文件 -->
+    <link rel="stylesheet" href="./layui-v2.6.8/layui/css/layui.css">
+    <!-- 2.引入JS文件 -->
+    <script src="./layui-v2.6.8/layui/layui.js"></script>
+
+    <style>
+        ul li {
+            background-color: antiquewhite;
+        }
+
+        /* .layui-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            padding: 20px;
+            border: 2px solid;
+            box-sizing: border-box;
+        } */
+        table{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- layui-main 设置一个宽度为1140px，定宽局居中的块 -->
+    <div class="layui-main" style="background-color: #ccc;height: 30px;">hello</div>
+    <!-- layui-inline 转换为行内块元素 
+         layui-clear 清除浮动元素-->
+    <ul>
+        <li class="layui-inline"><a href="#">第1块</a></li>
+        <li class="layui-inline"><a href="#">第2块</a></li>
+        <li class="layui-inline"><a href="#">第3块</a></li>
+        <li class="layui-inline layui-clear" style="float: right;"><a href="#">第4块</a></li>
+        <li class="layui-inline layui-clear" style="float: right;"><a href="#">第5块</a></li>
+    </ul>
+    <!-- layui-box 将其他UI框架强制转换为border-box 的效果解决，排除。 
+    一个元素自带box-sizing: border-box; 使用layui-box之后不会被强制使用border-box“必须设置才能使用”
+    layui-btn-fluid：最大化按钮宽度“父元素宽度的百分百”。
+    -->
+    <div class="layui-box" style="width: 500px;">
+        <button class="layui-btn-fluid">按钮</button>
+    </div>
+</body>
+
+</html>

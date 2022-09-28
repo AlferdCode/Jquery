@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 5px solid;
+            padding: 10px;
+            background-image: url(./没有名字/上传图片.gif);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            /* 背景剪裁：border-box 边框区域内，padding-box 内边距以内，content-box内容区域以内*/
+            background-clip: content-box;
+        }
+
+        /* 多重背景：给一个元素添加多个背景图 */
+        .box1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            background: url(./img/企鹅.jpg),url(./img/a.jpg),url(./img/b.jpg),url(./img/dog.jpg);
+            background-repeat: no-repeat;
+            background-size: 80px 80px,150px 150px, 220px 220px, 100% 100%;
+            background-position: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

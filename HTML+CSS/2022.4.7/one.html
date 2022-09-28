@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类</title>
+    <style>
+        /* :link  超链接未被访问前的状态 */
+        a:link{
+            color: blueviolet;
+            font-size: 30px;
+        }
+        /* :visited  超链接访问后的状态 
+          注意：由于隐私原因，所以visited 只能设置文本color,其他属性均没有效果*/
+        a:visited{
+            color:red;
+            font-size: 20px;
+        }
+        /* :hover 鼠标移入元素发生的改变 */
+        a:hover{
+            color: olive;
+            font-size: 10px;
+        }
+        /* :active 用于活动链接（鼠标按下和松开之间的状态） */
+        a:active{
+            color: yellow;
+            font-size: 20px;
+        }
+        /* 超链接伪类记忆方式 ：lover hate（爱恨交织）
+           注意 : 如果顺序出现错乱，会导致某些伪类的css样式无效 */
+
+
+          /* ：checked 选择被中的input元素 */
+          input:checked{
+              width: 50px;
+              height: 50px;
+          }
+           /* : disabled 选择被禁用的input元素 */
+         input:disabled{
+             width: 30px;
+             height: 30px;
+         }
+         /*  ：enabled 选择被启用的input元素 */
+         input:enabled{
+             background-color: orange;
+         }
+         /* :focus 当input元素获取焦点后的状态 */
+         input:focus{
+             background-color: orangered;
+             /* 表单的轮廓线设置 */
+             outline:2px dashed;
+             outline-width: 5px;
+             outline-style: dotted;
+             outline-color: palegreen;
+         }
+
+    </style>
+</head>
+<body>
+    <!-- 超链接伪类选择器 -->
+    <a href="#">点击跳转</a>
+
+    <!-- 表单伪类 
+    checked（html属性）:初始化被选中的态度-->
+    <input type="checkbox" name="" id="check" checked>
+    <label for="check">选择1</label>
+    <input type="checkbox" name="" id="check" disabled>
+    <label for="check">选择2</label>
+    <input type="text">
+</body>
+</html>
+<!-- 
+伪类：
+    特点：选择器前面带 “ ：” 前缀。
+    描述：用来定义元素的状态，和DOM类似，不同的地方在于伪类只是插入了修饰。”
+    作用：用于向某些元素“选择器”添加特殊的效果使用。
+ -->

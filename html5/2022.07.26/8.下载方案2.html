@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 方式二：使用JS下载 -->
+    <button id="btnPath">下载路径</button>
+    <button id="btnText">下载路文本</button>
+
+    <script>
+        function download(content,filename){
+            // 下载需要a标签
+            var a = document.createElement('a');
+            a.href = content;
+            a.download = filename;
+            a.textContent = "下载";
+            // a.style.display = "none"; //隐藏
+
+            var isFilePath = content.indexOf("/") != -1 && content.indexOf(".") != -1;
+            if(!isFilePath){
+                // 如果content不是文件路径，而是一段文本，需要借助Blob
+                var blob = new Blob([content]);
+                console.log(blob);
+                // 把参数转换成url路径。
+                a.href = URL.createObjectURL(blob);
+            }
+
+            document.body.appendChild(a);
+            a.click();//
+        }
+
+        var btnPath = document.querySelector("#btnPath");
+        btnPath.onclick = function(){
+            download('success.png',"绿√.png"); 
+        }
+
+        var btnText = document.querySelector("#btnText");
+        btnText.onclick = function(){
+            download('index.text','hi.html');
+        }
+
+
+        // 方法三：让服务器去编写一个下载接口，前端直接调用接口。
+        // 类似于一下代码。。。
+        // $get('/api/download',function(){
+
+        // })
+
+        // 方案四：使用插件FileSaver.js
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector('#canvas');
+        var ctx = canvas.getContext("2d");
+
+        // 创建渐变 (线性渐变)
+        // 参数(开始的位置,做倾斜,宽度，右倾斜)
+        var grd = ctx.createLinearGradient(0,0,400,0);
+        // 设置某个范围的颜色渐变，参数(0-1之间，颜色)，值0-25%之间是red-blue的渐变，25%-5%是blue-yellow的渐变“根据参数依次类推”
+        grd.addColorStop(0,"red");
+        grd.addColorStop(.25,"blue");
+        grd.addColorStop(.5,"yellow");
+        grd.addColorStop(.75,"green");
+        grd.addColorStop(1,"pink");
+        // 填充渐变
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,400,60);
+
+        // 创建渐变 (径向渐变)
+        // 200,200,5 起始圆的坐标和半径 ，200,200,50 结束圆的坐标和半径
+        var grd = ctx.createRadialGradient(200,200,5,200,200,100);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(.25,"blue");
+        grd.addColorStop(.5,"yellow");
+        grd.addColorStop(.75,"green");
+        grd.addColorStop(1,"pink");
+        // 填充渐变
+        ctx.fillStyle = grd;
+        ctx.fillRect(100,100,200,200);
+
+    </script>
+</body>
+</html>

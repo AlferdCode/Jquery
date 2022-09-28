@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容溢出</title>
+    <style>
+        .box{
+            /* 当固定width时，元素的宽度就不再随着窗口的大小发生改变了，
+            需要注意的情况：
+                      1.width的值比min-width小时，最大宽度以width为准。
+                      2.超越！important：max-width 与 width冲突时，width会被忽略，添加！important也无效。
+                      3.超越最大值：当 min-width 与 max-width 冲突的时候，max-width会被忽略。
+                      */
+            width: 800px !important;
+            height: 100px;
+            background-color: olive;
+            margin: 0 auto;
+            /* 定义元素的最大宽度，随着窗口的宽度变化而变化（窗口缩小观察），但最大宽度不会超过1000px*/
+            max-width:200px;
+            max-height: 200px;
+            /* 定义元素的最小宽度，随着窗口的宽度变化而变化，但是最小宽度不会低于600px，会出现滚动条 */
+            min-width: 600px;
+            min-height: 200px;
+            }
+            p{
+                width: 400px;
+                height: 200px;
+                background-color: #ccc;
+
+                /* 内容溢出：当内容大于元素“子元素大于父元素”会形成内容溢出，溢出内容会影响布局中其他元素。
+                  解决属性：overflow
+                    值:
+                       visible:默认值，超出元素的内容会溢出
+                         auto :溢出内容隐藏，会出现滚动条，查看完整的内容。
+                        scroll:溢出内容隐藏，并添加滚动条，查看完整的内容。
+                        hidden:溢出内容隐藏，不会出现滚动条，溢出内容会被剪裁。 */
+                  
+                  
+                   overflow:hidden;
+                  /* 设置单方向溢出 
+                  overflow-x: scroll;
+                  overflow-y: scroll; */
+
+                  /* 设置文本在一行显示 */
+                  white-space: nowrap;
+
+                  /*隐藏溢出的文本的形式（配合overflow:hidden；与 white-space:nowrap;使用）
+                   ellipsis：溢出的文本以......缩写显示 */
+                  text-overflow: ellipsis;
+            }
+            section{
+                overflow: hidden;
+                width: 200px;
+                height: 200px;
+                background-color: orangered; 
+                /* resize:允许用户手动调整元素的大小。
+                     none:默认值，不允许用户调整大小。
+                     both:调节宽度和高度。
+                     horizontal:只能调整宽度。
+                     vertical:调整高度。
+                注意：配合overflow:hidden；使用。
+                */
+                resize:both;
+            }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <p> 1.开头两句是追忆。“去年今日此门中”，点出时间和地点，写得非常具体，足见这个时间和地点，在诗人心中留下了多么深刻难忘的记忆。<br>2.第二句是写人，诗人拈出一个人们犹知的形象——桃花，春风中的桃花人人都知道是何等的艳丽，而“人面”竟能“映”得桃花分外红艳，则“人面”之美可以想见；再者，本来已经很美的“人面”，在红艳艳的桃花映照之下定是显得更加青春美貌，风韵袭人。<br>3.一个耀眼的“红”字，正是强烈地渲染出这种相映生色的景象和气氛。面对着这一幅色彩浓丽、青春焕发、两美相辉的人面桃花图，不用说姑娘的神采美貌如在目前，就是她的情态，诗人的心事，彼此藏在心中的欢爱和兴奋，也都是可以“思而得之”的。
+
+    <br>4.下片则是说还是春光烂漫、百花吐艳的季节，还是花木扶疏、桃树掩映的门户，然而，使这一切都增光添彩的“人面”却不知何处去，只剩下门前一树桃花仍旧在春风中凝情含笑。桃花在春风中含笑的联想，本从“人面桃花相映红”得来。去年今日，伫立桃树下的那位不期而遇的少女，想必是凝睇含笑，脉脉含情的；而今，人面杳然，依旧含笑的桃花只能引动对往事的美好回忆和好景不常的感慨了。“依旧”二字，正含有无限怅惘。</p>
+     <section></section>
+</body>
+</html>

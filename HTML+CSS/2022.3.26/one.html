@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        fieldset{
+            width: 500px;
+            height: 100px;
+        }
+        fieldset legend{
+            /* 水平居中 */
+           margin: 0 auto;
+           /* 添加内边距 */
+           padding: 0 20px;
+           /* 字体间距 */
+           letter-spacing: 10px;
+        }
+        select{
+            width: 200px;
+            height: 30px;
+            /* 清除轮廓线 */
+            outline: none;  
+            /* 清除下拉菜单自带的下箭头 */
+            appearance: none;
+            /* 插入下小箭头 */
+            background-image: url(./img/xia.png);
+            /* 小箭头不平铺 */
+            background-repeat: no-repeat;
+            /* 图片大小 */
+            background-size: 20px 20px;
+            /* 图片定位 百分比是左右 数值是上下*/
+            background-position:95% 5px;
+        }
+        select:focus{
+            /* :focus 伪类选择器 ：当元素获取焦点后的改变。 */
+            background-image: url(./img/shang.png);
+
+        }
+        select optgroup{
+            font-size: 18px;
+            color: rgb(255, 0, 0);
+        }
+        select option{
+            font-size: 12px;
+            color: blue;
+        }
+
+        section{
+            width: 100px;
+            height: 40px;
+            background-color: aquamarine;
+        }
+        section h2{
+            /* 行高 */
+            line-height: 40px;
+            /* 字体大小 */
+            font-size: 18px;
+            /* 文本水平居中 */
+            text-align: center;
+        }
+        section ul{
+            width: 100px;
+            height: auto;
+            background-color: rgb(127, 255, 155);
+            border-radius: 20%;
+            box-shadow: 0 0 10px #666666;
+            /* 隐藏，清除元素 */
+            display: none;
+        }
+        section ul li{
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        section ul li a{
+            /* 去下划线 */
+            text-decoration: none;
+            color: black;
+            letter-spacing: 5px;
+        }
+        section ul li:hover{
+            background-color: #cccccc;
+        }
+        section ul li:hover a{
+            color: rgb(240, 51, 76);
+        }
+        section:hover ul{
+            /* 配合 display :none ;显示元素 */
+            display:block;
+        }
+
+         </style>
+</head>
+<body>
+    <!-- action="#" : 路径 -->
+    <form action="#">
+        <!-- fieldset 块元素: 将表单内的内容进行分组，会产生一个表框 -->
+        <fieldset>
+            <legend>请选择</legend>
+            <p>hello</p>
+        </fieldset>
+
+        <!-- 多选菜单
+                select 元素 ：定义下拉菜单，单选或多选 。
+              optgroup 元素 ：定义多选菜单的选项组 。
+                 label 属性 ：添加选项组的描述，标注 。
+                option 元素 ：定义列表中的一个选项内容 。
+                注意：因为 option 是 html 固有元素，所以无论怎么设置其 css 样式在浏览器都不起作用（可以通过列表去替代）。
+              selected 属性 ：初始化为选中的内容，菜单中默认显示的是第一个 option 内的内容 。
+        -->
+        <select name="" id="">
+            <optgroup label="商家：">
+                <option value="">商家中心</option>
+                <option value="" selected>天猫规则</option>
+                <option value="">商家入驻</option>
+                <option value="">运营服务</option>
+            </optgroup>
+        </select>
+        <!-- 单选菜单 -->
+        <select name="" id="">
+            <option value="">HTML5</option>
+            <option value="">CSS3</option>
+            <option value="">JavaScript</option>
+            <option value="">Nodejs</option>
+            <option value="">VUE</option>
+        </select>
+
+        <!-- 使用列表设置下拉菜单 -->
+        <section>
+            <h2>浏览器</h2>
+            <ul>
+             <li><a href="#">百度</a></li>
+             <li><a href="#">新浪</a></li>
+             <li><a href="#">腾讯</a></li>
+            </ul>
+        </section>
+    </form>
+</body>
+</html>

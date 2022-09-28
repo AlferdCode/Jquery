@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            /* perspective: 800px; */
+            position: relative;
+            background-color: black;
+        }
+
+        section {
+            background-color: aliceblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            width: 600px;
+            height: 600px;
+        }
+
+        ul {
+            cursor: pointer;
+            transition: all 1s ease-out;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform-origin: center center center 50%;
+        }
+
+        li {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li:nth-child(1) {
+            /* 前 */
+            background-color: aqua;
+            transform: translateZ(150px);
+        }
+
+        li:nth-child(2) {
+            background-color: red;
+            /* 左 */
+            left: -150px;
+            transform: rotateY(90deg) translateX(0px);
+
+        }
+
+        li:nth-child(3) {
+            background-color: burlywood;
+            /* 右 */
+            left: 150px;
+            transform: rotateY(90deg) translateX(0px);
+        }
+
+        li:nth-child(4) {
+            background-color: chartreuse;
+            /* 上 */
+            top: -150px;
+            transform: rotateX(90deg) translateY(0px);
+        }
+
+        li:nth-child(5) {
+            background-color: yellowgreen;
+            /* 下 */
+            top: 150px;
+            transform: rotateX(-90deg) translateY(0px);
+        }
+
+        li:nth-child(6) {
+            /* 后 */
+            background-color: lightpink;
+            transform: translateZ(-150px);
+        }
+
+        section ul li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #imgs {
+            user-select: none;
+            position: absolute;
+            color: lightcoral;
+            font-weight: bold;
+            top: 180px;
+            width: 192px;
+            text-align: center;
+            line-height: 100px;
+            background-color: blanchedalmond;
+        }
+
+        #imgs input {
+            position: absolute;
+            cursor: pointer;
+            opacity: 0;
+            display: block;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        main {
+            position: relative;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+        }
+
+        main img {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            position: absolute;
+        }
+
+        #off {
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    $(document).ready(() => {
+        var ul = document.querySelector('ul')
+        var sect = document.querySelector('section')
+        ul.addEventListener('mousedown', (e) => {
+            // 阻止鼠标默认事件 一定情况会出现警号 产生松开事件无法触发(争对拖拽)
+            e.preventDefault()
+            var ev = e || window.event
+            var clisX = ev.clientX
+            var clisY = ev.clientY
+            sect.addEventListener('mousemove', move)
+            function move(event) {
+                var lageX = event.clientX
+                var lageY = event.clientY
+                var nowX = lageX - clisX
+                var nowY = lageY - clisY
+                // 转动的弧度
+                ul.style.transform = 'rotateX(' + -nowY * 2 + 'deg) rotateY(' + nowX * 2 + 'deg)'
+            }
+            document.addEventListener('mouseup', function () {
+                sect.removeEventListener('mousemove', move)
+                ul.style.transform = 'rotateX(0deg) rotateY(0deg)'
+            })
+        })
+        //上传图片
+        var number = 0;
+        $('#files').on('change', function () {
+            if (this.files.length > 5) {
+                alert('图片只能上传6个，多的没有用,且不会被替换调！！')
+            }
+            Array.from(this.files).forEach((item, index) => {
+                var url = window.URL.createObjectURL(item)
+                if (item.type.split("/")[0] == "image") {
+                    //判断li中是否有图片没有直接添加有的话就+1跳过这个li
+                    while($('ul').children().eq(index).html() != ''){//条件满足就执行
+                        index++;
+                        console.log(index);
+                        //如果你上传的图片个数超过6个或者6个面都有图片，多的图片不会被添加上去
+                        if(index>5){
+                            break
+                        }
+                    }
+                    $('ul').children().eq(index).html(`<img src="${url}" alt="">`)
+                }
+            })
+        })
+        $('#off').on('click', () => {
+            $('ul').children().each((index, item) => {
+                $(item).empty('img')
+            })
+            number = 0
+        })
+        // 点击屏幕播放音乐
+        var audio = new Audio;
+        audio.src = "./原来是萝卜丫 - 爱你.mp3";
+        audio.loop = 'loop'
+        $(document).click(() => {
+            audio.play()
+        })
+    })
+</script>
+
+<body>
+    <div id="imgs">
+        <span style="position: absolute;top: 68px;left: 58px;">点图片上传</span>
+        <main>
+            <img src="./上传图片.gif" alt="">
+            <input type="file" name="" id="files" accept="image/*" multiple>
+        </main>
+        <button id="off">一键删除</button>
+    </div>
+    <section>
+        <!-- 要将父盒子处在这个3d图形的中心才能围着中心转 -->
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+</body>
+</html>
+<!-- https://blog.csdn.net/weixin_43742708/article/details/114962450 -->
+<!-- https://blog.csdn.net/cddcj/article/details/52956540 -->

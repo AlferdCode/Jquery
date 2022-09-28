@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css属性补充</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .text {
+            /* 文本首行缩进，值number+单位 */
+            text-indent: 20px;
+            /* 调整文本字符之间的间距，值number+单位 */
+            letter-spacing: 5px;
+            /* 调整词间距“文本之间要添加空格提示词间距的位置”，值number+单位 */
+            word-spacing: 10px;
+            /* 文本转换： lowercase转换为小写字母。uppercase转换为大写英文字母。*/
+            text-transform: lowercase;
+        }
+
+        section h2 {
+            text-align: center;
+             }
+             section .poetry{
+                 height: 200px;
+                 background-color:antiquewhite;
+                 /* 文本的排版方向
+                 值：horizontal-tb 默认值，水平方向排版。
+                     vertical-lr 垂直排版，从左至右。
+                     vertical-rl 垂直排版，从右至左。*/
+                 writing-mode:vertical-rl;
+                 margin: 20px auto;
+                 letter-spacing: 10px;
+             }
+    </style>
+</head>
+
+<body>
+    <p class="text">He llo<br> World!</p>
+    <section>
+    <h2>静夜思<h2>
+        <p class="poetry">床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。
+        </p>
+        </section>
+</body>
+
+</html

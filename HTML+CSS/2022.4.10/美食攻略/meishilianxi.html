@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Login">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食攻略练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .nav_top {
+            height: 12vw;
+            font-size: 26px;
+            color: #000000;
+            text-align: center;
+            line-height: 12vw;
+        }
+
+        nav a {
+            font-size: 17px;
+            text-decoration: none;
+            color: #000000;
+            margin: 0 6px;
+        }
+
+        nav .food {
+            color: hsla(0, 87%, 64%, 0.867);
+            padding-bottom: 8px;
+            border-bottom: 3px solid #feae3f;
+        }
+
+        main .img_top {
+            width: 89%;
+            height: 16vh;
+            margin: 20px 16px;
+        }
+        section p {
+            width: 156px;
+            height: 6vh;
+        }
+        section .text_one {
+            font-size: 17px;
+        }
+        section .text_two {
+            font-size: 15px;
+            color: #cccccc;
+        }
+        main section {
+            display: inline-block;
+            margin-left: 6vw;
+            width: 40vw;
+            height: 30vh;
+        }
+        main section {
+            /* 基线对齐 */
+            vertical-align: top;
+        }
+        .nav_down{
+            width: 100%;
+            height: 9vh;
+            text-align: center;
+            background-color: #cccccc;
+            position: fixed;
+            bottom: 0;
+        }
+        .nav_down div{
+            display: inline-block;
+            font-size: 2vh;
+        }
+        .nav_down div img{
+            width: 23vw;
+            height: 15vw;
+            margin-bottom: -14px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 上导航栏 -->
+    <nav>
+        <p class="nav_top">发现</p>
+        <p> <a href="#">推荐</a>
+            <a href="#">旅行攻略</a>
+            <a href="#" class="food">美食攻略</a>
+            <a href="#">民宿合集</a>
+            <a href="#">租房故事</a>
+        </p>
+    </nav>
+    <main>
+        <img class="img_top" src="./heder.png" alt="">
+        <section>
+            <img src="./图1.png" alt="">
+            <p class="text_one">网红城市的吃喝玩乐全攻略,3天游...</p>
+            <p class="text_two">网红城市的吃喝玩乐全攻略,3天游遍全重庆!</p>
+        </section>
+        <section>
+            <img src="./图2.png" alt="">
+            <p class="text_one">没来过这些美食街去吃美食,就等于...</p>
+            <p class="text_two">众所周知的是,西安本身也是美食之都,与成都重庆是有所不同的,西...</p>
+        </section>
+        <section>
+            <img src="./图3.png" alt="">
+            <p class="text_one">去西安旅行?这13种美食不得不吃...</p>
+            <p class="text_two">一说到西安美食你们就会想到的是一定是肉夹馍，...</p>
+        </section>
+        <section>
+            <img src="./图4.png" alt="">
+            <p class="text_one">去成都怎么吃?看只一篇骨灰级吃...</p>
+            <p class="text_two">发现 旅行攻略(美食攻略—成都)</p>
+        </section>
+        <section style="width: auto;">
+            <img src="./图5.png" alt="">
+        </section>
+        <section>
+            <img src="./图6.png" alt="">
+        </section>
+    </main>
+    <nav class="nav_down">
+        <div>
+            <img src="./首页.png" alt="">
+            <p>首页</p>
+        </div>
+        <div>
+            <img src="./发现.png" alt="">
+            <p>发现</p>
+        </div>
+        <div>
+            <img src="./订单.png" alt="">
+            <p>订单</p>
+        </div>
+        <div>
+            <img src="./消息.png" alt="">
+            <p>消息</p>
+        </div>
+
+    </nav>
+</body>
+
+</html>

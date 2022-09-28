@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遮罩层</title>
+    <style>
+        section{
+            width: 100%;
+            height: 100%;
+            background-color: #222222ba;
+            /* 1.添加固定定位，元素固定在页面大小之内 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* 2.初始化隐藏元素 */
+            display: none;
+        }
+        /* :target 伪类选择器 “点击a与之绑定的元素改变”
+        作用：当点a标签时，迅速定位到与之绑定的元素，并执行：target触发的css样式。 */
+        #mask:target{
+            /* 3.点击a显示mask */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 1.实现锚点 -->
+    <a href="#mask">显示</a>
+    <section id="mask">
+        <a href="#" style="color: aliceblue;font-size: 2cm;">X</a>
+    </section>
+</body>
+</html>

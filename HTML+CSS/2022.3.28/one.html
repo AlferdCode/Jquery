@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动布局</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            float: left;
+        }
+        /* even 偶数 */
+        div:nth-of-type(even){
+            width: 150px;
+            height:150px;
+            background-color: lightcoral;
+        }
+        .box1{
+            /* 左浮动 */
+            float: right;
+        }
+        span{
+            width: 170px;
+            height: 170px;
+            background-color: olive;
+            float: right;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        浮动：
+             让元素按照指定的方向运动，直到遇见父边界 或者 遇到同胞浮动元素的边沿停下。
+             最早的浮动是为了让文本在图片周围环绕停留。
+        语法： float : left / none / right;
+        特点：
+            1.元素使用浮动，会脱离文档流（不占据六十布局中的位置，它的位置会被流式布局中的同胞元素所替代）。
+            2.文本和浮动元素相遇，文本会在其周围环绕停留。
+            3.多个浮动元素相遇，会按照内联排列的方式在一行显示（溢出部分自动折行）。
+            4.行内元素设置宽高有效（触发BFC）。
+
+     -->
+     <!-- 案例一：父元素没有设置高度时，高度靠子元素撑出，子元素浮动后脱离文档流，父元素高度为0.
+         解决方案：给父元素添加高度，高度要等于大于浮动元素。  -->
+     <section style="height: 100px;">
+        <div class="box1">元素1</div>
+     </section>
+    <div class="box2">元素2</div>
+    <section style="clear:both;"></section>
+    <div class="box3">元素3</div>
+    <div class="box4">元素4</div>
+    <span>行内元素</span>
+    
+</body>
+</html>

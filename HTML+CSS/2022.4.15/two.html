@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <style>
+        /* 页面加载完毕后，才执行样式表，不建议使用。 */
+        @import url(./css/two.css) screen and (max-width:800px);
+        .box{
+            width: 1000px;
+            height: 1000px;
+            background-color: aqua; 
+        }
+       
+    </style>
+    <!-- 外部css文件作为媒体查询样式表使用 -->
+       <link rel="stylesheet" href="./css/two.css" media="screen and (max-width:800px)">
+</head>
+<body>
+    <div class="box">你好</div>
+</body>
+</html>

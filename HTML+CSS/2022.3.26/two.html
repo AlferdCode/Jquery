@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐藏显示</title>
+    <style>
+        div{
+            width: 1200px;
+            height: 1000px;
+            border: 2px solid;
+            margin: 0 auto;
+            text-align: center;
+            /* 配合 display:none; 作为显示元素使用，值除了 none 都可显示“但是值是什么，就具有当前元素所有特点” */
+            display: block;
+            /* 配合 visibility ：hidden; 作为显示元素使用 。 */
+            visibility: visible;
+            /* 配合 opacity: 0; 显示元素 。 */
+            opacity: 1;
+        }
+        p{
+            background-color: blue;
+        }
+        /* 鼠标移入块让子元素图片隐藏 */
+        div:hover img{
+            /* none: 定义无，隐藏，清除元素，隐藏后元素不占据原来的位置，位置会被下面的同胞元素替代*/
+            /* display: none;*/
+            
+            /* 隐藏元素,隐藏后还保留原来的位置 。 */
+            /* visibility: hidden; */
+
+            /* 设置元素的透视度，取值范围：0 ~ 1之间，0为完全透视，1为完全不透视*/
+            opacity: 0;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../2022.3.19/img/chi2.jpeg" alt="img">
+        <p>chi</p>
+    </div>
+</body>
+</html>

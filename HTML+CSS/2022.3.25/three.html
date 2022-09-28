@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input —— label</title>
+    <style>
+        #user{
+            width: 300px;
+            height: 40px;
+            border: none;
+            border-bottom: 2px solid;
+            padding: 0 20px;  
+            /* 清除轮廓线  */
+            outline: none; 
+            outline: 1px solid red;
+        }
+        /* :focus 伪类选择器 ：当元素获取焦点后的改变。    */
+        #user:focus{ 
+            border-color: red;
+        }
+        /* ::-webkit-input-placeholder 伪元素选择器，对 input 内的 placeholder 属性的文本内容进行
+            样式改变 。 */
+        #user::-webkit-input-placeholder{
+            color: blue;
+            font-size: 18px;
+            letter-spacing: 5px;
+        }
+
+
+        #ched{
+            width: 50px;
+            height: 50px;
+            /* 把初始状态隐藏 */
+            display: none;
+        }
+        .ched{
+            display: block;
+            width: 80px;
+            height: 80px;
+            border: 2px solid;
+            border-radius: 20%;
+        }
+    </style>
+</head>
+<body>
+    <!-- lable : input元素的标注。
+         方法   ：label 的 for 值 与 input 的 ID 值相同即可 。
+         作用   ：当点击 label 时与之绑定的 input 会获取焦点 。
+    -->
+    <div>
+        <label for="user">账号：</label>
+        <input type="text" id="user" autocomplete="on" placeholder="hellow">
+    </div>
+    <div>
+        <input type="checkbox" id="ched">
+        <label for="ched" class="ched"></label>
+    </div>
+</body>
+
+</html>

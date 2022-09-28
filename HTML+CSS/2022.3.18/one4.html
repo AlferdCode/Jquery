@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #666;
+            margin: 0 auto;
+            padding: 20px;
+            /* 调整盒子状态 
+              content-box 默认值，内容盒子。
+              border-box  边框盒子，可以把边框和内边距计算元素大小之内。*/
+            box-sizing: border-box;
+        }
+        span,a{
+            width: 100px;
+            height: 60px;
+            background-color:pink;
+            padding: 20px 50px ;
+        }
+        .box1{
+            width: 300px;
+            height: 100px;
+            background-color: powderblue;
+            margin: 50px auto;
+            /* 边框设置 */
+            border-style: ridge;
+            border-width: 20px;
+            border-color: lightblue;
+            border: 20px ridge lightcoral;
+
+            /* 圆角设置 */
+            border-radius: 20%;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 50px;
+
+
+            /* 盒子阴影 */
+            box-shadow: 5px 5px 5px rgb(10, 10, 10);
+            box-shadow: 5px 5px 5px rgb(10, 10, 10) inset;
+        }
+
+        p{
+            /* 字体大小 字体水平居中 字体间距 字体阴影 */
+            font-size: 2cm;
+            text-align: center;
+            letter-spacing: 5px;
+            text-shadow: 5px 5px 10px red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        padding:内边距
+            作用：撑大盒子，调整内容与边框之间的间距。
+            距离：从自身的边框到内容之间的间距。
+            语法：
+                padding:通过值控制不同边的内边距，值1~4个。
+                padding-top/right/bottm/left:设置单边内边距;
+                padding-block/inline-start/end: 设置单边内边距； 
+        border:边框
+             语法：
+                 边框样式： border-style: dashed 虚线 dotted 点状线 double 双实线 solid 实线 （上右下左）;
+                           groove 3D 凹槽效果 ， ridge 3D 垄起效果。
+                 边框宽度: border-width: number + 单位 。
+                 边框颜色：border-color。
+                 常用语法：border: 边框宽度 边框样式 边框颜色。
+                 单边框设置：border-top/right/bottom/left : 边框宽度 边框样式 边框颜色。
+        圆角设置
+             语法:
+                 border-radius:值1~4个，控制不同角的弧度。
+                 border-top/bottom-left/right:设置单圆角弧度。
+        盒子阴影
+             语法：box-shadow：
+             第一个值：阴影距离盒子的左右距离，可为负数。
+             第二个值：阴影距离盒子的上下距离，可为负数。
+             第三个值：阴影的清晰度，值越大会以椭圆的形状往外渐变扩撒，不能为负数。
+             第四个值：阴影的颜色。
+             第五个值：inset, 调整为内测阴影。
+
+        文本阴影：
+             语法：text-shadow：
+             第一个值：阴影距离盒子的左右距离，可为负数。
+             第二个值：阴影距离盒子的上下距离，可为负数。
+             第三个值：阴影的清晰度，值越大会以椭圆的形状往外渐变扩撒，不能为负数。
+             第四个值：阴影的颜色。             
+            -->
+    <div class="box">内容</div>
+    <span>行内元素</span>
+    <a href="#">点击跳转</a>
+    <div class="box1"></div>
+    <p>Hello World!</p>
+</body>
+</html>

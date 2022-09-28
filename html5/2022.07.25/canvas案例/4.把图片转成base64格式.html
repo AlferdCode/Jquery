@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas把图片转换成base64格式</title>
+</head>
+
+<body>
+    <!-- src中可以添加base64格式的图片，怎么转换成base64。1.通过在线工具。2.canvas转换成base64 -->
+    <img src="wmxg.jpg" alt="" width="400" id="img"> <br>
+    <button>转换成base64</button><br>
+    <textarea id="result" cols="100" rows="10"></textarea><br>
+
+    <script>
+        var btn = document.querySelector('button');
+        var result = document.querySelector('#result')
+
+        // 本质创建一个图片
+        function getBase64(url, callback) {
+            var Img = new Image();
+            Img.src = url;
+            // 要先确保图片完整获取到，这是个异步事件
+            // 图片完整加载后，再执行callback
+            Img.onload = function () {
+                // callback有，手执行callback
+                // this指向Img对象
+                // console.log(this)
+                console.log("hello1")
+                callback && callback(this);
+            };
+            console.log("hello2")
+        }
+
+        function createCanvas(img) {
+            var canvas = document.createElement("canvas");
+            //确保canvas的尺寸和图片一样
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            //将图片绘制到canvas中
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            return canvas;
+        }
+
+        btn.onclick = function () {
+            getBase64('wmxg.jpg', function (img) {
+                console.log(img);
+                
+                //创建canvas元素
+                var canvas = createCanvas(img);
+                dataURL = canvas.toDataURL('wmxg.jpg'); //转换图片为dataURL
+                // console.log(dataURL);
+                result.textContent = dataURL;
+            })
+        }
+
+    </script>
+</body>
+
+</html>

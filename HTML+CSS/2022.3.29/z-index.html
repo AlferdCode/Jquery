@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px; 
+            position: absolute;
+        }
+        .box{
+            background-color: red;
+            z-index:99;
+        }
+        .box1{
+            background-color: blueviolet;
+            top:50px;
+            left: 50px;
+            z-index: 999;
+        }
+        .box2{
+            background-color: yellow;
+            top:100px;
+            left: 100px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- z-index  显示元素的堆叠顺序 值：number"可为负数"，默认值0
+     使用方式
+        - 配合position: absolute / relative / fiexd;使用 ，
+          使定位元素的层级位置发生改变“默认多个定位元素重叠，最上面的元素显示在下层”
+    -->
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <section style="height: 500px; background-color: pink;">正常文本流内容</section>
+</body>
+</html>

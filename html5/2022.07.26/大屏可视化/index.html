@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="../js/echarts.js"></script>
+    <script src="https://api.map.baidu.com/getscript?v=2.0&amp;ak=o7LTVKxhM5FjywDGwzp6EqfT8lYNjTR5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+<body>
+    <!-- 什么是大屏可视化？
+        数据可视化是将繁琐的数据通过可视化的方式，直接简洁地展示结果的一系列手段，就是将数据转换为图表等新式。
+        大屏可视化“顾名思义，是以大屏为载体，直观呈现数据可视化”，以视觉冲击的方式向用户传递数据的价值，快速洞悉业务数据。
+        大屏可视化将关键数据绚丽，震撼的呈现在一块巨型屏幕中，给人更好的视觉体验，在应用场景方面，Smartbi大屏可视化在金融，交通运输美零售贸易，旅游酒店以及IT互联网行业领域得到广泛的应用，如实时监控平台，指挥调度中心，风险预警和运营汇报等。
+     -->
+
+    <div class="container">
+        <div class="title">
+            <h2>大屏可视化</h2>
+            <button id="fullScreen">全屏</button>
+        </div>
+        <div class="echarts">
+            <div class="top">
+                <div class="left">
+                    <div id="box1"></div>
+                    <div id="box2"></div>
+                </div>
+                <div class="middle">
+                    <div id="box3"></div>
+                </div>
+                <div class="right">
+                    <div id="box4"></div>
+                    <div id="box5"></div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div id="box6"></div>
+                <div id="box7"></div>
+                <div id="box8"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/mychart1.js"></script>
+    <script src="./js/mychart2.js"></script>
+    <script src="./js/mychart3.js"></script>
+    <script src="./js/mychart4.js"></script>
+    <script src="./js/mychart5.js"></script>
+    <script src="./js/mychart6.js"></script>
+    <script src="./js/mychart7.js"></script>
+    <script src="./js/mychart8.js"></script>
+    <script>
+        window.onresize = function(){
+            myChart1.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart4.resize();
+            myChart5.resize();
+            myChart6.resize();
+            myChart7.resize();
+            myChart8.resize();
+        }
+
+        var btn = document.querySelector("#fullScreen");
+        btn.onclick = function(){
+            console.log(document.fullscreenElement);
+            if(document.fullscreenElement){
+                document.exitFullscreen();
+                this.textContent = "全屏"
+            }else{
+                document.documentElement.requestFullscreen();
+                this.textContent = "退出全屏"
+            }
+        }
+
+    </script>
+</body> 
+</html>

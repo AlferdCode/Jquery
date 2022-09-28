@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 方法1：使用a标签， download属性，使用live Serveer运行-->
+    <!-- h5给a标签新增加的属性，用来下载，但是浏览器兼容性不好。 -->
+    <a href="success.png" download>下载图片</a>
+    <a href="success.png" download="对号.png">下载图片时重命名</a>
+
+    <a href="../2022.07.21/img/Dow-Dow.mp4" download>下载视频</a>
+    <a href="index.text" download>下载文本</a>
+    <a href="打地鼠.zip" download>下载压缩包</a>
+
+    <script>
+        var isDowload = 'download' in document.createElement('a');
+        if(isDowload){
+            console.log("浏览器支持a标签的download属性");
+        }
+    </script>
+</body>
+</html>
