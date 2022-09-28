@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/ft-slider.css">
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.842);
+            color: #fff;
+        }
+        button{
+            display: inline-block;
+            padding: 6px 12px;
+            text-align: center;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #fff;
+            font-size: 15px;
+        }
+        #result-wrap,#btn-wrap{
+            height: 40px;
+            line-height: 40px;
+            float: left;
+            margin-top: 20px;
+        }
+        #result-wrap{
+            margin-left: 20px;
+        }
+        .container{
+            margin: 20px;
+            height: 140px;
+        }
+    </style>
+</head>
+<body>
+    <h3>请在移动端产看效果，pc端无法拖拽</h3>
+    <div class="container">
+        <div id="silder1"></div>
+        <div id="btn-wrap"><button id="btn1">还原</button></div>
+        <div id="result-wrap">验证结果：<span id="res1">false</span></div>
+    </div>
+    <div class="container">
+        <div id="silder2"></div>
+        <div id="btn-wrap"><button id="btn2">还原</button></div>
+        <div id="result-wrap">验证结果：<span id="res2">false</span></div>
+    </div>
+</body>
+<script src="../js/ft-slider.min.js"></script>
+<script>
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    var res1 = document.getElementById('res1');
+    var res2 = document.getElementById('res2');
+    // 初始化一个滑块实例
+    var silder1 = new FtSlider({
+        id:'silder1',
+        callback:function(res){
+            res1.innerHTML = res;
+        }
+    });
+    var silder2 = new FtSlider({
+        id:'silder2',
+        width:320,
+        height:36,
+        textMsg:"拖动滑块验证",
+        successMsg:"验证成功了",
+        callback:function(res){
+            res2.innerHTML = res;
+        }
+    });
+
+    btn1.onclick = function(){
+        // 让滑动条回到原点
+        silder1.restore();
+        res1.innerHTML = "false"
+    }
+    btn2.onclick = function(){
+        // 让滑动条回到原点
+        silder2.restore();
+        res2.innerHTML = "false"
+    }
+
+</script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/ft-slider.css">
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+  
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          color: #222;
+      }
+  
+      form {
+          width: 400px;
+          margin: 50px auto;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 20px;
+      }
+  
+      legend {
+          font-size: 26px;
+          font-weight: 700;
+          margin-bottom: 20px;
+          text-align: center;
+      }
+  
+      .row {
+          height: 40px;
+          line-height: 40px;
+      }
+  
+      .row input {
+          height: 30px;
+          width: 250px;
+      }
+  
+      .row button{
+          height: 34px;
+          line-height: 34px;
+          width: 100px;
+          border-radius: 3px;
+          background-color: blue;
+          color: #fff;
+          border: none;
+          outline: none;
+      }
+  
+      .row.center{
+          text-align: center;
+      }
+    </style>
+</head>
+
+<body>
+    <form>
+        <legend>登录验证测试</legend>
+        <div class="row">
+            <label for="account">账号：</label>
+            <input type="text" id="account">
+        </div>
+        <div class="row">
+            <label for="password">密码：</label>
+            <input type="password" id="password">
+        </div>
+        <div class="row">
+            <div id="slider1"></div>
+        </div>
+        <div class="row center">
+            <button>登录</button>
+        </div>
+    </form>
+    <script src="../js/ft-slider.min.js"></script>
+    <script>
+        let btn = document.querySelector('button');
+        let result = false;
+        let slider1 = new FtSlider({
+            id: "slider1",
+            callback: function (res) {
+                result = res;
+            }
+        });
+
+        btn.onclick = function (e) {
+            e.preventDefault();
+            console.log(slider1)
+            // 登录验证
+            if(!result){
+                return alert("滑块验证不通过");
+            }
+            // 登录
+            location.href = 'index.html'
+        }
+        
+    </script>
+</body>
+
+</html>

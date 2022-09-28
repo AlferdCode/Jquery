@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑动播图</title>
+    <!-- 1.引入核心脚本 -->
+    <script src="./js/iscroll.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrapper ul {
+            list-style: none;
+            width: 300vw;
+            overflow: hidden;
+        }
+
+        #wrapper ul li {
+            float: left;
+        }
+
+        #wrapper ul li a img {
+            width: 100vw;
+        }
+    </style>
+    <!-- 3.使用插件 -->
+    <script>
+        var myScroll;
+        function load(){
+            myScroll = new IScroll("#wrapper",{
+                scrollX: true,//水平滚动
+                scrollY: false,//垂直滚动条
+            })
+        }
+        document.addEventListener('touchmove',function(e){
+            e.preventDefault();
+        },{
+            capture:false,
+            passive:false
+        })
+    </script>
+</head>
+
+<body onload="load()">
+    <!-- 2.搭建结构布局 -->
+    <div id="wrapper">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="./img/1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/3.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+
+
+
+
+</script>
+
+</html>

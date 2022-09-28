@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a{
+            width: 300px;
+            height: 100px;
+            background-color: red;
+        }
+        #b{
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="b">B</div>
+    <div id="a">A</div>
+    <a href="">123456</a>
+    <p>什么是点透？点击穿透</p>
+    <p>假如页面中上面有两个元素A和B,B元素在A元素之上，我们在B元素的touchstart事件上注册了一个回调函数，该回调函数的作用是隐藏B元素，我们发现当我们点击B元素，B元素被隐藏了，随后A元素触发了click事件</p>
+    <p>点透的原因？click事件有300ms的延迟</p>
+    <p>解决方案</p>
+    <p>1.禁止缩放。不好，原因缩放功能重要，且在某些浏览器禁用无效。</p>
+    <p>2.利用touch事件去模拟tap和taplong</p>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script src="./js/tap.js"></script>
+<script>
+    var b = document.getElementById('b');
+    var a = document.getElementById('a');
+
+    // b.ontouchstart = function(){
+    //     console.log("关闭");
+    //     this.style.display = "none";
+    // }
+    $("#b").on('tap',function(){
+        console.log("关闭");
+        b.style.display = "none";
+    });
+    a.onclick = function(){
+        console.log("点击了");
+    };
+
+</script>
+</html>

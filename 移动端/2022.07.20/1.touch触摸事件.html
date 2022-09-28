@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch</title>
+</head>
+<body>
+    
+    <div id="div">hello</div>
+    <button onclick="alert('hello')">在移动端测试点击事件</button>
+</body>
+<script>
+    // touch事件,执行顺序： ontouchstart ——> ontouchmove ——> ontouchend
+    // 触摸事件：只能在移动端使用，在pc测试时需要使用模拟器。
+
+    var div = document.getElementById('div');
+    // 语法：div.ontouchmove = function(){};
+    
+    // ontouchmove :触摸并拖动元素触发事件
+    div.addEventListener('touchmove',function(ev){
+        // console.log("touchmove触摸并拖动元素执行");
+        // targetTouches 触摸的目标对象，可以获取触摸的位置“坐标”。
+        console.log(ev.targetTouches);
+        if(ev.targetTouches.length === 1){
+            var finger = ev.targetTouches[0];
+            this.style.marginLeft = finger.pageX + "px";
+            this.style.marginTop = finger.pageY + "px";
+        }
+    })
+
+    // ontouchstart:触摸(点击，按下)触发事件，开始执行，在touchmove之前执行
+    div.ontouchstart = function(){
+        console.log("ontouchstart事件触发了");
+    }
+
+    // ontouchstart:触摸(点击，按下)触发事件，结束执行，在touchmove之后执行
+    div.ontouchend = function(){
+        console.log("ontouchend事件触发了");
+    }
+    // touch无法区分长按或短按，需要使用touch去模拟长按事件
+
+</script>
+</html>

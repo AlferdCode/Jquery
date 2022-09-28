@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/hover.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .box {
+            overflow: hidden;
+        }
+
+        .mydiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 184px;
+            height: 88px;
+            float: left;
+            margin-right: 3px;
+        }
+
+        .mydiv a {
+            width: 170px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mydiv.color1 {
+            background: #3064bb;
+        }
+
+        .mydiv.color2 {
+            background: #6d91cf;
+        }
+
+        .button-slide {
+            overflow: hidden;
+            background: #fff;
+            transition: color .3s;
+            position: relative;
+        }
+
+        .button-slide::before,
+        .button-slide::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform .3s;
+            transition-timing-function: cubic-bezier(0.75, 0, .125, 1);
+        }
+
+        .button-slide::before {
+            background: #85a9e8;
+        }
+
+        .button-slide::after {
+            background: #18448e;
+        }
+
+        .button-slide:hover::before,
+        .button-slide:hover::after,
+        .hotwords-slide::before,
+        .hotwords-slide::after {
+            transform: translate3d(0, 100%, 0);
+        }
+
+        .button-slide:hover::after {
+            transition-delay: .175s;
+        }
+
+        .hvr-shutter-in-vertical:before{
+            background: #2098d1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2>模仿hover.css</h2>
+        <div class="mydiv color1 button-slide">
+            <a href="#">
+                学党史 开新局
+                <br>
+                总书记这样动员部署
+            </a>
+        </div>
+        <div class="mydiv color2 button-slide">
+            <a href="#">
+                【央视快评】学史明理 学史增信 学史崇德 学史力行
+            </a>
+        </div>
+    </div>
+
+    <div class="box">
+        <h2>使用hover.css</h2>
+        <div class="mydiv color1 hvr-bounce-to-bottom">
+            <a href="#">
+                学党史 开新局
+                <br>
+                总书记这样动员部署
+            </a>
+        </div>
+        <div class="mydiv color1 hvr-bounce-to-top">
+            <a href="#">
+                【央视快评】学史明理 学史增信 学史崇德 学史力行
+            </a>
+        </div>
+        <div class="mydiv color1 hvr-shutter-in-vertical">
+            <a href="#">
+                学党史 开新局
+                <br>
+                总书记这样动员部署
+            </a>
+        </div>
+        <div class="mydiv color1 hvr-shutter-out-vertical">
+            <a href="#">
+                【央视快评】学史明理 学史增信 学史崇德 学史力行
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

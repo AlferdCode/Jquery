@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点透</title>
+    <style>
+        #outer{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        #inner{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+</body>
+<script>
+    /*点透问题？
+    在移动端，当用户通过绑定的touchstart事件监听函数“例如让浮层关闭时，关闭后浮层后对应的位置页面其他元素会触发click事件”
+    
+    为什么出现点透？ 事件执行的时机
+    执行顺序： ontouchstart ——> ontouchmove ——> ontouchend ——> click
+    */ 
+    var outer = document.querySelector('#outer');
+    var inner = document.querySelector('#inner');
+
+    inner.ontouchstart = function(ev){
+        //阻止事件流冒泡
+        ev.stopPropagation();
+        // //阻止默认事件
+        ev.preventDefault();
+        console.log('小');
+        // this.style.display = "none";
+    }
+
+    outer.onclick = function(){
+        console.log('大');
+    }
+    // 点透的解决根方案就是解决300ms延迟问题
+
+
+
+// 疑问：已经去除默认和冒泡行为 ， 为什么快速点击还是会触发冒泡行为
+</script>
+</html>

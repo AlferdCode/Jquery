@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/fastclick/1.0.6/fastclick.js"></script>
+</head>
+<body>
+    <button>点击</button>
+</body>
+<script src="../js/message.js"></script>
+<script>
+    window.addEventListener('load',function(){
+        FastClick.attach(document.body);
+    })
+
+    var btn = document.querySelector("button");
+    btn.onclick = function(){
+        // alert('请打开麦克风交流');
+        // alert({
+        //     title:"我是标题",
+        //     content:'请打开麦克风交流',
+        //     doneText:"按钮文本"
+        // })
+
+        // confirm({
+        //     title:"我是标题",
+        //     content:'请打开麦克风交流'
+        // }).then(function(){
+        //     console.log("ok");
+        // }).catch(function(){
+        //     console.log("bay");
+        // })
+
+        toast("请打开麦克风交流");
+    }
+
+
+    // $.ajax({
+    //     url:'',
+    //     type:'',
+    //     success:function(){},
+    //     error:function(){}
+    // })
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉加载效果</title>
+    <script src="./js/iscroll.js"></script>
+    <style>
+        #wrapper{
+            position: relative;
+        }
+        #scroller{
+            /* 注意 */
+            position: absolute;
+            z-index: 1;
+            width: 100vw;
+        }
+        #scroller p{
+            margin: 20px;
+            border: 1px solid red;
+            text-indent: 20px;
+        }
+    </style>
+    <script>
+        var myScroll;
+        function load(){
+            myScroll = new IScroll('#wrapper',{
+                scrollX:false,
+                scrollY:true,
+                // freeScroll:true //上拉加载滚动条
+            })
+        }
+        document.addEventListener('touchmove',function(e){
+            e.preventDefault();
+        },{
+            capture:false,
+            passive:false
+        })
+
+    </script>
+</head>
+<body onload="load()">
+    <div id="wrapper">
+        <div id="scroller">
+            <p>国家公路网将覆盖10万人以上市县</p>
+            <p>左图 山西省长治市平顺县虹梯关乡的高速公路旁边，是过去的“挂壁公路”。 新华社记者 曹 阳摄</p>
+            <p>“全国市地级行政中心和城区人口10万以上市县的县级行政中心30分钟上国家高速公路，</p>
+            <p>所有县级行政中心15分钟上普通国道，便捷服务基本覆盖全国。”国家发展改革委基础设施发展司副司长周小棋在近日召开的《国家公路网规划》新闻发布会上表示，建成后的国家公路网将进一步加强对城市群和都市圈发展的支撑，更好服务于区域发展战略与新型城镇化。</p>
+            <p>日前，国家发展改革委、交通运输部发布《国家公路网规划》，对国家公路网到2035年的建设进行整体布局。届时，全国公路总规模预计为46.1万公里，其中国家高速公路约16.2万公里（含远景展望线约0.8万公里），普通国道约29.9万公里；基本建成覆盖广泛、功能完备、集约高效、绿色智能、安全可靠的现代化高质量国家公路网。</p>
+        </div>
+    </div>
+</body>
+</html>
