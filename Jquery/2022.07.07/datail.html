@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈喽</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <h2>哈喽</h2>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/purl/2.3.1/purl.js"></script>
+<script>
+    //purl:purse解析,url地址
+    //purl.js 解析url地址，主要把URL各个部分提取出来使用，原来再JS中通过location对象来实现，另外purl可以依赖JQuery操作方便
+$(function(){
+    var url = $.url();
+    console.log(url);
+    console.log(url.data.param.query.id);
+    $('#p1').text(`id值,${url.param('id')},姓名：${url.param('name')},年龄：${url.param('age')}`);
+})
+// 将来拿到URL中的信息后，使用，一般通过发起Ajax请求，从接口获取数据，渲染到此页面
+</script>
+</html>

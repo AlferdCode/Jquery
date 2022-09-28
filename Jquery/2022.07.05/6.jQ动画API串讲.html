@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQ动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            box-sizing: border-box;
+            position: relative;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">移动</div>
+    <button id="btn1">移动</button>
+    <button id="btn2">停止</button>
+    <button id="btn3">延迟</button>
+</body>
+<script src="./js/jquery.js"></script>
+<script>
+    // animate() 动画
+    /*$('#div1').animate({
+        left:1000,
+        top:300,
+        backgroundColor:'red',
+        fontSize:'1cm'
+    },2000,function(){
+        console.log("我在移动");
+    })*/
+
+    var timer = null;
+
+    // 移动
+    $('#btn1').on('click',function(){
+        // outerWidth() 获取当前窗口的宽度
+        var w = $(window).outerWidth();
+        // 获取元素的宽度
+        var divW = $('#div1').outerWidth();
+        
+        // 一来一回
+        function moveOne(){
+            $('#div1').animate({
+                left: w - divW
+            },5000,function(){
+                $('#div1').animate({
+                    left:0
+                },5000);
+            })
+        }
+
+        // 第一次移动
+        moveOne();
+
+        // 每间隔10秒再次移动
+        timer = setInterval(moveOne,10000);
+    })
+
+    // 停止
+    $('#btn2').on('click',function(){
+        // 清除计时器
+        if(timer){
+            clearInterval(timer);
+        }
+        // stop() 停止动画
+        $('#div1').stop();
+    })
+
+    // delay()延迟
+    $('#btn3').on('click',function(){
+        $('#div1').delay(5000);
+    })
+
+</script>
+</html>

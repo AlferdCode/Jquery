@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <div class="outer" style="border: 1px solid; padding: 5px;">
+        <button id="btn">按钮</button>
+    </div>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+    // 事件委托：把子元素的事件委托给父元素添加
+    
+
+    var outer = document.querySelector('.outer');
+    outer.addEventListener('click',function(en){
+        if(en.target.nodeName == 'BUTTON'){
+            alert("outer代理了btn帮btn绑定了事件,或者是btn委托outer帮btn绑定了事件");
+            console.log(en.target); 
+            console.log(en.currentTarget);
+        }
+    })
+
+    // on() 的参数列表：参数1:事件类型，参数2:委托者元素，事件3:事件执行函数。
+    $('.outer').on('click','#btn',function(en){
+        alert("outer代理了btn帮btn绑定了事件,或者是btn委托outer帮btn绑定了事件");
+        // 注意：jQ中的事件委托中的事件源对象都指向触发事件的元素
+        console.log(en.target); 
+        console.log(en.currentTarget);
+    })
+
+</script>
+</html>

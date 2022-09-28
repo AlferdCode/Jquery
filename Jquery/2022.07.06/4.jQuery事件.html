@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">绑定</button>
+    <button id="btn2">绑定一次</button>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+    // 添加事件
+    // on()开，绑定事件。 参数1:事件类型，参数2:事件函数。
+    $('#btn1').on('click',function(){
+        alert('hello');
+    });
+
+    // 省略on，直接调用事件“有些事件不适用”
+    $('#btn1').mouseover(function(){
+        $(this).css({color:'red'});
+    })
+
+    // off()关，移除事件。参数:移除的事件类型。
+    $('#btn1').off('mouseover');
+
+    // one(),只执行一次事件。
+    $('#btn2').one('click',function(){
+        alert('只有一次有效');
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <div id="div1">111</div>
+    <button>点击</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    console.log($);
+    console.log($ === jQuery);//true
+
+    // 1.jQuery对象和DOM对象
+    var jObj = $('#div1');//参数css选择器
+    console.log(jObj[0]);
+    // jQuery的写法，类似于以下DOM获取元素的方式
+    var domObj = document.querySelector('#div1');
+    console.log(domObj);
+    // 使用$() 把DOM对象包裹起来，转换为jQuery对象
+    console.log($(domObj)[0]);
+
+    // 2.操作DOM
+    $('#div1').css('width',100);
+    $('#div1').css('height','100px');
+    $('#div1').css('border','2px solid red');
+
+    // 3.链式写法
+    // $('#div1').css('width',100).css('height','100px').css('backgroundColor','red');
+    $('#div1').text('我是div1').css('height','100px').css('border','2px solid red');
+
+    // 4.操作多个样式
+    // 把对象作为css的参数传入“把css样式作为对象的属性添加”。作用:一次添加多个css样式。
+    $('#div1').css({
+        width:100,
+        height:'100px',
+        backgroundColor:'#ccc',
+        border: '1px solid red'
+    });
+
+    // 5.jQuery有大量的的API遵循一个规律，同一个API名称即可获取，设置。
+    $('#div1').width(200).height(200);
+    console.log($('#div1').width());
+
+    // 6.添加子标签
+    $('#div1').html('<h1>我是子元素标题1</h1>');
+
+    // 7.更改html属性  attr == attribute
+    $('#div1').attr('class','box');
+    $('#div1').attr('data-dsh','张鹏飞');
+    $('#div1').attr({
+        name:'div1',
+        title:'我是div标签'
+    });
+    $('#div1').data('zs','张三');
+    console.log($('#div1').data('zs'));
+
+    // addClass() 专门来操作class
+    $('#div1').addClass('box1').addClass('box2');
+    $('#div1').removeClass('box2'); //删除class
+    $('#div1').removeAttr('name'); //删除html属性
+    $('#div1').removeData('zs'); //删除data
+    console.log($('#div1').data('zs'));
+
+    // 8.添加事件
+    $('button').on('click',()=>{
+        console.log('on是jQuery中绑定事件的API');
+    })
+</script>
+</html>

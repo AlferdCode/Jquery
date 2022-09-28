@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQ返回顶部</title>
+    <style>
+        #goTop{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <p style="height: 1000px; width: 300px; font-size: 6cm;">内容区域</p>
+    <a id="goTop">返回顶部</a>
+</body>
+<script src="./js/jquery.js"></script>
+<script>
+    // 获取整个文档的宽高
+    console.log($(document).height()); //1454
+    console.log($(document).width());
+    // 获取窗口距离顶部的高度
+    console.log($(window).scrollTop());//0
+    // 获取窗口的可视区域
+    console.log($(window).height());//529
+
+    // scrol滚动条事件
+    $(window).scroll(function(){
+
+        // 判断：当滚动的高度+试图窗口的高度  >=  页面的总高度  “说明：当前的页面接近底部”
+        if($(window).scrollTop() + $(window).height() >= $(document).height()){
+            $('#goTop').fadeIn(500); //显示返回顶部的按钮
+        }else{  //反之隐藏
+            $('#goTop').fadeOut(500);
+        }
+    })
+    // 但返回顶部
+    $('#goTop').click(function(){
+        // $(window).scrollTop(0);
+        // $(document).scrollTop(0);
+        // $('html').scrollTop(0);
+        // $('body').scrollTop(0); //默认样式全部清除可使用
+
+        $('html').animate({
+            scrollTop:0
+        },500);
+    })
+
+    // 原生JS判断条件
+    // window.innerHeight + document.documentElement.scrollTop >= document.documentElement.scrollHeight
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <ul>
+        <li class="box">01</li>
+        <li>02</li>
+        <li class="box1"><span>03</span></li>
+        <li>04</li>
+        <li>05</li>
+    </ul>
+    <button>搜索</button>
+    <select name="" id="">
+        <option value="5"></option>
+        <option value="1"></option>
+    </select>
+</body>
+<script src="./js/jquery.js"></script>
+<script>
+    // jQuery是一个第三方脚本库，提供了dom操作，ajax，少量工具函数
+    // 优点：尺寸小。兼容多个浏览器，支持css3，操作精简高效。
+
+    // prop(),property属性，prop操作的是DOM对象的属性；attr操作的是标签的属性。操作boolean类型的属性建议使用prop。
+    $('button').prop('disabled',true);
+    // $('button').attr('disabled',true);
+
+    $('.box').html('<span></span>').text('hello01');
+    console.log($('.box'));
+
+    // val()方法，对应value属性，如果没有此属性返回0/空字符串，多个元素获取val“只能获取第一个元素的val值”
+    $('.box').val(1);//添加value赋值 1
+    console.log($('.box').val()); //1
+    console.log($('button').val()); //空字符串
+    console.log($('select option')); 
+    console.log($('select option').val());//多个元素获取val
+
+    $('.box').addClass('box-1').addClass('box-2');
+    $('.box').removeClass('box-2');
+    // 切换calss，查看class的参数是否存在，存在则删除，不存在则添加。
+    $('.box').toggleClass('box-1');//删
+    $('.box').toggleClass('box-1');//加
+
+    // 事件
+    $('li').on('click',function(event){
+        // jQuery对象中调用this方法，this是一个标签对象，JQ中可以通过 $(this)调用标签对象把this转化为JQ对象
+        // console.log(this);
+        $(this).css('border','1px solid');
+        // console.log(event.target);
+        // console.log(event.currentTarget);
+        // index(),元素的下标“索引”
+        var index = $(this).index();
+        console.log(index);
+    })
+
+    // 文档处理对象 筛选 append:添加
+    // append:末尾添加，在结束标签之前添加子标签。
+    // prepend:头部添加，在开始标签之后添加子标签。
+    $('ul').append('<li>newLI1</li>');
+    $('ul').prepend('<li>newLI2</li>');
+    // 把创建的元素添加在哪个标签内
+    $('<li>newLI3</li>').appendTo("ul");
+    $('<li>newLI4</li>').prependTo("ul");
+
+    // 同胞关系元素添加
+    $('ul').after('<div>ul的后面</div>');
+    $('ul').before('<div>ul的前面</div>');
+    // 把创建的元素添加在哪个标签前/后
+    $('<input type="text">').insertAfter('ul');
+    $('<input type="text">').insertBefore('ul');
+
+    
+    $('li').wrap('<ul></ul>');//每个元素添加父元素
+    $('li').unwrap();//删除添加的父元素。
+    $('li').wrapAll('<ol></ol>');//给所有的li外层添加一个父元素
+    $('li').wrapInner('<p></p>');//给所有元素添加子元素"不改变原有的子元素内容"
+    $('p').replaceWith('<strong></strong>'); //替换元素及元素内容
+    $('<i>123</i>').replaceAll('strong'); //替换元素及元素内容
+
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="myForm">
+        账号：<input name="user" type="text" id="user" value="hello"><br>
+        密码：<input type="password" name="password" id="pws" value="123456"><br>
+        <button>提交</button>
+    </form>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+
+    // 序列化：将对象的状态信息转换为可储存的传输的数据形式的过程
+
+    // 原生JS
+    var form = document.querySelector('#myForm');
+    var data = new FormData(form);
+    console.log(data.get('user'));
+    console.log(data.get('password'));
+
+    // param() 把对象序列化成查询字符串的格式
+    var params  = {
+        width:100,
+        height:1000
+    }
+    var str = $.param(params);
+    console.log(str); // width=100&height=1000
+
+    // serialize() 把表单中的数据序列化成查询字符串的格式
+    console.log($('#myForm').serialize());
+    // serializeArray() 把表单中的数据序列化成数组数据
+    console.log($('#myForm').serializeArray());
+
+
+
+
+
+
+
+
+    // var user = document.querySelector('#user');
+    // user.oninput = function () {
+    //     var data = new FormData(form);
+    //     console.log(data.get('user'));
+    // }
+</script>
+
+</html>

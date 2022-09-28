@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="../../2022.07.05/js/jquery.js"></script>
+</head>
+<body>
+    
+    <!-- 1.设计结构 -->
+    <div class="box">
+        <div class="item">
+            <div class="title">
+                <i class="fa fa-user-o"></i>
+                <span class="txt">我的</span>
+            </div>
+            <ul class="list active">
+                <li>发现</li>
+                <li>图片</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="title">
+                <i class="fa fa-user-o"></i>
+                <span class="txt">邮件</span>
+            </div>
+            <ul class="list">
+                <li>写邮件</li>
+                <li>草稿箱</li>
+                <li>已发送</li>
+                <li>垃圾箱</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="title">
+                <i class="fa fa-user-o"></i>
+                <span class="txt">设置</span>
+            </div>
+            <ul class="list">
+                <li>密码</li>
+                <li>语言</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="title">
+                <i class="fa fa-user-o"></i>
+                <span class="txt">注销</span>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    // 2.实现逻辑
+    $(function(){
+        $('.title').click(function(){
+            // 方法一
+            // $(this).next('.list').toggleClass('active').end().parents('.box').find('.item').not($(this).parent()).find('.list').removeClass('active');
+            
+            // 方法二
+            $('.list').each(function(i,ele){
+                $(ele).removeClass('active');
+            })
+            $(this).next('.list').addClass('active');
+        })
+    })
+
+</script>
+</html>

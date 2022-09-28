@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器2</title>
+</head>
+<body>
+    <input type="hidden" value="hello">
+    <div style="display: none;">div隐藏1</div>
+    <div style="display: none;">div隐藏2</div>
+    <input type="text" name="" id="">
+    <input type="button" value="按钮">
+</body>
+<script src="./js/jquery.js"></script>
+<script>
+
+    // 隐藏域，不可见，可以通过JS代码获取隐藏域中的值
+    // :hidden 获取隐藏元素
+    console.log($('input:hidden'));
+    console.log($('div:hidden'));
+    $('div:hidden').css({display: 'block'});
+
+    // []属性选择器，[type]查找带type属性的元素。
+    console.log($('input[type=hidden]')[0]);
+    console.log($('input[type=text]')[0]);
+    console.log($('input[type=button]')[0]);
+
+    console.log($('input[type!=hidden]')); //不等于xxx
+    console.log($('input[type^=hidden]')); //以xxx开头
+    console.log($('input[type$=hidden]')); //以xxx结束
+    console.log($('input[type*=hidden]')); //包含xxx
+
+</script>
+</html>

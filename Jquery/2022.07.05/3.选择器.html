@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器1</title>
+</head>
+<body>
+    <h1>标题1</h1>
+    <h2>标题2</h2>
+    <h2>标题2</h2>
+    <h2>标题2</h2>
+    <h2>标题2</h2>
+    <span>hello</span>
+    <h2>标题2</h2>
+    <header>你好，我是header</header>
+    <figcaption lang="zh">百度一下
+        <img src="" alt="">
+    </figcaption>
+    <input type="text" >
+    <a href="#">点击跳转</a>
+</body>
+<script src="./js/jquery.js"></script>
+<script>
+    // 兄弟选择器+ ~
+    console.log($('h1+h2'));
+    console.log($('h1~h2'));
+
+    // even同胞元素的偶数，odd同胞元素的奇数
+    $('h2:even').css({backgroundColor:'red'});
+    $('h2:odd').css({backgroundColor:'yellow'});
+
+    // first第一个，last最后一个
+    $('h2:first').css({fontSize:'1cm'});
+    $('h2:last').css({fontSize:'1cm'});
+
+    // eq == equal ,获取指定的同胞元素（下标）。
+    // gt == greater than大于，大于指定下标的同胞元素。
+    // lt == less than小于，小于指定下标的同胞元素。
+    $('h2:eq(2)').css('color','#fff');
+    $('h2:gt(2)').css('color','blue');
+    $('h2:lt(2)').css('color','orange');
+
+    // lang=language 语言
+    $('figcaption:lang(zh)').css({color:'red'});
+
+    // :header标题，选择h1-h6标签，不能选择header标签
+    // $(':header').css({color:'red'});
+
+    // focus() 获取焦点事件
+    $('input').focus(function(){
+        console.log('获取焦点');
+        // :focus 获取焦点后的状态
+        $('input:focus').css({color:'red'});
+        // 在焦点事件中可以使用this替代:focus
+        $(this).css({color:'blue'});
+    })
+    
+    // :root根，指html标签。
+    $(':root').css({border:'1px solid'});
+    console.log($(':target'))
+    $(':target').css({color:'#000'});
+
+    // :contains一个元素内容区域是否包含某个文本。
+    $('h2:contains("标题")').css({color:'#000'});
+    // has()一个元素内容区域是否包含某个子元素。
+    $('figcaption:has(img)').css({border:'1px solid'});
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>值和内容</title>
+</head>
+<body>
+    <div id="div1">更改内容</div>
+    <input type="text" id="input1">
+    <input type="checkbox" id="ch" value="hello">
+    <label for="ch">你好</label>
+    <input type="radio" id="rd" value="sex">
+    <label for="rd">性别</label>
+    <select name="" id="sel">
+        <option value="1">第一项</option>
+        <option value="2" selected>第二项</option>
+        <option >第三项</option>
+    </select>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+    $('#div1').text('<h1>如果有标签，原样输出</h1>'); //textContent | innerText
+    $('#div1').html('<h1>如果有标签，原样输出</h1>'); //innerHTML
+    $('#div1').val('只有带value属性的元素，才可以使用val更改值');
+
+    // 获取输入框的内容
+    // input:表单输入事件，输入过程中触发事件，jQ中不能省略on
+    $('#input1').on('input',function(){
+        // 获取输入框输入的内容
+        console.log( $('#input1').val());
+    });
+
+    // 复选框
+    // change(): 表单元素状态改变触发事件
+    $('#ch').change(function(){
+        // 获取value属性的值
+        console.log($('#ch').val()); 
+    })
+
+    // 单选框
+    $('#rd').on('focus',function(){
+        // 获取value属性的值
+        console.log($('#rd').val()); 
+    })
+
+    // 通过select获取value，获取的是选中的option的value 
+    console.log($('#sel').val()); //2
+    console.log($('#sel option:eq(0)').val()); //1
+    console.log($('#sel option:eq(2)').val()); //option如果元素没有value属性，返回内容
+    console.log($('#sel option:eq(1)').text()); //有value属性，不能通过val获取内容“使用text”
+</script>
+</html>

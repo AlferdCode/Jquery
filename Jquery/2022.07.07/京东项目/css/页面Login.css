@@ -1,0 +1,193 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.img-top{
+  vertical-align: middle;
+  display: inline-block;
+    margin-top: 10px;
+    margin-left:265px ;
+    width: 170px;
+    height: 60px;
+}
+.p-top{
+  vertical-align: middle;
+    padding: 15px;
+    font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+color: #666;
+font-size: 25px;
+    display: inline-block;
+    width: 130px;
+    height: 60px;
+    font-weight: 400;
+      line-height: 60px;
+      text-shadow: 0 0  2px #999;
+}
+.a-top{
+    display: inline-block;
+    margin-left: 550px;
+    font-size: 12px;
+    color: rgba(93, 92, 92, 0.612);
+}
+.center-safety{
+    text-align: center;
+    line-height: 40px;
+    color: #999;
+    font-size: 12px;
+    margin-top:10px ;
+    background-color: #fff8f0;
+    height: 40px;
+    width: 100%;
+}
+.main{
+    width: 100%;
+    height: 475px;
+    background-color: #e93854;
+}
+.main-center{
+    width: 990px;
+    height: 475px;
+    margin: 0 auto;
+    background: url(https://passport.jd.com/new/misc/2015/background.png) 0px 0px no-repeat !important;
+}
+.main-center-left{
+    position: relative;
+    float: right;
+    margin-top: 10px;
+    width: 350px;
+    height:440px;
+    background-color: #ffffff;
+}
+.min-top{
+    color: #999;
+    background-color: #fff8f0;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+.min-center{
+    display: flex;
+    border-bottom:
+    1px solid rgba(153, 153, 153, 0.121) ;
+}
+.min-center li{
+    width: 50%;
+    font-family: '宋体';
+    height: 55px;
+    font-size: 18px;
+    font-weight: 900px;
+    color: rgb(101, 100, 100);
+    text-align: center;
+    line-height: 55px;
+}
+.min-center li:hover{
+    color: #e93854;
+}
+.min-toggle-left,
+.min-toggle-right{
+    margin: 20px;
+    position: absolute;
+    width: 300px;
+    height:auto;
+    background-color: #fff;
+}
+.min-toggle-left{
+    display: block;
+}
+.min-toggle-right{
+    display: none;
+}
+#username{
+    outline-style: none;
+    padding: 0 0 0  50px   ;
+    margin-top: 10px;
+    width: 300px;
+    height:38px;
+}
+#password{
+    padding: 0 0 0  50px   ;
+    outline-style: none;
+    margin-top: 20px;
+    width: 300px;
+    height:38px;
+}
+.toggle-label{
+    border:1px solid  #999;
+    left: 0;
+    position: absolute;
+    background-color: #f2f2f2;
+    width: 38px;
+    height: 38px;
+}
+.label-left{
+    top: 10px;
+}
+.label-right{
+    top: 68px;
+}
+.form-a{
+    display: inline-block;
+    font-size: 12px;
+    color: #999;
+    margin:20px 0 0 0 ;
+    margin-left: 250px;
+}
+.min-bottom{
+    margin-top: 30px;
+    width: 300px;
+    height: 50px;
+    border-top:1px solid rgba(153, 153, 153, 0.309);
+    padding-top:20px ;
+}
+.min-bottom a{
+    display: inline-block;
+margin-right: 20px ;
+color: #999;
+}
+.min-submit{
+    margin-top: 20px;
+    width: 300px;
+    height: 33px;
+    background-color: #e93854;
+    color: #fff;
+    border: 0;
+}
+.register{
+    display: inline-block;
+    color: #e93854;
+    font-size: 14px;
+    margin-left:130px ;
+}
+.buttom-ul{
+    color: #999;
+    display: inline-block;
+    margin: 20px 0 20px 300px;
+}
+.buttom-ul li {
+    color: #999;
+    text-align: center;
+    font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+    display: inline-block;
+    margin:0 10px 0 10px ;
+}
+.buttom-ul li:hover{
+    color: #e93854;
+    text-decoration: #e93854;
+}
+.buttom-div-baibai{
+    color: #999;
+    font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+    text-align: center;
+    margin: 0px auto ;
+    margin-bottom:50px ;
+}

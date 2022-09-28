@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/*  弹窗开始 */
+.CPM{
+    position: fixed;
+    width: 955px;
+    height: 600px;
+    box-shadow: 0 0 4px #3d3b3b71;
+    margin: 100px 260px;
+    background-color: #ffffff;
+}
+.CPM-jdyhzc{
+    /* overflow: hidden; */
+    background-color: #f3f3f3;
+    line-height: 31px;
+    font-weight: 900;
+    width: 100%;
+    height: 31px;
+    padding: 0 10px;
+}
+.CPM-jdyhzc a {
+    float: right;
+    color: #5654548d;
+}
+.CPM-bottom{
+    width: 100%;
+    height: auto;
+}
+.CPM-zui{
+    position: absolute;
+    bottom: 0 ;
+    left: 255px;
+    width: 400px;
+    background-color:#ee2222 ;
+    color: #ffffff;
+    height: 54px;
+    text-align: center;
+    line-height: 54px;
+
+}
+
+/* 弹窗结束 */
+.main-top{
+    width: 100%;
+    height: 110px;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px rgba(111, 111, 111, 0.467);
+}
+.Validation{ 
+    padding-top: 50px;
+    width: 1210px;
+    height: 500px;
+    margin: 0 auto;
+}
+.Validation-top{
+    margin: 0 auto;
+    width: 400px;
+    height: 55px;
+    /* background-color: pink; */
+}
+.Validation-top-left{
+    text-align: center;
+    width: 90px;
+    height:55px;
+    display: inline-block;
+}
+.Validation-top-left .span{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: #ffffff;
+}
+.Validation-top-left .span:nth-child(1){
+    background-color: #33bb44;
+}
+.Validation-top-left p {
+        font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+}
+.Validation-top-left p:nth-child(1){
+    color: #33bb44;
+}
+.Validation-top-dd{
+    display: inline-block;
+}
+.Validation-center{
+    /*  */
+    display: block;
+    padding-top: 20px;
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+}
+.Validation-cente-left{
+    text-align: center;
+    line-height: 52px;
+    vertical-align: middle;
+    border:1px solid rgb(23, 22, 22) ;
+    display: inline-block;
+    width: 100px;
+    height: 52px;
+}
+.Validation-cente-right{
+    margin-left: -10px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 300px;
+    height: 52px;
+    padding-left:10px ;
+}
+.Validation-cente-bottom{
+    margin-top: 40px;
+    width: 400px;
+    height: 52px;
+}
+.Validation-cente-bottom-btn{
+    margin-top: 40px;
+    width: 400px;
+    height: 52px;
+    background-color: #ee2222;
+    color: #ffffff;
+    text-align: center;
+    line-height: 52px;
+}
+.tuoAccount{
+    /*  */
+    display: none;
+    text-align: center;
+    padding-top: 20px;
+width: 400px;
+height: 300px;
+margin: 20px auto;
+}
+.tuoAccount input{
+    padding-left: 20px;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 55px;
+}
+.tuoAccount button {
+    width: 300px;
+    height: 45px;
+}
+.zccg{
+    /*  */
+    display: none;
+    text-align: center;
+    padding-top: 20px;
+width: 400px;
+height: 300px;
+margin: 20px auto;
+}
+.zccg button{
+    margin-top:30px ;
+    width: 100%;
+    height: 55px;
+}
+

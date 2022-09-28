@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <p>页面内容段落</p>
+    <p class="p">页面内容段落</p>
+    <p class="p">页面内容段落</p>
+    <p class="p">页面内容段落</p>
+    <p>页面内容段落</p>
+    <p>页面内容段落</p>
+    <!-- <section>s1</section>
+    <section>s2</section> -->
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li class="third-item">list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </ul>
+    <section>
+        section
+        <div>
+            div
+            <p>
+                p
+                <span>span</span>
+            </p>
+        </div>
+    </section>
+</body>
+<script src="../2022.07.05/js/jquery.js"></script>
+<script>
+
+    // 同时获取多个不同的元素，返回一个集合
+    console.log($('div,p,section'));
+    console.log($('div,p,section').length); //长度
+    
+    // add('选择器') 把多个筛选的结果串联成一个大的结果。
+    console.log($('div').add('.p').add('section'));
+    console.log($('div').add('.p').add('section').length);
+
+    //nextAll() 获取指定元素下面所有符合条件的筛选结果
+    console.log($('li.third-item').nextAll('p'));
+    //addBack() 退一步“串联退一层的筛选结果”
+    $('li.third-item').nextAll('p').addBack().css({border:'1px solid'});
+    // next() 获取下面一个符合条件的筛选结果“注意：下一个元素不符合条件返回空集合”
+    console.log($('li.third-item').next('li').text());
+
+    console.log($('li.third-item').next());//li 4
+    console.log($('li.third-item').next().addBack());//li 3,li 4
+    console.log($('li.third-item').next().addBack().next()); //li 4, li 5
+
+    // find():获取后代中所有的符合规则的元素
+    console.log($('section').find('div').addBack().find('p').addBack().find('span').addBack());
+    
+    // end():返回当前元素的父元素
+    $('section').find('div').find('p').find('span').css({
+        backgroundColor:'red'
+    })
+    .end().end().end().css({
+        backgroundColor:'yellow'
+    });
+</script>
+</html>
