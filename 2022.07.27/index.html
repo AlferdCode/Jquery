@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>点击1</li>
+        <li>点击2</li>
+        <li>点击3</li>
+        <li>点击4</li>
+        <li>点击5</li>
+    </ul>
+    <script>
+        // 一，let：ES6新增的声明变量的方式。
+        // 与var的区别
+        // 1. 新增了块级作用域，{}里面声明的变量，在外部不能使用。
+        // 2. 不支持变量提升。
+        // 3. 不能重复声明。
+        // 4. 暂时性死区(只要块级作用域内存在在let声明他所声明的变量就绑定在这个区域内，不再受外部的影响)。
+        // 5. for循环，采用let声明变量i，可以认为每次循环的i都是新的，好处是可以保留中间值。
+        var m = 10;
+        console.log(m);
+        console.log(window.m);
+
+        let n = 10;
+        console.log(n);
+        console.log(window.n);//undefined
+
+        {
+            let a = "hi";
+        }
+        // console.log(a); //a is not defined
+        // console.log(b); //报错
+        let b = 10;
+        // let b = 100; // Identifier 'm' has already been declared 
+
+        let d = 100;
+        if (true) {
+            // console.log(d); //Cannot access 'd' before initialization
+            console.log(d); //100
+            d = 10;
+            // let d = 30;
+            console.log(d); //10
+        }
+        console.log(d);//10
+
+        // for循环会形成一个作用域，声明变量i，进去(),实际又形成了一个新的作用域。
+        // 结果是，每次循环一次let声明创建一个作用域，将当前的i保存值这个作用域中，循环几次产生几个作用域“i在每个作用域都是新的变量”。
+        var lis = document.querySelectorAll("ul li");
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                lis[i].style.color = "red";
+            }
+        }
+
+        // 二，const：常量
+        // 特点：
+        // 1. 声明时必须初始化。
+        // 2. 一经赋值，无法修改。
+        // 3. 其余同let。
+        // 注意：声明一个常量obj，赋值一个对象，这时obj记录的是在这个对象的内存地址，所以不可改变的是obj的内存地址，obj的内容是可以改变的“也就是说obj不可改变，改变的是对象的属性”
+
+        // 常量习惯采用纯大写命名，多个单词之间以_连接
+        var x = 10;
+        x = 100;
+        console.log(x);
+
+        let y = 10;
+        y = 100;
+        console.log(y);
+
+        const z = 10;
+        // z = 100; //Assignment to constant variable.  重复赋值
+        console.log(z);
+
+        const obj = {
+            name: 'LISA',
+            age: 24
+        }
+        obj.age = 18;
+        obj.say = function () { };
+        console.log(obj);
+
+        const obj2 = {
+            name: 'LILy',
+            age: 25
+        }
+        obj2.age = 100;
+        console.log(obj2);
+
+        //  Object.freeze :将对象设置为不可改变，freeze 冻结。
+        let constObj2 = Object.freeze(obj2);
+        console.log(constObj2);
+        constObj2.say = function(){};
+        delete constObj2.age;
+        console.log(constObj2);
+        
+
+
+        // 三，解构赋值
+        /*
+            1. 对象的结构赋值。
+            2. 数组的结构赋值。
+            3. 字符串的结构赋值。
+            4. 函数参数的结构赋值。
+        */ 
+
+        var obj3 = {
+            name:'Kun',
+            age:18,
+            sex:false,
+            height:185
+        }
+        var age = obj3.age;
+        var sex = obj3.sex;
+        console.log(age,sex);
+        
+        // height默认值30，从obj3中查找height属性赋值给height，找到则使用obj3的height值，找不到使用默认值。
+        var {age,sex,height=30} = obj3;
+        console.log(age,sex,height);
+        // 从obj3中查找age属性并赋值给num变量。
+        var {age:num} = obj3;
+        console.log(num);
+        var {age:age,sex:sex} = obj3;
+        var arr = [10,50,100,'hi',true];
+        var [x1,y1,z1="hello"] = arr;
+        console.log(x1,y1,z1);
+        // 将arr下标为1和3的值赋值给x1，y1
+        var {1:x1,3:y1} = arr;
+        console.log(x1,y1);
+
+        // 将arr的0号元素赋值给r，剩余元素都赋值给t “形成数组” 。
+        var [r,...t] = arr;
+        console.log([r,...t]);
+        console.log(r,t);
+        
+         var [q,w,g] = "hello world";
+        console.log(q,w,g);
+        var {0:q,3:w,10:g} =  "hello world";
+        console.log(q,w,g);
+
+        function test({sex,age=100}){
+            console.log(sex,age);
+        }
+        test({name:'张三',age:25,sex:true});
+        test(obj3);
+    </script>
+</body>
+
+</html> 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map: ES6中提供了Map数据结构，能够存放键值对.
+        // 新建一个map：包含键值对数据。
+        var map = new Map([
+            ["name",'LISA'],
+            ["age",20]
+        ]);
+        
+        // 获取map的长度
+        console.log(map.size);
+
+        // 添加:参数 key-value 格式
+        map.set(new Date(),"hello world");
+        console.log(map);
+
+        // 判断 key 是否存在
+        console.log(map.has("age"));
+
+        // 删除 
+        map.delete('age');
+        console.log(map);
+
+        // 遍历
+        map.forEach((value,key,map)=>{
+            console.log(key,value);
+        })
+
+        for(const key of map){
+            console.log(key); //获取到一个集合，一个键值对“0:key , 1:value”
+            console.log(key[0]); //获取键值对的key
+            console.log(key[1]); //获取键值对的value
+        }
+
+        // 清空
+        map.clear();
+
+        //需求： 查找数组中两个元素“arr”，和为指定的数据“target”
+        const arr = [1,2,3,4,6,7];  
+        const target = 5;     
+        function twoSum(array,target){
+            // 把数组的数据存放至map中，“key:数组数据。 value:数组下标”
+            var map  = new Map();
+            for(let i = 0; i<array.length; i++){
+                map.set(array[i],i);
+            }
+            /*0: {1 => 0},1: {2 => 1},2: {3 => 2},3: {4 => 3},4: {6 => 4},5: {7 => 5} */ 
+            console.log(map);
+            for(var i = 0;i<array.length;i++){
+                // index：作为第二个数的下标，从map中获取数据(指定数字 - 数组[下标]);
+                // 例如：指定数据是5 map中获取就是，map.get(5 - 1) == map.get(4) = 上方map中为3
+                var index = map.get(target - array[i]); 
+                console.log(index);//3 
+                if(index != -1 &&  index != i){ // 判断index这个数据是否存在，且和当前的下标不相同
+                    //  arr[i] = 0,  arr[3]
+                    console.log("两个数分别是" + array[i] + " , " + array[index]);
+                    // [1,4]
+                    return [array[i],array[index]];
+                }
+            }
+            return false;
+        }
+        console.log(twoSum(arr,target));
+
+
+    </script>
+</body>
+</html>

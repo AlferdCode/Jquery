@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 四，模板字符串
+        // `字符串模板中` 可以通过${}插入内容，${js表达式}  
+        var name = "张三";
+        var obj = {
+            age: 25,
+            sex: true,
+            sayhello: function () {
+                return "hello"
+            }
+        }
+        console.log(`你好，我是${name},${1 + 2},${obj.age},${obj.sayhello()},${[1, 2, 3].join("-")}`);
+
+
+        // 五，函数的扩展
+        // 1. 函数参数的默认值
+        // 2. 函数的剩余参数
+        // 3. 箭头函数
+        function test(a = 100, b = 15) {
+            console.log(a, b);
+        }
+        test(); //为传实参，函数使用形参默认值
+        test(1, 2); //掺入实参，函数使用实参值
+        test(1, undefined); // 实参为undefined，函数使用形参默认值
+
+        function test1(a, b, ...list) {
+            console.log(list);
+            console.log(a, b);
+            console.log(arguments);
+        }
+        test1(1);
+        test1(1, 2, 2, 4, 5);
+
+        // 箭头函数格式 ()=>{}
+        // ()中是函数的参数“无参|多参时不可省略()，单参可以省略()”。
+        // {}是函数体，“只有一句代码时，可以省略{}” 只能写一行代码“会将这句代码作为箭头函数的返回值”。
+        // 箭头函数中的this指向箭头函数上下文中的this。
+        // 箭头函数中的arguments不再代表函数的参数信息，而是代表箭头函数所在的上层函数的参数信息
+        // 箭头函数不能当做构造函数，箭头函数不能和new连用。
+        // 对象的方法，不要使用箭头函数定义，因为this指向会有问题。
+        var obj = {
+            name: 'zhangsan',
+            sayhi: function () {
+                console.log(this);
+            },
+            sayhello: () => {
+                console.log(this);
+            }
+        }
+        obj.sayhi();
+        obj.sayhello();
+
+        (() => {
+            // console.log(arguments); // arguments is not defined
+        })(4, 5);
+
+        function test3(a, b) {
+            ((...list) => {
+                console.log(arguments); // 输出的test3内的参数列表
+                console.log(list); //箭头函数中可以选择使用剩余参数，代替arguments
+            })(4, 5)
+        }
+        test3(1, 2, 3);
+
+    </script>
+</body>
+
+</html>

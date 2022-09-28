@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 七，Symbol
+        // Symbol：唯一的标志，是ES6新增的一种类型。
+        // number、boolean，string，function，undefined，object，Symbol
+
+        var s1 = Symbol("world");
+        console.log(s1); //Symbol(world) 
+        console.log(typeof s1); //symbol
+        var s2 = Symbol("world");
+        console.log(s1 == s2);//fasle
+
+        var s3 = Symbol.for("dog");
+        var s4 = Symbol.for("dog");
+        console.log(s3 == s4); //true
+
+        // 八，对象的扩展
+        // 对象的属性名称ES6之前只能是字符串类型，ES6新增的symbol类型也可以作为对象的属性名称使用。
+        // symbol作为属性名称的好处，防止重名，属性覆盖。
+        // 对象的属性简写： sayHello:function(){}  可以简写为 sayHello(){}
+        var obj = {
+            name:'张三',
+            age:30,
+            ['nick'+ "name"]:"小张",
+            [{color:'red'}]:"pink",
+            [s1]:true,
+            sayHello(){},
+        }
+        console.log(obj);
+        console.log(obj['name']);
+        var name = "nickname";
+        console.log(obj[name]);
+        console.log(obj[s1]);
+        obj[s2] = 100;
+        console.log(obj[s2]);
+        console.log(obj['[object Object]']);
+
+        var age = 23;
+        var nickname = "lisa";
+        var obj1 = {
+            age,
+            nickname
+        }
+        console.log(obj1);
+
+
+    </script>
+</body>
+
+</html>

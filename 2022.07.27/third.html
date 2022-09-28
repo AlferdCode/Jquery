@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // People类
+        // 添加 数据属性 name age
+        // 添加方法 sayHello 输出xxx
+        // 添加实例方法 sayHi 输出xxx
+        // 添加 类(静态) 方法 introduce 输出xxx
+
+        function People(name,age){
+            this.name = name;
+            this.age = age;
+            this.sayHello = function(){
+              
+                console.log("我是" + this.name);
+            }
+        }
+        People.prototype.sayHi = function(){
+            console.log("我是" + this.age);
+        }
+        People.introduce = function(){
+            console.log("hello world!");
+            console.log(this);
+        }
+
+        var p = new People("张三",30);
+        console.log(p);
+        var p2 = new People("李四",35);
+        console.log(p2); 
+        console.clear();
+        console.log(p2.name);
+        console.log(p.name);
+        console.log(p.sayHi());
+        console.log(p.sayHi() == p2.sayHi());
+        p.sayHello();
+        People.introduce();
+        console.log(People.prototype.constructor.introduce);
+
+        // function Man(name,age,isLong){
+        //     // 调用父类的构造函数，初始化从父类继承来的属性：注意this指向
+        //     // People.call(this,name,age);
+        //     People.apply(this,[name,age]);
+        //     this.isLong = isLong;
+        // }
+
+        // // 将Man的原型设置为People类型的对象，就可以将People类的原型添加到Man的原型链上，进而形成继承。
+        // Man.prototype = Object.create(People.prototype);
+        // // 改变子类的原型的构造函数，指向自己
+        // Man.prototype.constructor = Man;
+        // Man.prototype.paly = function(){
+        //     console.log("paly...");
+        // }
+        // var m = new Man("王五",35,false);
+        // console.log(m);
+        // m.sayHello();
+        // m.paly();
+
+
+        // 六，class extends 类 继承
+        // class ：关键字，定义类；
+        // 语法： 类 类名{}，{}中是类的详细内容。
+        /*
+        class People{
+            // constructor:关键词，构造函数，构造函数的名字是类名。
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            sayHello(){
+                console.log("hello,我是" + this.name);
+            }
+            // static 关键字，静态，定义静态方法
+            static introduce(){
+                console.log("hello world!");
+            }
+        }
+
+        var p3 = new People("赵六",40);
+        console.log(p3);
+        p3.sayHello();
+        People.introduce();
+*/ 
+/*
+        // 继承
+        // extends ：关键字，继承。Man类继承于People类
+        // 单继承：一个类只能有一个父类，不指定父类时，默认继承Object类
+        // 但是：一个类可以被多个子类继承。
+        class Man extends People{
+            constructor(name,age,isLong){
+                // 调用父类构造函数，初始化从父类继承的属性
+                // super：关键词，父类。
+                super(name,age);
+                this.isLong = isLong;
+                this.sayHi = function(){
+                    console.log(`我${this.age}岁了`);
+                }
+            }
+            play(){
+                console.log("paly...");
+            }
+            sayHello(){
+                console.log("Man sayHello");
+                super.sayHello();
+            }
+            static sayBye(){
+                console.log("886");
+            }
+        }
+        var m = new Man('小七',18,false);
+        console.log(m);
+        m.sayHi();
+        m.sayHello();
+        Man.sayBye();
+
+        class Bird{
+            // 不定义构造函数时，默认包一个无参的空构造函数。
+        }
+        var b = new Bird();
+        console.log(b);
+*/ 
+    </script>
+</body>
+</html>

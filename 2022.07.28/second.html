@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object方法</title>
+</head>
+<body>
+    <h1></h1>
+    <button onclick="add()">点击</button>
+    <script>
+        var obj = {
+            name:'张三',
+            age:30
+        }
+
+        // 属性描述符：property descriptor
+        // 属性描述符分为：数据描述符 和 存取描述符
+        // configurable：是否可配置：取值为true时，该属性能够从对象删除，可以修改该属性的描述符。
+        // enumerable: 是否可枚举，取值为true“可枚举”，可以通过for-in遍历。
+        // value：值，数据描述符有value，存取描述符没有value。
+        // writable：是否可写：取值为true，该属性取值可以被修改。
+        console.log(obj);
+        console.log(Object.getOwnPropertyDescriptor(obj,"name"));
+        // delete obj.name;
+        console.log(obj);
+        obj.sex = true;
+
+        // 给对象添加属性
+        // 参数：p1对象， p2属性名称， p3属性描述符“采用的数据描述符”
+        Object.defineProperty(obj,'game',{
+            value:"王者荣耀",
+            configurable:false,
+            enumerable:false,
+            writable:false
+        });
+        delete obj.game;
+        obj.game = "斗罗";
+        console.log(obj);
+
+        for(let k in obj){
+            console.log(k);
+        }
+
+        // 返回对象自身可枚举属性，返回数组。
+        var keys = Object.keys(obj);
+        console.log(keys);
+
+        // 存取描述符
+        // set:给属性赋值会调用set方法，赋的值作为set方法的参数传入。
+        // 作用1：赋值前可以进行数据验证。
+        // 作用2: 可以进行额外的其他操作，例如数据变化更新Dom
+        // get:去属性值时，会调用get方法，get方法的返回值为取到的数值。
+        Object.defineProperty(obj,'wage',{
+            configurable:true,
+            enumerable:true,
+            set(value){
+                console.log("value:",value);
+                if(value < 0){
+                    throw Error("不能为负数");
+                }
+                // 定义一个其他属性，记录值。注意：不能使用this.wage = value。因为依旧会调用set方法最终形成死循环。
+                this._wage = value;
+                document.querySelector("h1").innerText = value;
+            },
+            get(){
+                console.log("get方法被调用");
+                return this._wage;
+            }
+        })
+        console.log(obj);
+        var res = obj.wage;
+        console.log(res);
+        obj.wage = 10000;
+        console.log(obj);
+
+        function add(){
+            obj.wage++
+        }
+
+        // 采用存取描述符定义的属性，后续修改属性会触发set方法，但是若该属性是个对象，仅修改该属性对象的属性并不会触发set方法。
+        // 例如：下面，不直接修改obj.friend 而是 修改 obj.friend.name 就不会触发set方法。
+        Object.defineProperty(obj,'friend',{
+            configurable:true,
+            enumerable:true,
+            set(obj){
+                console.log("friend set");
+                this._friend = obj;
+                document.querySelector('h1').innerText = JSON.stringify(this._friend);
+            },
+            get(){
+                console.log("friend get");
+                return this._friend;
+            }
+        })
+
+    
+        console.log(obj);
+        obj.friend = {
+            name:'张三',
+            age:30
+        }
+        obj.friend.name = 'lisa'
+        
+
+        // assign：赋值
+        // 将多个源对象的可枚举属性复制到自己的目标对象中，只会复制一层。
+        var obj1 = {
+            name:"张洒",
+            age:30
+        }
+        var obj2 = {
+            height:177,
+            sex:true
+        }
+        Object.defineProperty(obj2,"friend",{
+            value:{nickname:"小米"},
+            configurable:true,
+            enumerable:false,
+            writable:true
+        })
+        // 参数：p1目标对对象。p2源对象。p3新的属性
+        Object.assign(obj1,obj2,{
+            color:"red",
+        })
+        console.log(obj1);
+        obj1.height = 180;
+        // obj1.friend.nickname = "小红";
+        console.log(obj2);
+
+
+
+        // ES6 扩展运算符 ...
+        var obj3 = {
+            id:1,
+            title:"鲜花饼",
+            clolrs:['红色',"蓝色"]
+        }
+        var obj4 = {
+            price:20,
+            kind:"玫瑰花",
+            ...obj3
+        }
+        console.log(obj4);
+        obj4.id = 5;
+        console.log(obj3);
+
+        var arr1 = [1,2,3,4];
+        var arr2 = ['a','b','c'];
+        var arr3 = ["你好",...arr1,"中国",...arr2];
+        console.log(arr3);
+
+        // 以指定的原型创建对象，例如下，创建对象，原型使用数组原型，多以可以调用数组的方法，也可以使用对象的操作。
+        // 使用场景:常用于ES5的构造函数继承关系。
+        var obj4 = Object.create(Array.prototype);
+        obj4.name = "hahaha";
+        obj4.push(199);
+        console.log(obj4.name);
+        console.log(obj4[0]);
+
+        var obj5 = {
+            name:"Abby",
+            age:25,
+            sex:true
+        }
+        
+        // 返回对象自身可枚举的属性的键值对数组
+        var res = Object.entries(obj5);
+        console.log(res);
+        
+        // Object.is() 判断是否相等 (用于判断两个值是否相等)
+        console.log(Object.is(undefined,null)); //false
+        console.log(Object.is(NaN,NaN)); //true
+        console.log(NaN === NaN); //false
+
+        var obj6 = obj5; //引用地址为同一地址返回true
+        console.log(Object.is(obj5,obj6));
+    </script>
+</body>
+</html>

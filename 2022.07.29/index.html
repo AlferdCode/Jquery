@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Proxy：代理，是一种封装，能去拦截并改变js引擎的底层操作。（例如：一些不可枚举，不可写入的属性）。
+
+        var obj = {
+            name:"张三",
+            age:30,
+            sex:true,
+            nums:[1,2,3,4,5,],
+            wife:{
+                name:"小红",
+                age:26
+            }
+        }
+
+        console.log("name" in obj);
+
+        // 创建一个代理“去代替一个对象(目标对象)”这时代理目标对象进行了虚拟“该代理和目标对象在表面上可以当做统一对象来看”。
+        var proxy = new Proxy(obj,{
+            // 对象添加/修改数据触发
+            set:function(target,key,value){
+                console.log(target,key,value);
+                // 拦截行为
+                if(key == "age" && value > 150 || value < 0 ){
+                    throw new Error("年龄age的有效范围是0 - 150");
+                }
+                target[key] = value;
+            },
+            // 对象查看数据触发
+            get:function(target,key){
+                console.log(target,key);
+                return target[key];
+            },
+            // 对象判断数据触发
+            has:function(target,key){
+                console.log(target,key);
+                return key in target;
+            },
+            // 对象删除数据触发
+            deleteProperty:function(target,key){
+                console.log(target,key);
+                delete target[key];
+            }
+        });
+        // console.log(proxy);
+        proxy.name = "小明";
+        // console.log(proxy);
+        // console.log(obj);
+
+        // proxy.age = 1000; 年龄不符合规则，出现拦截，抛出错误信息。
+
+        console.log(proxy.age);
+
+        // in 运算符，判断对象中是否包含某个属性，返回布尔值。
+        console.log("sex" in proxy);
+        
+        delete proxy.sex;
+        console.log(obj);
+        Object.defineProperty(obj,"sex",{
+            
+        });
+       
+
+
+    </script>
+</body>
+</html>

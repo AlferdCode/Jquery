@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <!-- 
+        同一个html的多个js文件，处于同一个全局域，可以互相访问，也就是没有作用域隔离机制，但是变量提升只会提升至本文件最上方。
+        全局域大量变量，很容易命名冲突，怎么解决？
+        模块化 module：将实现某项功能的代码，单独写一个文件，就形成了一个模块。
+        模块与模块之间作用域隔离，可以避免命名冲突。
+
+        一个模块A如何使用其他的模块B定义变量？ES6模块化方案
+            B模块中 采用 export 进行导出。
+            A模块中 采用 import 进行导入。
+     -->
+    <!-- sixth 属于上方 a模块 导入模块 （导入后可以使用B模块的变量） 
+    注意：type="module" 模块化开发类型
+    -->
+    <script src="./js/sixth.js" type="module"></script>
+</body>
+</html>

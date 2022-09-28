@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 新建一个集合
+        let set = new Set([1,2,3,4,5,6]);
+        console.log(set.size);  //长度
+        // 添加元素，注意：重复的数据不能添加
+        set.add(1);
+        set.add("hello");
+        console.log(set);
+        // 删除元素
+        set.delete(2); //删除某个指定数据
+        console.log(set);
+        // 判断元素是否存在
+        console.log(set.has("hello"));
+        // 遍历集合
+        set.forEach((value,index,set)=>{
+            console.log(value,index,set);
+        })
+        // for……of 遍历
+        for(const value of set){
+            console.log(value);
+        }
+
+        // 清空
+        set.clear();
+        console.log(set);
+
+    </script>
+</body>
+</html>

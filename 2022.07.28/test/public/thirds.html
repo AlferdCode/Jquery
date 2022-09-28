@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./javascripts/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        // 十，Promise
+        // Promise：承诺；是ES6提供的一个新类型；处理异步任务，与callback相比可以避免多个异步嵌套，降低代码复杂性。
+        // Promise把任务根据完成度分为三种状态
+        // pending：挂起：任务在初始状态，未完成。
+        // resolved：已解决：任务结束，成功完成，有时候也叫fulfilled(圆满完成)。
+        // rejected：被拒绝：任务结束，失败了。
+        // Promise提供了两个方发，去记录任务的状态并固化，任务结束状态一经绑定，无法更改。
+        // resolve:修改任务状态为成功，并保存任务结果。
+        // reject:修改任务状态为失败状态，并保存失败原因。
+        // 创建一个Promise对象
+        // Promise构造函数的参数是一个函数，该函数有两个参数resolve,reject
+        /*
+        var p = new Promise((resolve, reject) => {
+            // 进行异步任务
+            $.ajax({
+                url: "/list",
+                method: "get",
+                success(res) {
+                    console.log(res);
+                    // 修改任务状态为成功，并保存任务结果。
+                    resolve(res);
+                },
+                error(msg) {
+                    console.log(msg);
+                    // 修改任务状态为失败状态，并保存失败原因
+                    reject(msg);
+                }
+            })
+        });
+        */
+
+        /*
+        Promise提供两个实例方法们可以进行任务结束后的下一步操作；
+        then：然后，任务成功结束的后续操作在then方法中完成。
+            (Promise的then支持链式调用，Promise的then方法会返回一个Promise类型的对象，从而可以继续调用then)
+        catch：捕获，任务失败结束的后续操作在catch方法中完成。
+            (注意：Promise中出现代码写错误，程序内部会throw Error，程序崩溃，但是这个catch也有捕获的能力，最终出现代码错也不会崩溃。)
+        */
+        /*
+         p.then((data) => {
+             console.log("data:", data);
+             console.log("第一步任务成功了，下一步操作是。。。");
+ 
+             var nextP = new Promise((resolve, reject) => {
+                 // 进行一步任务
+                 $.ajax({
+                     url: 'http://localhost:3000/list2',
+                     method: 'get',
+                     success(res) {
+                         console.log(res);
+                         // 修改任务状态为成功，并保存任务结果。
+                         resolve(res);
+                     },
+                     error(msg) {
+                         console.log(msg);
+                         // 修改任务状态为失败状态，并保存失败原因
+                         reject(msg);
+                     }
+                 });
+             });
+             return nextP;
+         }).then((data)=>{
+             console.log("data",data);
+             console.log("第二步成功了，可以进行第三步了……");
+             return 1000;
+         }).then((data)=>{
+             console.log("data",data);
+             console.log("第三步成功了，可以进行第四步了……");
+         }).catch((error)=>{
+             console.log(error);
+             console.log("是失败了");
+         })
+ 
+     */
+
+
+        // Promise也提供了两个类方法
+        // all:所有，参数是一个数组，数组中元素是Promise对象。返回值是一个新的Promise对象。只有当参数数组中所有的Promise都成功结束，才会执行then方法，只要有一个Promise失败就执行catch方法，类似于&&。
+        // race:比赛，参数是一个数组，数组中元素都是Promise对象。返回值是一个新的Promise对象。当有一个新的Promise结束时，新的Promise就结束执行then还是catch看结束的这个Promise对象的状态决定，类似于 抢答。 
+        /*
+        var p1 = new Promise((resolve, reject) => {
+            // 进行一步任务
+            $.ajax({
+                url: 'http://localhost:3000/list',
+                method: 'get',
+                success(res) {
+                    console.log(res);
+                    // 修改任务状态为成功，并保存任务结果。
+                    resolve(res);
+                },
+                error(msg) {
+                    console.log(msg);
+                    // 修改任务状态为失败状态，并保存失败原因
+                    reject(msg);
+                }
+            });
+        })
+        var p2 = new Promise((resolve, reject) => {
+            // 进行一步任务
+            $.ajax({
+                url: 'http://localhost:3000/list2',
+                method: 'get',
+                success(res) {
+                    console.log(res);
+                    // 修改任务状态为成功，并保存任务结果。
+                    resolve(res);
+                },
+                error(msg) {
+                    console.log(msg);
+                    // 修改任务状态为失败状态，并保存失败原因
+                    reject(msg);
+                }
+            });
+        })
+        var p3 = new Promise((resolve, reject) => {
+            // 进行一步任务
+            $.ajax({
+                url: 'http://localhost:3000/list3',
+                method: 'get',
+                success(res) {
+                    console.log(res);
+                    // 修改任务状态为成功，并保存任务结果。
+                    resolve(res);
+                },
+                error(msg) {
+                    console.log(msg);
+                    // 修改任务状态为失败状态，并保存失败原因
+                    reject(msg);
+                }
+            });
+        })
+        */  
+
+        // var promiseAll = Promise.all([p1,p2,p3]);
+        // promiseAll.then((data)=>{
+        //     console.log(data);
+        //     console.log("圆满结束");
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
+
+        // var promiseAll = Promise.race([p1,p2,p3]);
+        // promiseAll.then((data)=>{
+        //     console.log(data);
+        //     console.log("圆满结束");
+        // }).catch((error)=>{
+        //     console.log(error);
+        // })
+
+
+        // $.get() / $.post() 这些方法的返回值是一个类promise对象，称为deferred对象
+        // deferred：延迟
+        // done：类似 then
+        // fail：类似 catch
+        
+        // $.get("/list").done(res=>{
+        //     console.log(res);
+        // }).fail(error=>{
+        //     console.log(error);
+        // })
+
+
+        // $.when 类似 Promise.all
+        var d1 = $.get("/list");
+        var d2 = $.get("/list2");
+        var d3 = $.get("/list5");
+        
+        $.when(d1,d2,d3).done((data1,data2,data3)=>{
+            console.log(data1);
+            console.log(data2);
+            console.log(data3);
+        }).fail((error)=>{
+            console.log(error);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--    
+    <script>
+        var p = new Promise((resolve,reject)=>{
+            $.ajax({
+                url:"/list",
+                method:'get',
+                success(res){
+                    console.log(res);
+                    resolve(res);
+                },
+                error(msg){
+                    console.log(msg);
+                    reject(msg);
+                }
+            })
+        });
+        p.then((data)=>{
+            console.log("data:",data);
+            console.log("第一步任务完成。下一步操作是。。。");
+
+            var nextP = new Promise((resolve,reject)=>{
+                $.ajax({
+                    url:'http://localhost:3000/list2',
+                    method:'get',
+                    success(res){
+                    console.log(res);
+                    resolve(res);
+                },
+                error(msg){
+                    console.log(msg);
+                    reject(msg);
+                }
+
+                })
+            });
+            return nextP;
+        }).then((data)=>{
+            console.log("data:",data);
+            console.log("第二步任务完成。下一步操作是。。。");
+            return 1000;
+        }).then((data)=>{
+            console.log("data:",data);
+            console.log("第三步任务完成。下一步操作是。。。");
+        }).catch((error)=>{
+            console.log(error);
+            console.log("失败啦");
+        })
+    </script> -->
+    <!-- 
+     <script>
+        var p1 = new Promise((resolve,reject)=>{
+            $.ajax({
+                url:'/list',
+                method:'get',
+                // 成功 解析
+                success(res){
+                    resolve(res);
+                },
+                // 错误 
+                error(msg){
+                    reject(msg);
+                }
+            });
+        })
+        var p2 = new Promise((resolve,reject)=>{
+            $.ajax({
+                url:'/list2',
+                method:'get',
+                // 成功 解析
+                success(res){
+                    resolve(res);
+                },
+                // 错误 
+                error(msg){
+                    reject(msg);
+                }
+            });
+        })
+        var p3 = new Promise((resolve,reject)=>{
+            $.ajax({
+                url:'list3',
+                method:'get',
+                // 成功 解析
+                success(res){
+                    resolve(res);
+                },
+                // 错误 
+                error(msg){
+                    reject(msg);
+                }
+            });
+        })
+        // 根据参数中最快的哪项决定
+        var promiseAll = Promise.race([p1,p2,p2]);
+        promiseAll.then((data)=>{
+            console.log(data + '成功结束 + 咬我呀');
+        }).catch((error)=>{
+            console.log(error + '错误');
+        })
+
+        /*
+        // all 错一个都不过
+        var promiseAll = Promise.all([p1,p2,p3]);
+        promiseAll.then((data)=>{
+            console.log(data+'圆满结束');
+        }).catch((error)=>{
+            console.log(error);
+        })
+        */ 
+     </script>
+      -->
+<script>
+    // 类似then 和 catch
+    /* 
+    $.get('/list').done(res=>{
+        console.log(res);
+    }).fail(error=>{
+        console.log(error);
+    })
+    */
+
+   // $.when 类似 Promise.all
+   var d1 = $.get('/list');
+   var d2 = $.get('/list');
+   var d3 = $.get('/list');
+   $.when(d1,d2,d3).done((data1,data2,data3)=>{
+    console.log(data1,data2,data3);
+   }).fail(error=>{
+    console.log(error);
+   })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Reflect:反射，是ES6为了操作对象而新增的API 
+        var obj = {
+            name:'小明',
+            age:25,
+            sex:true
+        }
+        // 属性赋值
+        Reflect.set(obj,"height",175);
+        console.log(obj);
+
+        // 属性取值
+        console.log(Reflect.get(obj,"height"));
+
+        // 删除属性
+        Reflect.deleteProperty(obj,"age");
+        console.log(obj);
+
+        // 判断属性是否存在
+        console.log(Reflect.has(obj,"age"));
+
+        // 新增属性: 存取描述符/属性描述符
+        Reflect.defineProperty(obj,"friend",{
+            value:"丽丽",
+            configurable:true,
+            enumerable:true,
+            writable:true
+        })
+        console.log(obj);
+
+        function test(a,b){
+            console.log(this);
+            console.log(this.name);
+            console.log(a,b);
+        }
+        test.call(obj,1,10);
+
+        Reflect.apply(test,obj,[1,10]);
+
+    </script>
+</body>
+</html>

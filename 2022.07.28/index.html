@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 九，Iterator (遍历器) 和 for…of
+        // for…of ：支持Array / Set / Map 类型的遍历。
+        // 是否支持for-of遍历，需要看对象是否实现了遍历器函数，也就是对象中是否有Symbol(Symbol.Iterator) 函数
+
+        var arr = [100, 200, 300, 400, 500];
+        for(var i of arr){
+            console.log(i);
+        }
+
+        var obj = {
+            name:'张三',
+            age:30
+        };
+        // for(var i of obj){
+        //     console.log(i);
+        // }
+
+        class Even{
+            sayHello(){
+                console.log('hello');
+            }
+            // 将[]内部js表达式的值作为方法名
+            ["say" + "Hi"](){
+                console.log("hi");
+            }
+            // 使用instanceOf 运算符时，实际会调用如下方法。
+            static [Symbol.hasInstance](value){
+                console.log("hasInstance");
+                console.log(value);
+                return Number(value) % 2 == 0;
+            }
+        }
+        var e = new Even();
+        console.log(typeof e);
+        e.sayHello();
+        e.sayHi();
+        console.log(2 instanceof Even);
+        console.log(3 instanceof Even);
+
+
+        (function(){
+            let f = this ? class g{ } : class h{ };
+            console.log(this);
+            console.log(this.f);
+            console.log(typeof f);
+            console.log([
+                typeof f,
+                typeof h
+            ]);
+        })()
+    </script>
+</body>
+</html>
